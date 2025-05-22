@@ -1,4 +1,3 @@
-<!-- abonnement.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,8 +6,22 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <section class="pricing">
-    <img src="Images/offres.png" alt="Offres Disney+" style="width: 100%; max-width: 1000px; display: block; margin: auto;" />
-  </section>
+
+  <header>
+    <img src="Images/compose2.png" alt="Compose2 Logo" class="logo" />
+    <a href="#" class="login-button">S'IDENTIFIER</a>
+  </header>
+
+  <main class="hero abonnement">
+    <div class="overlay">
+      <h1>Choisissez votre abonnement</h1>
+      <img src="Images/offres.png" alt="Offres Disney+" class="offres-image" />
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Disney and its related entities. All Rights Reserved.</p>
+  </footer>
+
 </body>
 </html>
