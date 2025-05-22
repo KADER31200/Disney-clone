@@ -7,6 +7,24 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <script>
+  document.querySelector('.subscribe button').addEventListener('click', function () {
+    const emailInput = document.querySelector('.subscribe input');
+    if (emailInput.value.trim() === '') {
+      alert("Merci d'entrer une adresse e-mail.");
+      return;
+    }
+
+    // Affiche l'écran de chargement
+    document.getElementById('loading').style.display = 'flex';
+
+    // Attend 2.5 secondes puis redirige
+    setTimeout(function () {
+      window.location.href = "abonnement.html";
+    }, 2500);
+  });
+</script>
+
   <header>
     <img src="Images/compose2.png" alt="Compose2 Logo" class="logo" />
     <a href="#" class="login-button">S'IDENTIFIER</a>
