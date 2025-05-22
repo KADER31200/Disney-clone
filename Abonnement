@@ -16,6 +16,7 @@
   <main class="hero abonnement">
     <div class="overlay">
       <h1>Choisissez votre abonnement</h1>
+      <img src="Images/compose10.png" alt="Image des offres" class="offres-image" />
 
       <div class="plans">
         <div class="plan">
