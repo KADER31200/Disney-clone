@@ -106,8 +106,9 @@ footer {
   padding: 20px;
   background-color: rgba(0,0,0,0.6);
   font-size: 0.9em;
+}
 
-  /* Page abonnement spécifique */
+/* Page abonnement spécifique */
 .abonnement .overlay {
   background-color: rgba(0, 0, 0, 0.6);
   padding: 30px;
@@ -120,7 +121,4 @@ footer {
   max-width: 900px;
   border-radius: 10px;
   margin-top: 20px;
-}
-
-  
 }
