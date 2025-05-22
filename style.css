@@ -16,6 +16,15 @@ header {
   padding: 20px;
 }
 
+.note {
+  font-size: 0.75em; /* plus petit que le reste */
+  color: #cccccc; /* gris clair */
+  max-width: 600px;
+  margin: 20px auto 0 auto;
+  text-align: center;
+  line-height: 1.4;
+}
+
 .logo {
   height: 80px;
   margin: 20px;
