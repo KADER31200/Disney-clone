@@ -19,14 +19,12 @@
       <p>À partir de 5,99 € par mois. Sans frais supplémentaires. Sans engagement<span>*</span>.</p>
 
       <div class="subscribe">
-        <input type="email" placeholder="Adresse e-mail">
+        <label for="email" style="display: none;">Adresse e-mail</label>
+        <input id="email" type="email" placeholder="Adresse e-mail">
         <button>S’INSCRIRE</button>
       </div>
-      
-      <!-- Écran de chargement -->
-      <div id="loading" style="display:none; position: fixed; top:0; left:0; width:100%; height:100%; background:black; color:white; display:flex; align-items:center; justify-content:center; font-size:2em; z-index:999;">
-        Chargement...
-      </div>
+
+      <div id="loading">Chargement...</div>
 
       <div class="note">
         <p>Profitez de 12 mois au prix de 10 avec un abonnement Premium ou Standard annuel.<br>Économies par rapport à un an d’abonnement mensuel.</p>
@@ -49,20 +47,26 @@
     <p>&copy; 2025 Disney and its related entities. All Rights Reserved.</p>
   </footer>
 
-  <!-- ✅ Script à placer à la fin -->
   <script>
     window.onload = function () {
-      document.querySelector('.subscribe button').addEventListener('click', function () {
-        const emailInput = document.querySelector('.subscribe input');
-        if (emailInput.value.trim() === '') {
-          alert("Merci d'entrer une adresse e-mail.");
+      const button = document.querySelector('.subscribe button');
+      const emailInput = document.getElementById('email');
+
+      button.addEventListener('click', function () {
+        const email = emailInput.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email)) {
+          alert("Merci d'entrer une adresse e-mail valide.");
           return;
         }
 
-        // Affiche l'écran de chargement
+        // Affiche le chargement
         document.getElementById('loading').style.display = 'flex';
+        button.disabled = true;
+        button.textContent = "Veuillez patienter...";
 
-        // Attend 2.5 secondes puis redirige
+        // Redirection après 2.5 sec
         setTimeout(function () {
           window.location.href = "abonnement.html";
         }, 2500);
