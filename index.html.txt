@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disney+ Clone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="Disney+ Logo" class="logo">
+  </header>
+  <main class="hero">
+    <h1>Films, séries et bien plus en illimité</h1>
+    <a href="#" class="button">S'abonner maintenant</a>
+  </main>
+</body>
+</html>
