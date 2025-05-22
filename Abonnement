@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Choisissez votre abonnement</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -15,7 +16,42 @@
   <main class="hero abonnement">
     <div class="overlay">
       <h1>Choisissez votre abonnement</h1>
-      <img src="Images/offres.png" alt="Offres Disney+" class="offres-image" />
+
+      <div class="plans">
+        <div class="plan">
+          <h2>Standard avec pub</h2>
+          <p>5,99 €/mois</p>
+          <ul>
+            <li>Qualité HD</li>
+            <li>2 écrans en simultané</li>
+            <li>Publicité incluse</li>
+          </ul>
+          <button>Sélectionner</button>
+        </div>
+
+        <div class="plan">
+          <h2>Standard</h2>
+          <p>8,99 €/mois</p>
+          <ul>
+            <li>Qualité Full HD</li>
+            <li>2 écrans en simultané</li>
+            <li>Sans pub</li>
+          </ul>
+          <button>Sélectionner</button>
+        </div>
+
+        <div class="plan">
+          <h2>Premium</h2>
+          <p>11,99 €/mois</p>
+          <ul>
+            <li>Qualité 4K UHD</li>
+            <li>4 écrans en simultané</li>
+            <li>Sans pub</li>
+            <li>Téléchargement disponible</li>
+          </ul>
+          <button>Sélectionner</button>
+        </div>
+      </div>
     </div>
   </main>
 
