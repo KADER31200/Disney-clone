@@ -16,15 +16,6 @@ header {
   padding: 20px;
 }
 
-.note {
-  font-size: 0.75em; /* plus petit que le reste */
-  color: #cccccc; /* gris clair */
-  max-width: 600px;
-  margin: 20px auto 0 auto;
-  text-align: center;
-  line-height: 1.4;
-}
-
 .logo {
   height: 80px;
   margin: 20px;
@@ -69,6 +60,7 @@ p {
   display: flex;
   justify-content: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .subscribe input {
@@ -85,6 +77,16 @@ p {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.note {
+  font-size: 0.75em;
+  color: #bbbbbb;
+  text-align: center;
+  max-width: 600px;
+  margin: 10px auto 0;
+  line-height: 1.4;
+  opacity: 0.8;
 }
 
 .thumbnails {
@@ -104,14 +106,4 @@ footer {
   padding: 20px;
   background-color: rgba(0,0,0,0.6);
   font-size: 0.9em;
-}
-
-.note {
-  font-size: 0.75em;
-  color: #bbbbbb;
-  text-align: center;
-  max-width: 600px;
-  margin: 10px auto 0;
-  line-height: 1.4;
-  opacity: 0.8;
 }
