@@ -106,4 +106,21 @@ footer {
   padding: 20px;
   background-color: rgba(0,0,0,0.6);
   font-size: 0.9em;
+
+  /* Page abonnement spécifique */
+.abonnement .overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 1000px;
+}
+
+.offres-image {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+  
 }
