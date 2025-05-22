@@ -1,0 +1,14 @@
+<!-- abonnement.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Choisissez votre abonnement</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <section class="pricing">
+    <img src="Images/offres.png" alt="Offres Disney+" style="width: 100%; max-width: 1000px; display: block; margin: auto;" />
+  </section>
+</body>
+</html>
