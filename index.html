@@ -1,75 +1,61 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyDisney+</title>
+  <title>Disney+ - Page d&#39;accueil</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Calque sombre overlay sur l'image de fond -->
+  <div class="overlay">
+    <div class="container">
+      <!-- Logo Disney+ centré -->
+      <img src="Images/compose2.png" alt="Logo Disney+" class="logo">
 
-  <div class="background"></div>
-
-
-  <header>
-    <img src="Images/compose2.png" alt="Logo Disney+" class="logo">
-    <a href="#" class="login-button">S'IDENTIFIER</a>
-  </header>
-
-  <main class="hero">
-    <div class="overlay">
+      <!-- Titres principaux -->
       <h1>Nouvelles productions originales, grands films et séries cultes</h1>
-      <p>À partir de 5,99 € par mois. Sans frais supplémentaires. Sans engagement<span>*</span>.</p>
+      <p class="subtitle">
+        À partir de 5,99 € par mois. Sans frais supplémentaires. Sans engagement*
+      </p>
 
-      <div class="subscribe">
-        <label for="email" style="display: none;">Adresse e-mail</label>
-        <input id="email" type="email" placeholder="Adresse e-mail">
-        <button id="subscribe-button">S’INSCRIRE</button>
-      </div>
+      <!-- Formulaire d'inscription -->
+      <form id="subscribe-form">
+        <input type="email" placeholder="Adresse e-mail" required>
+        <button type="submit">S’INSCRIRE</button>
+      </form>
 
-      <div id="loading" class="loader" style="display: none;"></div>
+      <!-- Mentions légales (deux lignes) -->
+      <p class="legal">* La résiliation prend effet à la fin de la période d’abonnement en cours.</p>
+      <p class="legal">
+        Disney+ © 2025 The Walt Disney Company, SARL. Tous droits réservés.
+      </p>
 
-      <div class="note">
-        <p>Profitez de 12 mois au prix de 10 avec un abonnement Premium ou Standard annuel.<br>Économies par rapport à un an d’abonnement mensuel.</p>
-        <p>* La résiliation prend effet à la fin de la période d’abonnement en cours. Abonnement requis. 5,99 €/mois pour Standard avec pub.</p>
+      <!-- Section de vignettes (compose3.png à compose7.png) -->
+      <div class="thumbnails">
+        <img src="Images/compose3.png" alt="Vignette 1">
+        <img src="Images/compose4.png" alt="Vignette 2">
+        <img src="Images/compose5.png" alt="Vignette 3">
+        <img src="Images/compose6.png" alt="Vignette 4">
+        <img src="Images/compose7.png" alt="Vignette 5">
       </div>
     </div>
-  </main>
+  </div>
 
-  <section class="thumbnails">
-    <img src="Images/compose3.png" alt="device">
-    <img src="Images/compose4.png" alt="film">
-    <img src="Images/compose6.png" alt="catalogue1">
-  </section>
-
-  <section class="thumbnails">
-    <img src="Images/compose5.png" alt="profils">
-    <img src="Images/compose7.png" alt="catalogue2">
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Disney and its related entities. All Rights Reserved.</p>
-  </footer>
-
+  <!-- Script pour afficher "Chargement..." puis rediriger -->
   <script>
-    document.getElementById("subscribe-button").addEventListener("click", function() {
-      const email = document.getElementById("email").value.trim();
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      if (!emailRegex.test(email)) {
-        alert("Merci d'entrer une adresse e-mail valide.");
-        return;
-      }
-
-      document.getElementById("loading").style.display = "block";
-      this.disabled = true;
-      this.textContent = "Veuillez patienter...";
-
-      setTimeout(() => {
-        window.location.href = "abonnement.html";
+    const form = document.getElementById('subscribe-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const loadingMsg = document.createElement('p');
+      loadingMsg.textContent = 'Chargement...';
+      loadingMsg.className = 'loading';
+      this.appendChild(loadingMsg);
+      // Après 2,5s, redirige vers abonnement.html
+      setTimeout(function() {
+        window.location.href = 'abonnement.html';
       }, 2500);
     });
   </script>
-
 </body>
 </html>
