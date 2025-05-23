@@ -21,7 +21,7 @@ header {
 }
 
 header img.logo {
-  width: 160px;
+  width: 180px;
 }
 
 .hero {
@@ -114,16 +114,20 @@ header img.logo {
 .gallery {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  padding: 20px 0;
-  background-color: #0e0e0e;
+  gap: 30px;
+  padding: 40px 20px;
+  background: none;
+  margin-top: -30px;
+  flex-wrap: wrap;
 }
 
 .gallery img {
-  width: 120px;
+  width: 320px;
+  max-width: 90vw;
   height: auto;
-  border-radius: 6px;
-  transition: transform 0.3s;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .gallery img:hover {
@@ -144,12 +148,12 @@ header img.logo {
 
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 30px 20px;
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.7);
   position: relative;
-  background: transparent;
-  margin-top: -60px;
+  background: none;
+  z-index: 2;
 }
 
 @media (max-width: 768px) {
@@ -168,11 +172,7 @@ footer {
     margin-top: 10px;
   }
 
-  .gallery {
-    flex-wrap: wrap;
-  }
-
   .gallery img {
-    width: 100px;
+    width: 90%;
   }
 }
