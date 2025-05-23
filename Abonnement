@@ -1,89 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Disney+ Clone</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choix d'abonnement | MyDisney+</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="background"></div>
 
-  <!-- Page d'accueil -->
-  <div id="home" class="page active">
-    <img src="images/compose2.png" alt="Disney Logo" class="logo">
-    <h1>Bienvenue sur Disney+</h1>
-    <p>Commencez votre expérience magique dès maintenant.</p>
-    <input type="email" id="email" placeholder="Entrez votre adresse email">
-    <button onclick="goToLoading()">S'inscrire</button>
-  </div>
+  <header>
+    <img src="Images/compose2.png" alt="Compose2 Logo" class="logo" />
+  </header>
 
-  <!-- Écran de chargement -->
-  <div id="loading" class="page hidden">
-    <div class="loader"></div>
-    <p>Chargement...</p>
-  </div>
+  <main class="abonnement-section">
+    <h1>Choisissez votre abonnement</h1>
 
-  <!-- Choix d'abonnement -->
-  <div id="abonnement" class="page hidden">
-    <img src="images/compose2.png" alt="Disney Logo" class="logo">
-    <h2>Choisissez votre abonnement</h2>
     <div class="plans">
       <div class="plan">
-        <h3>Standard</h3>
+        <h2>Standard</h2>
         <p>HD, 2 écrans simultanés</p>
-        <p><strong>8,99€/mois</strong></p>
+        <p class="price">8,99 €/mois</p>
         <button onclick="goToPayment('Standard')">Choisir</button>
       </div>
       <div class="plan">
-        <h3>Premium</h3>
+        <h2>Premium</h2>
         <p>4K, 4 écrans simultanés</p>
-        <p><strong>11,99€/mois</strong></p>
+        <p class="price">11,99 €/mois</p>
         <button onclick="goToPayment('Premium')">Choisir</button>
       </div>
     </div>
-  </div>
+  </main>
 
-  <!-- Paiement -->
-  <div id="payment" class="page hidden">
-    <img src="images/compose2.png" alt="Disney Logo" class="logo">
-    <h2>Paiement</h2>
-    <form onsubmit="submitPayment(event)">
-      <input type="text" placeholder="Nom sur la carte" required>
-      <input type="text" placeholder="Numéro de carte" required>
-      <input type="text" placeholder="Date d'expiration (MM/AA)" required>
-      <input type="text" placeholder="CVV" required>
-      <button type="submit">Payer</button>
-    </form>
-  </div>
+  <footer>
+    <p>&copy; 2025 Disney and its related entities. All Rights Reserved.</p>
+  </footer>
 
   <script>
-    function goToLoading() {
-      document.getElementById('home').classList.remove('active');
-      document.getElementById('home').classList.add('hidden');
-      document.getElementById('loading').classList.remove('hidden');
-      document.getElementById('loading').classList.add('active');
-
-      setTimeout(() => {
-        document.getElementById('loading').classList.remove('active');
-        document.getElementById('loading').classList.add('hidden');
-        document.getElementById('abonnement').classList.remove('hidden');
-        document.getElementById('abonnement').classList.add('active');
-      }, 2500);
-    }
-
     function goToPayment(plan) {
-      console.log("Abonnement choisi:", plan);
-      document.getElementById('abonnement').classList.remove('active');
-      document.getElementById('abonnement').classList.add('hidden');
-      document.getElementById('payment').classList.remove('hidden');
-      document.getElementById('payment').classList.add('active');
-    }
-
-    function submitPayment(event) {
-      event.preventDefault();
-      alert("Paiement effectué. Merci pour votre abonnement !");
+      localStorage.setItem("selectedPlan", plan);
+      window.location.href = "paiement.html";
     }
   </script>
+
 </body>
 </html>
