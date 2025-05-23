@@ -130,6 +130,18 @@ header img.logo {
   transform: scale(1.05);
 }
 
+.gallery img:nth-child(1) {
+  content: url("/Images/disponiblesurvos.PNG");
+}
+
+.gallery img:nth-child(2) {
+  content: url("/Images/divertissementsansfin.PNG");
+}
+
+.gallery img:nth-child(3) {
+  content: url("/Images/controleparental.PNG");
+}
+
 footer {
   text-align: center;
   padding: 20px;
