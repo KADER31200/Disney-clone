@@ -1,19 +1,18 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Disney+ - Page d&#39;accueil</title>
+  <title>Disney+ - Page d'accueil</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Calque sombre overlay sur l'image de fond -->
+  <!-- Overlay sombre sur le fond -->
   <div class="overlay">
     <div class="container">
-      <!-- Logo Disney+ centré -->
+      <!-- Logo Disney+ -->
       <img src="Images/compose2.png" alt="Logo Disney+" class="logo">
 
-      <!-- Titres principaux -->
+      <!-- Texte principal -->
       <h1>Nouvelles productions originales, grands films et séries cultes</h1>
       <p class="subtitle">
         À partir de 5,99 € par mois. Sans frais supplémentaires. Sans engagement*
@@ -25,24 +24,28 @@
         <button type="submit">S’INSCRIRE</button>
       </form>
 
-      <!-- Mentions légales (deux lignes) -->
+      <!-- Mentions légales -->
       <p class="legal">* La résiliation prend effet à la fin de la période d’abonnement en cours.</p>
-      <p class="legal">
-        Disney+ © 2025 The Walt Disney Company, SARL. Tous droits réservés.
-      </p>
+      <p class="legal">Disney+ © 2025 The Walt Disney Company, SARL. Tous droits réservés.</p>
 
-      <!-- Section de vignettes (compose3.png à compose7.png) -->
+      <!-- Vignettes horizontales -->
       <div class="thumbnails">
         <img src="Images/compose3.png" alt="Vignette 1">
         <img src="Images/compose4.png" alt="Vignette 2">
-        <img src="Images/compose5.png" alt="Vignette 3">
-        <img src="Images/compose6.png" alt="Vignette 4">
-        <img src="Images/compose7.png" alt="Vignette 5">
+        <img src="Images/compose6.png" alt="Vignette 3">
       </div>
     </div>
   </div>
 
-  <!-- Script pour afficher "Chargement..." puis rediriger -->
+  <!-- Plein écran : image de section/page comme sur site officiel -->
+  <section class="full-section">
+    <img src="Images/compose5.png" alt="Section pleine 1">
+  </section>
+
+  <section class="full-section">
+    <img src="Images/compose7.png" alt="Section pleine 2">
+  </section>
+
   <script>
     const form = document.getElementById('subscribe-form');
     form.addEventListener('submit', function(e) {
@@ -51,7 +54,6 @@
       loadingMsg.textContent = 'Chargement...';
       loadingMsg.className = 'loading';
       this.appendChild(loadingMsg);
-      // Après 2,5s, redirige vers abonnement.html
       setTimeout(function() {
         window.location.href = 'abonnement.html';
       }, 2500);
