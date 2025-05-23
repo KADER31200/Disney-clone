@@ -1,64 +1,137 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Choisissez votre abonnement</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disney+ Clone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .background {
+            background: url('./images/compose') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .logo {
+            width: 200px;
+            margin-bottom: 30px;
+        }
+
+        .form-section input[type="email"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .form-section button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #0063e5;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .loader {
+            display: none;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background: black;
+            color: white;
+            font-size: 24px;
+        }
+
+        .subscription, .payment {
+            display: none;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .plan {
+            border: 1px solid white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 300px;
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .plan button {
+            margin-top: 10px;
+        }
+
+    </style>
 </head>
 <body>
 
-  <header>
-    <img src="Images/compose2.png" alt="Compose2 Logo" class="logo" />
-    <a href="#" class="login-button">S'IDENTIFIER</a>
-  </header>
-
-  <main class="hero abonnement">
-    <div class="overlay">
-      <h1>Choisissez votre abonnement</h1>
-      <img src="Images/compose10.png" alt="Image des offres" class="offres-image" />
-
-      <div class="plans">
-        <div class="plan">
-          <h2>Standard avec pub</h2>
-          <p>5,99 €/mois</p>
-          <ul>
-            <li>Qualité HD</li>
-            <li>2 écrans en simultané</li>
-            <li>Publicité incluse</li>
-          </ul>
-          <button>Sélectionner</button>
+    <div class="background" id="home">
+        <img src="./images/compose2" alt="Disney+ Logo" class="logo">
+        <div class="form-section">
+            <input type="email" id="email" placeholder="Entrez votre adresse e-mail">
+            <button onclick="startLoading()">S'inscrire</button>
         </div>
-
-        <div class="plan">
-          <h2>Standard</h2>
-          <p>8,99 €/mois</p>
-          <ul>
-            <li>Qualité Full HD</li>
-            <li>2 écrans en simultané</li>
-            <li>Sans pub</li>
-          </ul>
-          <button>Sélectionner</button>
-        </div>
-
-        <div class="plan">
-          <h2>Premium</h2>
-          <p>11,99 €/mois</p>
-          <ul>
-            <li>Qualité 4K UHD</li>
-            <li>4 écrans en simultané</li>
-            <li>Sans pub</li>
-            <li>Téléchargement disponible</li>
-          </ul>
-          <button>Sélectionner</button>
-        </div>
-      </div>
     </div>
-  </main>
 
-  <footer>
-    <p>&copy; 2025 Disney and its related entities. All Rights Reserved.</p>
-  </footer>
+    <div class="loader" id="loader">Chargement...</div>
+
+    <div class="subscription" id="subscription">
+        <h1>Choisissez votre abonnement</h1>
+        <div class="plan">
+            <h3>Standard avec pub</h3>
+            <p>5,99€/mois</p>
+            <button onclick="goToPayment()">Choisir</button>
+        </div>
+        <div class="plan">
+            <h3>Standard</h3>
+            <p>8,99€/mois</p>
+            <button onclick="goToPayment()">Choisir</button>
+        </div>
+        <div class="plan">
+            <h3>Premium</h3>
+            <p>11,99€/mois</p>
+            <button onclick="goToPayment()">Choisir</button>
+        </div>
+    </div>
+
+    <div class="payment" id="payment">
+        <h1>Informations de paiement</h1>
+        <p>(Page fictive - ici vous pouvez intégrer un formulaire de paiement si nécessaire)</p>
+    </div>
+
+    <script>
+        function startLoading() {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('loader').style.display = 'flex';
+            setTimeout(() => {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('subscription').style.display = 'block';
+            }, 2500);
+        }
+
+        function goToPayment() {
+            document.getElementById('subscription').style.display = 'none';
+            document.getElementById('payment').style.display = 'block';
+        }
+    </script>
 
 </body>
 </html>
