@@ -116,18 +116,18 @@ header img.logo {
   justify-content: center;
   gap: 30px;
   padding: 40px 20px;
-  background: none;
+  background: transparent;
   margin-top: -30px;
   flex-wrap: wrap;
 }
 
 .gallery img {
-  width: 320px;
-  max-width: 90vw;
+  width: 400px;
+  max-width: 95vw;
   height: auto;
   border-radius: 8px;
   transition: transform 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: none;
 }
 
 .gallery img:hover {
@@ -152,7 +152,7 @@ footer {
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.7);
   position: relative;
-  background: none;
+  background: transparent;
   z-index: 2;
 }
 
