@@ -2,62 +2,38 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Disney+ - Page d'accueil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disney+ Clone</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Overlay sombre sur le fond -->
-  <div class="overlay">
-    <div class="container">
-      <!-- Logo Disney+ -->
-      <img src="Images/compose2.png" alt="Logo Disney+" class="logo">
 
-      <!-- Texte principal -->
-      <h1>Nouvelles productions originales, grands films et séries cultes</h1>
-      <p class="subtitle">
-        À partir de 5,99 € par mois. Sans frais supplémentaires. Sans engagement*
-      </p>
+  <header>
+    <img src="compose2.png" alt="Disney Logo">
+    <a href="#">Connexion</a>
+  </header>
 
-      <!-- Formulaire d'inscription -->
-      <form id="subscribe-form">
-        <input type="email" placeholder="Adresse e-mail" required>
-        <button type="submit">S’INSCRIRE</button>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Des films, des séries et bien plus en illimité.</h1>
+      <p>Disney, Pixar, Marvel, Star Wars et National Geographic, en un seul endroit.</p>
+      <form class="email-signup">
+        <input type="email" placeholder="Adresse e-mail">
+        <button type="submit">S'inscrire</button>
       </form>
-
-      <!-- Mentions légales -->
-      <p class="legal">* La résiliation prend effet à la fin de la période d’abonnement en cours.</p>
-      <p class="legal">Disney+ © 2025 The Walt Disney Company, SARL. Tous droits réservés.</p>
-
-      <!-- Vignettes horizontales -->
-      <div class="thumbnails">
-        <img src="Images/compose3.png" alt="Vignette 1">
-        <img src="Images/compose4.png" alt="Vignette 2">
-        <img src="Images/compose6.png" alt="Vignette 3">
-      </div>
+      <p class="disclaimer">Entrez votre adresse e-mail pour commencer ou réactiver votre abonnement.</p>
     </div>
-  </div>
-
-  <!-- Plein écran : image de section/page comme sur site officiel -->
-  <section class="full-section">
-    <img src="Images/compose5.png" alt="Section pleine 1">
   </section>
 
-  <section class="full-section">
-    <img src="Images/compose7.png" alt="Section pleine 2">
+  <section class="fullscreen-section" style="background-image: url('compose5.png');"></section>
+
+  <section class="gallery">
+    <img src="compose3.png" alt="Vignette 1">
+    <img src="compose4.png" alt="Vignette 2">
+    <img src="compose6.png" alt="Vignette 3">
   </section>
 
-  <script>
-    const form = document.getElementById('subscribe-form');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const loadingMsg = document.createElement('p');
-      loadingMsg.textContent = 'Chargement...';
-      loadingMsg.className = 'loading';
-      this.appendChild(loadingMsg);
-      setTimeout(function() {
-        window.location.href = 'abonnement.html';
-      }, 2500);
-    });
-  </script>
+  <section class="fullscreen-section" style="background-image: url('compose7.png');"></section>
+
 </body>
 </html>
