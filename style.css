@@ -1,158 +1,110 @@
 /* style.css */
-
-body, html {
-  margin: 0;
-  padding: 0;
+/* Mise en page générale : fond plein écran */
+html, body {
+  height: 100%;
+  margin: 0; padding: 0;
+}
+body {
+  /* Image de fond couvrant tout l'écran */
+  background: url('Images/compose.png') center/cover no-repeat;
   font-family: Arial, sans-serif;
-  height: 100%;
-  width: 100%;
-  background-color: #000;
-  color: #fff;
-  overflow-x: hidden;
 }
 
-.page {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  padding: 20px;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-.page.active {
-  display: flex;
-}
-
-.page.hidden {
-  display: none;
-}
-
-.background {
-  background-image: url('images/compose.png');
-  background-size: cover;
-  background-position: center;
+/* Calque sombre couvrant l'écran pour le fond (overlay) */
+.overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  filter: brightness(0.4);
-}
-
-.logo {
-  width: 120px;
-  margin-bottom: 20px;
-}
-
-.hero {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  z-index: 2;
-}
-
-h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-form {
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent pour lisibilité:contentReference[oaicite:5]{index=5} */
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  max-width: 600px;
-  margin: 0 auto;
+  align-items: center; /* centre vertical/horizontal:contentReference[oaicite:6]{index=6} */
+  text-align: center;
 }
 
+/* Conteneur du contenu centré */
+.container {
+  color: white;
+  padding: 20px;
+}
+
+/* Logo Disney+ (dimension adaptée) */
+.logo {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+/* Titres */
+h1 {
+  font-size: 2em;
+  margin: 0 0 10px;
+}
+.subtitle {
+  margin: 10px 0 20px;
+}
+
+/* Formulaire d'inscription */
+form {
+  margin: 15px 0;
+}
 input[type="email"] {
-  padding: 12px;
+  padding: 10px;
   width: 300px;
+  max-width: 90%;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 3px;
+  margin-right: 10px;
+  font-size: 1em;
 }
-
 button {
-  padding: 12px 24px;
-  background-color: #00b4e5;
+  padding: 10px 20px;
+  background-color: #1f80e0; /* bleu vif */
   color: white;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 3px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 1em;
+  transition: background 0.3s;
 }
-
 button:hover {
-  background-color: #0483ee;
+  background-color: #1862b8; /* bleu plus foncé au survol (exemple de :hover):contentReference[oaicite:7]{index=7} */
 }
 
-.notice {
-  font-size: 0.9rem;
+/* Mentions légales */
+.legal {
+  font-size: 0.8em;
   color: #ccc;
-  margin-top: 20px;
-  max-width: 700px;
+  margin: 5px 0;
 }
 
-.icon-row {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+/* Section de vignettes sous le formulaire */
+.thumbnails {
   margin-top: 30px;
-  z-index: 2;
-}
-
-.icon-row img {
-  width: 50px;
-  height: 50px;
-  filter: invert(1);
-}
-
-.loader {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #0063e5;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 2s linear infinite;
-  margin-bottom: 20px;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.plans {
   display: flex;
-  gap: 20px;
   justify-content: center;
-  margin-top: 20px;
   flex-wrap: wrap;
+  gap: 15px;
+}
+.thumbnails img {
+  width: 80px;
 }
 
-.plan {
-  background-color: #1a1a1a;
-  padding: 20px;
-  border-radius: 10px;
-  width: 200px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.plan:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+/* Responsivité mobile */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  .logo {
+    width: 150px;
+  }
+  input[type="email"] {
+    width: 80%;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .thumbnails {
+    gap: 10px;
+  }
 }
