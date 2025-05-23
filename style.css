@@ -63,6 +63,7 @@ button {
   font-size: 16px;
   cursor: pointer;
   margin-top: 10px;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -89,6 +90,7 @@ button:hover {
   gap: 20px;
   justify-content: center;
   margin-top: 20px;
+  flex-wrap: wrap;
 }
 
 .plan {
@@ -97,6 +99,12 @@ button:hover {
   border-radius: 10px;
   width: 200px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
 }
 
 form {
