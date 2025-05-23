@@ -20,26 +20,12 @@ header {
   z-index: 10;
 }
 
-header img {
-  width: 80px;
-}
-
-header a {
-  position: absolute;
-  right: 40px;
-  top: 25px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-header a:hover {
-  color: #00bfff;
+header img.logo {
+  width: 160px;
 }
 
 .hero {
-  background-image: url("compose.jpg");
+  background-image: url("/Images/compose.png");
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -84,6 +70,7 @@ header a:hover {
   justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .email-signup input[type="email"] {
@@ -125,15 +112,15 @@ header a:hover {
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-  padding: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 0;
   background-color: #0e0e0e;
 }
 
 .gallery img {
-  width: 100%;
+  width: 120px;
   height: auto;
   border-radius: 6px;
   transition: transform 0.3s;
@@ -141,6 +128,16 @@ header a:hover {
 
 .gallery img:hover {
   transform: scale(1.05);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  position: relative;
+  background: transparent;
+  margin-top: -60px;
 }
 
 @media (max-width: 768px) {
@@ -153,12 +150,17 @@ header a:hover {
     align-items: center;
   }
 
-  .email-signup input[type="email"] {
-    width: 90%;
-  }
-
+  .email-signup input[type="email"],
   .email-signup button {
     width: 90%;
     margin-top: 10px;
+  }
+
+  .gallery {
+    flex-wrap: wrap;
+  }
+
+  .gallery img {
+    width: 100px;
   }
 }
