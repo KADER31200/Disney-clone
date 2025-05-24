@@ -5,12 +5,99 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Disney+ Clone | Accueil</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body.home-page {
+      font-family: Arial, sans-serif;
+      color: white;
+      background-image: url('Images/compose.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 20px 40px;
+    }
+
+    .logo {
+      width: 120px;
+    }
+
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-content {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #0063e5;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: #0483ee;
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .gallery img {
+      max-width: 300px;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body class="home-page">
   <header>
     <img src="Images/compose2.png" class="logo" alt="Disney Logo" />
   </header>
-  <main class="hero" style="background-image: url('Images/compose.png');">
+
+  <main class="hero">
     <div class="hero-content">
       <h1>Bienvenue sur Disney+</h1>
       <p>Des milliers de films, séries et contenus originaux</p>
@@ -22,10 +109,12 @@
     <img src="Images/disponiblesurvos.PNG" alt="Disponible sur vos appareils" />
     <img src="Images/divertissementsansfin.PNG" alt="Divertissement sans fin" />
     <img src="Images/controleparental.PNG" alt="Contrôle parental" />
+    <img src="Images/compose7.png" alt="Illustration extra 1" />
+    <img src="Images/compose5.png" alt="Illustration extra 2" />
   </section>
 
   <footer>
-    © Disney+  – 
+    © Disney+ – Tous droits réservés
   </footer>
 </body>
 </html>
