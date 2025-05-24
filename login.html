@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Connexion | Disney+</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-page">
+  <header><img src="Images/logo-disney.png" alt="Disney+" class="logo" /></header>
+  <main class="form-container">
+    <h1>Connexion à Disney+</h1>
+    <form id="loginForm">
+      <input type="email" placeholder="Adresse e-mail" required />
+      <input type="password" placeholder="Mot de passe" required />
+      <button type="submit">Continuer</button>
+    </form>
+  </main>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      setTimeout(() => { window.location.href = "loading1.html"; }, 500);
+    });
+  </script>
+</body>
+</html>
