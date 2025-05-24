@@ -5,16 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Chargement...</title>
   <style>
+    /* Style pour centrer le loader et avoir un fond noir */
     body, html {
       margin: 0; padding: 0; height: 100%;
-      background-color: #000; /* fond noir */
+      background-color: #000;
       display: flex;
       justify-content: center;
       align-items: center;
     }
     .loader img {
-      width: 150px; /* taille adaptée */
+      width: 150px; /* ajuste la taille de ton loader */
       height: auto;
+      display: block;
     }
   </style>
 </head>
@@ -24,7 +26,9 @@
   </div>
 
   <script>
-    setTimeout(() => { window.location.href = "info.html"; }, 2000);
+    setTimeout(() => {
+      window.location.href = "info.html";
+    }, 2000);
   </script>
 </body>
 </html>
