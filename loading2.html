@@ -4,12 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Chargement...</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Centrage et fond noir */
+    body, html {
+      margin: 0; padding: 0; height: 100%;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .loader img {
+      width: 150px; /* ajuste la taille si besoin */
+      height: auto;
+      display: block;
+    }
+  </style>
 </head>
-<body class="loading-page">
-  <div class="loader"><img src="Images/loader2.gif" alt="Chargement..."/></div>
+<body>
+  <div class="loader">
+    <img src="Images/loader2.gif" alt="Chargement..." />
+  </div>
+
   <script>
-    setTimeout(() => { window.location.href = "paiement.html"; }, 2500);
+    setTimeout(() => {
+      window.location.href = "paiement.html";
+    }, 2500);
   </script>
 </body>
 </html>
