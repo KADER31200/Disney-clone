@@ -25,6 +25,7 @@
 
     .logo {
       width: 120px;
+      display: block;
     }
 
     .form-container {
@@ -40,9 +41,11 @@
       margin-bottom: 20px;
       font-size: 2.5rem;
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 10px 20px;
-      border-radius: 8px;
+      /* suppression du fond noir pour un style plus léger */
+      /* background-color: rgba(0, 0, 0, 0); */
+      /* padding: 0; */
+      /* border-radius: 0; */
+      text-shadow: 0 0 5px rgba(0,0,0,0.7); /* léger effet pour améliorer lisibilité */
     }
 
     form {
@@ -80,7 +83,7 @@
 </head>
 <body>
   <header>
-    <img src="Images/logo-disney.png" class="logo" alt="Disney+" />
+    <img src="Images/compose2.png" class="logo" alt="Disney+" />
   </header>
 
   <main class="form-container">
