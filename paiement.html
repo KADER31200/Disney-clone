@@ -126,14 +126,12 @@
     .card-icons img {
       width: 55px;
       height: auto;
-      opacity: 0.5;
-      filter: grayscale(100%);
+      opacity: 0.6;
       transition: all 0.3s ease;
     }
 
     .card-icons img.active {
       opacity: 1;
-      filter: none;
       transform: scale(1.15);
     }
 
@@ -155,7 +153,7 @@
 
       <div class="subscription-summary">
         <p><strong>Abonnement :</strong> Disney+ Standard</p>
-        <p><strong>Prix :</strong> 8,99 € / mois</p>
+        <p><strong>Prix :</strong> 5,99 € / mois</p>
       </div>
 
       <input id="cardNumber" type="text" placeholder="Numéro de carte" maxlength="19" required />
@@ -209,32 +207,4 @@
 
     cardInput.addEventListener('input', () => {
       let value = cardInput.value.replace(/\D/g, '').slice(0, 16);
-      cardInput.value = value.replace(/(.{4})/g, '$1 ').trim();
-
-      const type = detectCardType(value);
-      for (let key in icons) {
-        icons[key].classList.remove('active');
-      }
-      if (type && icons[type]) {
-        icons[type].classList.add('active');
-      }
-    });
-
-    document.getElementById('paymentForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const cardNumber = document.getElementById('cardNumber').value;
-      const loader = document.getElementById('loader');
-
-      if (!isValidCardNumber(cardNumber)) {
-        alert("Numéro de carte invalide !");
-        return;
-      }
-
-      loader.style.display = 'block';
-      setTimeout(() => {
-        window.location.href = "loading3.html";
-      }, 2000);
-    });
-  </script>
-</body>
-</html>
+      cardInput.value = value.replace(/(.{4})
