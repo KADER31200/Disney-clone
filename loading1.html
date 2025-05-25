@@ -5,30 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Chargement...</title>
   <style>
-    /* Style pour centrer le loader et avoir un fond noir */
     body, html {
-      margin: 0; padding: 0; height: 100%;
+      margin: 0;
+      padding: 0;
+      height: 100%;
       background-color: #000;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .loader img {
-      width: 150px; /* ajuste la taille du loader */
-      height: auto;
-      display: block;
+
+    .spinner {
+      width: 120px;
+      height: 120px;
+      border: 8px solid rgba(255, 255, 255, 0.1);
+      border-top: 8px solid #00aaff; /* Couleur Disney+ */
+      border-radius: 50%;
+      animation: spin 1.2s linear infinite;
+    }
+
+    @keyframes spin {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 120px;
     }
   </style>
 </head>
 <body>
-  <div class="loader">
-    <img src="Images/disney-disney-plus.gif" alt="Chargement..." />
-  </div>
+  <!-- Logo en haut à gauche -->
+  <img src="Images/compose2.png" alt="Disney+" class="logo">
+
+  <!-- Cercle de chargement animé -->
+  <div class="spinner"></div>
 
   <script>
     setTimeout(() => {
       window.location.href = "info.html";
-    }, 2000);
+    }, 2500); // temps de chargement simulé
   </script>
 </body>
 </html>
