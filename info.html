@@ -37,9 +37,16 @@
       padding: 20px;
     }
 
+    .progress {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: #ccc;
+      text-align: center;
+    }
+
     h1 {
-      margin-bottom: 25px;
-      font-size: 2.5rem;
+      margin-bottom: 15px;
+      font-size: 2.3rem;
       text-align: center;
       font-weight: 600;
       text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
@@ -59,7 +66,7 @@
       gap: 16px;
     }
 
-    input {
+    input, select {
       padding: 14px;
       border-radius: 6px;
       border: none;
@@ -68,7 +75,7 @@
       color: #111;
     }
 
-    input:focus {
+    input:focus, select:focus {
       outline: 2px solid #0063e5;
     }
 
@@ -109,11 +116,26 @@
   </header>
 
   <main class="form-container">
+    <div class="progress">Étape 2 sur 3</div>
     <h1>Informations personnelles</h1>
     <form id="infoForm">
       <input type="text" placeholder="Nom" required />
       <input type="text" placeholder="Prénom" required />
       <input type="text" placeholder="Adresse" required />
+      <input type="text" placeholder="Ville" required />
+      <input type="text" placeholder="Code postal" required />
+      <select required>
+        <option value="" disabled selected>Pays</option>
+        <option value="fr">France</option>
+        <option value="be">Belgique</option>
+        <option value="ch">Suisse</option>
+        <option value="ca">Canada</option>
+        <option value="lu">Luxembourg</option>
+        <option value="dz">Algérie</option>
+        <option value="ma">Maroc</option>
+        <option value="tn">Tunisie</option>
+        <option value="other">Autre</option>
+      </select>
       <input type="date" required />
       <input type="tel" placeholder="Téléphone" required />
       <button type="submit">Continuer</button>
