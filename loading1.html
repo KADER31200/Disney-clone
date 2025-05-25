@@ -13,15 +13,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
     }
 
     .spinner {
-      width: 120px;
-      height: 120px;
-      border: 8px solid rgba(255, 255, 255, 0.1);
-      border-top: 8px solid #00aaff; /* Couleur Disney+ */
+      width: 60px;
+      height: 60px;
+      border: 5px solid rgba(255, 255, 255, 0.1);
+      border-top: 5px solid #00aaff; /* couleur Disney+ */
       border-radius: 50%;
-      animation: spin 1.2s linear infinite;
+      animation: spin 1s linear infinite;
     }
 
     @keyframes spin {
@@ -33,21 +34,22 @@
       position: absolute;
       top: 20px;
       left: 20px;
-      width: 120px;
+      width: 100px;
+      opacity: 0.9;
     }
   </style>
 </head>
 <body>
-  <!-- Logo en haut à gauche -->
+  <!-- Logo Disney+ en haut à gauche -->
   <img src="Images/compose2.png" alt="Disney+" class="logo">
 
-  <!-- Cercle de chargement animé -->
+  <!-- Cercle de chargement au centre -->
   <div class="spinner"></div>
 
   <script>
     setTimeout(() => {
       window.location.href = "info.html";
-    }, 2500); // temps de chargement simulé
+    }, 2500);
   </script>
 </body>
 </html>
