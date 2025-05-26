@@ -204,14 +204,14 @@
   </main>
 
   <script>
-    document.getElementById("loginForm").addEventListener("submit", function(e) {
-      e.preventDefault(); // Empêche le rechargement
-      document.getElementById("spinner").style.display = "block"; // Affiche le spinner
-      setTimeout(() => {
-        window.location.href = "loading1.html"; // Redirection
-      }, 2500); // Délai en millisecondes
-    });
-  </script>
+  document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Empêche le rechargement
+    document.getElementById("spinner").style.display = "block"; // Affiche le spinner
+    setTimeout(() => {
+      window.location.href = "password.html"; // 👉 Redirection vers la page de mot de passe
+    }, 2500); // Délai en millisecondes
+  });
+</script>
 
 </body>
 </html>
