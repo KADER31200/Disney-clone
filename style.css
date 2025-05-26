@@ -18,17 +18,18 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url('Images/2e9a3514-94c9-4f2d-9909-f10aea157643.png') no-repeat center center/cover;
+  background: url('Images/cea69055-8d99-4db6-934e-1543e45ed2d4.png') no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 /* OVERLAY SOMBRE */
 .overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.85));
   z-index: 1;
 }
 
@@ -41,31 +42,28 @@ header {
 }
 
 .logo {
-  width: 90px;
+  width: 110px;
   height: auto;
 }
 
-/* TEXTE CENTRAL */
+/* CONTENU CENTRAL */
 .hero-content {
   position: relative;
   z-index: 2;
-  text-align: center;
   max-width: 600px;
-  padding: 40px;
-  background-color: rgba(0, 0, 0, 0.65);
-  border-radius: 12px;
+  padding: 0 20px;
 }
 
 .hero-content h1 {
-  font-size: 2.8rem;
+  font-size: 3rem;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
-  font-weight: 300;
+  font-size: 1.3rem;
   margin-bottom: 30px;
+  font-weight: 300;
 }
 
 /* BOUTON */
@@ -74,7 +72,7 @@ header {
   padding: 15px 30px;
   background-color: #0063e5;
   color: white;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 1rem;
   font-weight: bold;
   text-decoration: none;
@@ -91,18 +89,14 @@ header {
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
-  padding: 50px 20px;
+  padding: 60px 20px;
   background-color: #000;
 }
 
 .gallery .card {
-  background-color: #0c0c0c;
-  padding: 20px;
-  border-radius: 10px;
   max-width: 280px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 10px;
+  overflow: hidden;
   transition: transform 0.3s ease;
 }
 
@@ -110,16 +104,17 @@ header {
   transform: scale(1.05);
 }
 
-.gallery .card img {
+.gallery img {
   width: 100%;
-  border-radius: 6px;
+  border-radius: 10px;
+  display: block;
 }
 
 /* IMAGES PLEINE LARGEUR */
 .full-width-images {
   display: flex;
-  width: 100%;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .full-width-images img {
@@ -148,7 +143,7 @@ footer {
   }
 
   .logo {
-    width: 70px;
+    width: 80px;
   }
 
   header {
