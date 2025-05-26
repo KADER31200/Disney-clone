@@ -1,10 +1,9 @@
-/* POLICE + BASE */
+/* Police et fond */
 body {
   margin: 0;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   background: url('Images/compose.png') no-repeat center center/cover;
   color: #fff;
-  overflow-x: hidden;
 }
 
 /* HERO SECTION */
@@ -20,7 +19,7 @@ body {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.45);
   z-index: 1;
 }
 
@@ -36,32 +35,31 @@ header {
   height: auto;
 }
 
-/* Boîte de message centrée */
 .hero-content {
   position: relative;
   z-index: 2;
   text-align: center;
   padding: 40px;
   background-color: rgba(0, 0, 0, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
   max-width: 600px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .hero-content h1 {
   font-size: 2.8rem;
   font-weight: bold;
   margin-bottom: 20px;
-  color: #ffffff;
+  letter-spacing: 0.5px;
 }
 
 .hero-content p {
   font-size: 1.2rem;
   font-weight: 300;
   margin-bottom: 30px;
-  color: #dcdcdc;
+  letter-spacing: 0.4px;
 }
 
 .btn {
@@ -81,23 +79,21 @@ header {
   transform: scale(1.05);
 }
 
-/* GALLERY (VIGNETTES) */
+/* GALLERY */
 .gallery {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
   padding: 60px 20px;
-  background: transparent;
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
 .gallery .card {
-  background: none;
-  padding: 0;
-  border-radius: 10px;
-  box-shadow: none;
-  max-width: 280px;
   transition: transform 0.3s ease;
+  max-width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .gallery .card:hover {
@@ -106,11 +102,11 @@ header {
 
 .gallery .card img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 12px;
   display: block;
 }
 
-/* IMAGES PLEINE LARGEUR */
+/* FULL-WIDTH IMAGES */
 .full-width-images {
   display: flex;
   width: 100%;
