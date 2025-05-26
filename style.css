@@ -40,7 +40,7 @@ header {
   z-index: 2;
   text-align: center;
   padding: 40px;
-  background-color: rgba(0, 0, 0, 0.7); /* Plus sombre pour meilleure lisibilité */
+  background-color: rgba(0, 0, 0, 0.7); /* Fond plus sombre pour meilleure lisibilité */
   border-radius: 10px;
   max-width: 700px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Ajoute de la profondeur */
@@ -101,7 +101,7 @@ header {
 
 .gallery .card img {
   width: 100%;
-  border-radius: 0; /* Supprime les arrondis pour effet plus net */
+  border-radius: 0; /* Supprime les arrondis pour un effet plus net */
   display: block;
 }
 
