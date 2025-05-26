@@ -15,7 +15,7 @@ body {
 .hero {
   position: relative;
   height: 100vh;
-  background: url('Images/cea69055-8d99-4db6-934e-1543e45ed2d4.png') center/cover no-repeat;
+  background: 'Images/compose.png' center/cover no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
