@@ -5,103 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Disney+ Clone | Accueil</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body.home-page {
-      font-family: Arial, sans-serif;
-      color: white;
-      background-image: url('Images/compose.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      padding: 20px 40px;
-    }
-
-    .logo {
-      width: 120px;
-    }
-
-    .hero {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .hero-content {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 30px;
-      border-radius: 10px;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-
-    .btn {
-      background-color: #0063e5;
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      text-decoration: none;
-    }
-
-    .btn:hover {
-      background-color: #0483ee;
-    }
-
-    .gallery {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      padding: 20px;
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-
-    .gallery img {
-      max-width: 300px;
-      border-radius: 10px;
-    }
-
-    .full-width-images {
-      display: flex;
-      width: 100%;
-    }
-
-    .full-width-images img {
-      width: 50%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    footer {
-      text-align: center;
-      padding: 10px;
-      background-color: rgba(0, 0, 0, 0.7);
-      font-size: 14px;
-    }
-  </style>
 </head>
 <body class="home-page">
   <header>
@@ -117,9 +20,15 @@
   </main>
 
   <section class="gallery">
-    <img src="Images/disponiblesurvos.PNG" alt="Disponible sur vos appareils" />
-    <img src="Images/divertissementsansfin.PNG" alt="Divertissement sans fin" />
-    <img src="Images/controleparental.PNG" alt="Contrôle parental" />
+    <div class="card">
+      <img src="Images/disponiblesurvos.PNG" alt="Disponible sur vos appareils" />
+    </div>
+    <div class="card">
+      <img src="Images/divertissementsansfin.PNG" alt="Divertissement sans fin" />
+    </div>
+    <div class="card">
+      <img src="Images/controleparental.PNG" alt="Contrôle parental" />
+    </div>
   </section>
 
   <section class="full-width-images">
