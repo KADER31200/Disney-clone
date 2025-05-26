@@ -14,7 +14,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
     }
 
     .logo {
@@ -92,17 +91,18 @@
       line-height: 1.4;
     }
 
-    .logos {
+    .logos-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
+      gap: 14px;
       margin-top: 15px;
     }
 
-    .logos img {
+    .logos-container img {
       height: 22px;
-      opacity: 0.8;
+      opacity: 0.7;
+      filter: grayscale(100%);
     }
 
     @media (max-width: 480px) {
@@ -121,6 +121,14 @@
 
       .form-wrapper img.my-disney {
         width: 80px;
+      }
+
+      .logos-container {
+        gap: 10px;
+      }
+
+      .logos-container img {
+        height: 20px;
       }
     }
   </style>
@@ -141,14 +149,18 @@
 
     <div class="footer-note">
       <strong>Disney+ fait partie des entreprises du groupe Walt Disney</strong><br />
-      MyDisney vous permet d'accéder facilement aux différents services du groupe Walt Disney, comme Disney+, ESPN, Walt Disney World <a href="#" style="color: #0063e5;">et bien +</a>.
+      MyDisney vous permet d'accéder facilement aux différents services des entreprises du groupe Walt Disney, comme Disney+, ESPN, Walt Disney World <a href="#" style="color: #0063e5;">et bien +</a>.
+      
       <div class="logos-container">
-    <img src="Images/My-Disney-Experience-Logo.png" alt="MyDisney" class="logo-marque" />
-    <img src="Images/abc-logo-image-4413.png" alt="ABC" class="logo-marque" />
-    <img src="Images/espn-png-logo-4149.png" alt="ESPN" class="logo-marque" />
-    <img src="Images/marvel-logo-34291.png" alt="Marvel" class="logo-marque" />
-    <img src="Images/star-wars-logo-1002.png" alt="Star Wars" class="logo-marque" />
-  </div>
+        <img src="Images/compose2.png" alt="Disney+" />
+        <img src="Images/abc-logo-image-4413.png" alt="ABC" />
+        <img src="Images/espn-png-logo-4149.png" alt="ESPN" />
+        <img src="Images/marvel-logo-34291.png" alt="Marvel" />
+        <img src="Images/star-wars-logo-1002.png" alt="Star Wars" />
+        <img src="Images/hulu-logo.png" alt="Hulu" />
+        <img src="Images/natgeo-logo.png" alt="National Geographic" />
+        <img src="Images/star-logo.png" alt="Star" />
+      </div>
     </div>
   </main>
 
