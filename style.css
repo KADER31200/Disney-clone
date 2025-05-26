@@ -40,21 +40,24 @@ header {
   z-index: 2;
   text-align: center;
   padding: 40px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7); /* Plus sombre pour meilleure lisibilité */
   border-radius: 10px;
-  max-width: 600px;
+  max-width: 700px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Ajoute de la profondeur */
 }
 
 .hero-content h1 {
-  font-size: 2.8rem;
+  font-size: 3rem;
   font-weight: bold;
   margin-bottom: 20px;
+  color: #fff;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 300;
   margin-bottom: 30px;
+  color: #ddd;
 }
 
 .btn {
@@ -98,7 +101,7 @@ header {
 
 .gallery .card img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 0; /* Supprime les arrondis pour effet plus net */
   display: block;
 }
 
