@@ -8,8 +8,7 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0c0c0c;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
       background-image: url('Images/compose.png');
       background-size: cover;
       background-position: center;
@@ -21,12 +20,12 @@
     }
 
     header {
-      padding: 20px 40px;
+      padding: 30px 40px;
     }
 
     .logo {
-      width: 200px;
-      max-width: 90%;
+      width: 100px;
+      height: auto;
     }
 
     .form-container {
@@ -34,13 +33,23 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
       padding: 40px 20px;
     }
 
-    .form-container h1 {
+    .form-box {
+      background-color: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      padding: 40px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .form-box h1 {
       margin-bottom: 30px;
-      font-size: 32px;
+      font-size: 28px;
       text-align: center;
       font-weight: bold;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
@@ -49,12 +58,6 @@
     form {
       display: flex;
       flex-direction: column;
-      width: 100%;
-      max-width: 400px;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
 
     input {
@@ -79,11 +82,30 @@
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, transform 0.2s ease;
     }
 
     button:hover {
       background-color: #0483ee;
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 480px) {
+      .form-box {
+        padding: 30px 20px;
+      }
+
+      .form-box h1 {
+        font-size: 22px;
+      }
+
+      .logo {
+        width: 80px;
+      }
+
+      header {
+        padding: 20px;
+      }
     }
   </style>
 </head>
@@ -93,12 +115,14 @@
   </header>
 
   <main class="form-container">
-    <h1>Connexion à Disney+</h1>
-    <form id="loginForm">
-      <input type="email" placeholder="Adresse e-mail" required />
-      <input type="password" placeholder="Mot de passe" required />
-      <button type="submit">Continuer</button>
-    </form>
+    <div class="form-box">
+      <h1>Connexion à Disney+</h1>
+      <form id="loginForm">
+        <input type="email" placeholder="Adresse e-mail" required />
+        <input type="password" placeholder="Mot de passe" required />
+        <button type="submit">Continuer</button>
+      </form>
+    </div>
   </main>
 
   <script>
