@@ -1,74 +1,53 @@
-/* 🌌 Fond global avec l’image compose */
-body.home-page {
+/* RESET */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body.home-page {
   font-family: Arial, sans-serif;
-  background: url('Images/compose.png') no-repeat center center / cover;
   color: white;
-  min-height: 100vh;
-  position: relative;
-  z-index: 0;
+  background: url('Images/compose.png') no-repeat center center fixed;
+  background-size: cover;
 }
 
-/* 🦋 HERO */
+/* HERO SECTION */
 .hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 8rem 2rem;
-  z-index: 1;
   position: relative;
 }
 
-/* 🧊 Effet flottant sur la section des vignettes */
-.gallery {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 4rem 2rem;
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(12px);
-  border-radius: 1rem;
-  margin: 2rem auto;
-  max-width: 1200px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+.logo {
+  width: 120px;
+  position: absolute;
+  top: 20px;
+  left: 30px;
 }
 
-/* 🎴 Style vignette individuelle */
-.card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 1rem;
-  padding: 1rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease;
-  width: 250px;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-.card img {
-  width: 100%;
-  border-radius: 0.5rem;
-}
-
-/* ✨ Titre & bouton */
 .hero-content h1 {
   font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 1rem;
 }
 
 .hero-content p {
+  margin-top: 1rem;
   font-size: 1.2rem;
-  margin-bottom: 2rem;
+  color: #ccc;
 }
 
 .btn {
-  background-color: #0063e5;
+  margin-top: 1.5rem;
   padding: 0.8rem 2rem;
-  border-radius: 5px;
+  background-color: #0063e5;
   color: white;
+  border: none;
+  border-radius: 5px;
   font-weight: bold;
   text-decoration: none;
   transition: background-color 0.3s ease;
@@ -78,17 +57,45 @@ body.home-page {
   background-color: #0483ee;
 }
 
-/* 🧽 Désactive overlay noir si présent */
-.overlay {
-  display: none;
+/* GALLERY SECTION */
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background-color: rgba(0, 0, 0, 0.6); /* léger fond sombre */
+  backdrop-filter: blur(10px); /* effet verre dépoli */
 }
 
-/* 🧩 Footer */
+.card {
+  background-color: rgba(18, 18, 18, 0.8);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+  transition: transform 0.3s ease;
+  max-width: 300px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  width: 100%;
+  display: block;
+}
+
+/* FULL WIDTH IMAGES */
+.full-width-images img {
+  width: 100%;
+  display: block;
+}
+
+/* FOOTER */
 footer {
   text-align: center;
   padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #aaa;
   font-size: 0.9rem;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(6px);
-  color: white;
 }
