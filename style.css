@@ -1,11 +1,10 @@
-/* Reset de base */
+/* === RESET DE BASE === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Corps de page */
 body {
   font-family: 'Arial', sans-serif;
   background-color: #000;
@@ -13,7 +12,7 @@ body {
   overflow-x: hidden;
 }
 
-/* === HERO (section principale avec fond image) === */
+/* === HERO SECTION === */
 .hero {
   position: relative;
   height: 100vh;
@@ -28,13 +27,13 @@ body {
 .overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.65);
   z-index: 1;
 }
 
 /* === HEADER & LOGO === */
 header {
-  position: absolute;
+  position: fixed;
   top: 30px;
   left: 40px;
   z-index: 2;
@@ -45,15 +44,16 @@ header {
   height: auto;
 }
 
-/* === CONTENU PRINCIPAL === */
+/* === CONTENU PRINCIPAL HERO === */
 .hero-content {
   position: relative;
   z-index: 2;
   max-width: 800px;
   text-align: center;
   padding: 40px 30px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
 .hero-content h1 {
@@ -64,24 +64,26 @@ header {
 
 .hero-content p {
   font-size: 1.4rem;
-  margin-bottom: 30px;
   font-weight: 300;
+  margin-bottom: 30px;
+  color: #ccc;
 }
 
 .btn {
   padding: 15px 30px;
   background-color: #0063e5;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 6px;
   font-size: 1rem;
   font-weight: bold;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn:hover {
   background-color: #0483ee;
+  transform: scale(1.05);
 }
 
 /* === GALLERY === */
@@ -90,19 +92,19 @@ header {
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
-  padding: 50px 20px;
+  padding: 60px 20px;
   background-color: #000;
 }
 
 .gallery .card {
-  background-color: #0c0c0c;
+  background-color: #111;
   padding: 20px;
   border-radius: 10px;
   max-width: 280px;
+  transition: transform 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease;
 }
 
 .gallery .card:hover {
@@ -117,8 +119,8 @@ header {
 /* === FULL WIDTH IMAGES === */
 .full-width-images {
   display: flex;
-  width: 100%;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .full-width-images img {
@@ -138,6 +140,10 @@ footer {
 
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
+  .hero-content {
+    padding: 30px 20px;
+  }
+
   .hero-content h1 {
     font-size: 2.2rem;
   }
@@ -156,6 +162,11 @@ footer {
   }
 
   .logo {
-    width: 100px;
+    width: 90px;
+  }
+
+  .gallery {
+    gap: 20px;
+    padding: 40px 10px;
   }
 }
