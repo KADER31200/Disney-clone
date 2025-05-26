@@ -11,13 +11,9 @@
       background: radial-gradient(circle at top, #003264 0%, #032541 100%);
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
-    }
-
-    .logo {
-      margin-top: 40px;
-      width: 140px;
+      justify-content: center;
+      padding: 30px 20px;
     }
 
     main {
@@ -27,21 +23,26 @@
       width: 100%;
       border-radius: 20px;
       padding: 40px 30px;
-      margin: 30px 20px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
       text-align: center;
+    }
+
+    .logo {
+      width: 120px;
+      margin: 0 auto 20px;
+      display: block;
     }
 
     .my-disney {
       width: 180px;
       max-width: 100%;
-      margin: 20px auto 30px auto;
+      margin: 10px auto 30px;
       display: block;
     }
 
     h1 {
       font-size: 1.6rem;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     p {
@@ -53,18 +54,19 @@
 
     input[type="email"] {
       width: 100%;
-      padding: 14px;
+      padding: 16px;
       font-size: 1rem;
-      border-radius: 4px;
+      border-radius: 8px;
       border: none;
       background-color: #f0f0f0;
       margin-bottom: 25px;
       box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
     }
 
     button {
       width: 100%;
-      padding: 14px;
+      padding: 16px;
       background-color: #000;
       color: #fff;
       font-weight: bold;
@@ -76,7 +78,7 @@
     }
 
     button:hover {
-      background-color: #333;
+      background-color: #222;
     }
 
     .footer-note {
@@ -93,7 +95,7 @@
       justify-content: start;
       align-items: center;
       gap: 14px;
-      margin-top: 18px;
+      margin-top: 14px;
     }
 
     .logos-container img {
@@ -112,17 +114,17 @@
     }
 
     @media (max-width: 480px) {
-      .logo {
-        width: 110px;
-        margin-top: 30px;
-      }
-
       main {
         padding: 30px 20px;
       }
 
       h1 {
         font-size: 1.4rem;
+      }
+
+      .logo {
+        width: 100px;
+        margin-bottom: 12px;
       }
 
       .my-disney {
@@ -163,10 +165,10 @@
 </head>
 <body>
 
-  <!-- Logo principal Disney+ -->
-  <img src="Images/compose2.png" alt="Disney+" class="logo" />
-
   <main>
+    <!-- Logo principal Disney+ -->
+    <img src="Images/compose2.png" alt="Disney+" class="logo" />
+
     <!-- Logo MyDisney -->
     <img src="Images/Mydisney-logo.png" alt="MyDisney" class="my-disney" />
 
