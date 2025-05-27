@@ -10,30 +10,26 @@ body, html {
   color: white;
 }
 
-/* FOND MOSAÏQUE avec overlay sombre */
 .background {
   position: relative;
   height: 100vh;
-  background-image: url("Images/compose.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url("Images/compose.png") center/cover no-repeat;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
+/* Overlay assombri MODÉRÉ */
 .background::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.85));
+  background-color: rgba(0, 0, 0, 0.55); /* moins sombre */
   z-index: 0;
 }
 
 /* LOGO */
 header {
-  padding: 30px 50px 0;
+  padding: 25px 50px 0;
   z-index: 1;
 }
 
@@ -41,16 +37,21 @@ header {
   width: 110px;
 }
 
-/* CONTENU CENTRAL */
+/* CONTENU CENTRÉ VERTICALEMENT */
 .content {
-  position: relative;
   z-index: 1;
   text-align: center;
   padding: 0 20px;
   max-width: 850px;
-  margin: 0 auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 
+/* TITRES */
 .headline {
   font-size: 2.8rem;
   font-weight: bold;
@@ -58,12 +59,11 @@ header {
 }
 
 .subheadline {
-  font-size: 1.1rem;
-  font-weight: 400;
+  font-size: 1.2rem;
   margin-bottom: 30px;
 }
 
-/* BOUTON STYLE DISNEY+ */
+/* BOUTON */
 .button-container {
   margin-bottom: 25px;
 }
@@ -72,7 +72,7 @@ header {
   background-color: #01d4ff;
   color: black;
   border: none;
-  padding: 14px 36px;
+  padding: 14px 40px;
   font-size: 1rem;
   border-radius: 4px;
   font-weight: bold;
@@ -84,15 +84,14 @@ header {
   background-color: #00b4da;
 }
 
-/* TEXTE DU BAS */
+/* INFOS BAS DE PAGE */
 .disclaimer {
   font-size: 0.95rem;
-  margin: 10px 0;
-  color: #d1d1d1;
+  color: #e0e0e0;
+  margin-bottom: 8px;
 }
 
 .note {
   font-size: 0.8rem;
-  color: #bbb;
-  margin-bottom: 40px;
+  color: #ccc;
 }
