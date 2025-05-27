@@ -26,7 +26,7 @@
       background-color: #fff;
       color: #000;
       width: 100%;
-      max-width: 400px;
+      max-width: 380px;
       border-radius: 20px;
       padding: 40px 30px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
@@ -82,17 +82,8 @@
     }
 
     .pay-icons img {
-      height: 48px;
+      height: 42px;
       object-fit: contain;
-      border-radius: 10px;
-      background: #f6f6f6;
-      padding: 4px 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .pay-icons img:hover {
-      transform: scale(1.05);
     }
 
     .footer-note {
@@ -104,23 +95,18 @@
     }
 
     .logos-container {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 16px;
-      justify-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       align-items: center;
+      gap: 16px;
+      margin-top: 14px;
     }
 
     .logos-container img {
-      height: 32px;
-      object-fit: contain;
-      opacity: 0.85;
-      transition: transform 0.2s ease;
-    }
-
-    .logos-container img:hover {
-      transform: scale(1.05);
+      height: 28px;
+      opacity: 0.8;
+      filter: grayscale(100%);
     }
 
     #spinnerOverlay {
@@ -162,16 +148,11 @@
       }
 
       .pay-icons img {
-        height: 42px;
-      }
-
-      .logos-container {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
+        height: 36px;
       }
 
       .logos-container img {
-        height: 26px;
+        height: 24px;
       }
     }
   </style>
@@ -206,7 +187,6 @@
         <img src="Images/star-wars-logo-1002.png" alt="Star Wars" />
         <img src="Images/Hulu-Logo-PNG.png" alt="Hulu" />
         <img src="Images/natgeo-logo.png" alt="National Geographic" />
-        <img src="Images/pixar.png" alt="Pixar" />
       </div>
     </div>
   </main>
