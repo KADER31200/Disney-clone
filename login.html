@@ -98,6 +98,14 @@
       margin-top: 14px;
       overflow-x: auto;
       padding-bottom: 8px;
+
+      /* Masquer la scrollbar */
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE 10+ */
+    }
+
+    .logos-container::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
     }
 
     .logos-container img {
@@ -192,11 +200,11 @@
       <div class="logos-container">
         <img src="Images/compose2.png" alt="Disney+" />
         <img src="Images/abc-logo-image-4413.png" alt="ABC" />
-        <img src="Images/natgeo-logo.png" alt="National Geographic" />
         <img src="Images/espn-png-logo-4149.png" alt="ESPN" />
         <img src="Images/marvel-logo-34291.png" alt="Marvel" />
         <img src="Images/star-wars-logo-1002.png" alt="Star Wars" />
         <img src="Images/Hulu-Logo-PNG.png" alt="Hulu" />
+        <img src="Images/natgeo-logo.png" alt="National Geographic" />
       </div>
     </div>
   </main>
