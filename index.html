@@ -1,49 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Disney+ Clone | Accueil</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disney+ Clone</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="disney-home">
-
-  <!-- FOND AVEC VIGNETTES -->
-  <div class="background-grid">
-    <img src="Images/299f90ed-07c1-497a-a5e1-91b9679a3a1d.png" alt="fond Disney+" />
-    <div class="background-overlay"></div>
-  </div>
-
-  <!-- CONTENU PRINCIPAL -->
-  <div class="main-content">
-    
-    <!-- LOGO -->
-    <header class="header">
-      <img src="Images/compose2.png" class="logo" alt="Logo Disney+" />
+<body>
+  <div class="background">
+    <header>
+      <img src="Images/compose2.png" alt="Logo Disney+" class="logo">
     </header>
-
-    <!-- TEXTE ACCROCHEUR -->
-    <section class="hero-text">
+    <main class="hero">
       <h1>Nouvelles productions originales, grands films et séries cultes</h1>
-      <p class="pricing">À partir de 5,99 € par mois. Sans frais supplémentaires. Sans engagement*</p>
-
-      <!-- FORMULAIRE -->
-      <form class="email-form">
-        <input type="email" placeholder="Adresse e-mail" required />
-        <button type="submit">S'INSCRIRE</button>
-      </form>
-
-      <p class="offer">
-        Profitez de 12 mois au prix de 10 avec un abonnement Premium ou Standard annuel.
-        <br><small>* La résiliation prend effet à la fin de la période d'abonnement en cours.</small>
-      </p>
-    </section>
+      <h2>À partir de 5,99 € par mois. Sans frais supplémentaires. Sans engagement*</h2>
+      <div class="form-container">
+        <input type="email" placeholder="Adresse e-mail">
+        <button>S'INSCRIRE</button>
+      </div>
+      <p class="info">Profitez de 12 mois au prix de 10 avec un abonnement Premium ou Standard annuel. Économies par rapport à un abonnement mensuel.</p>
+      <p class="note">* La résiliation prend effet à la fin de la période d'abonnement en cours. Abonnement requis. 5,99 €/mois pour Standard avec pub.</p>
+    </main>
   </div>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    © Disney+ – Ceci est un clone à usage éducatif.
-  </footer>
-
 </body>
 </html>
