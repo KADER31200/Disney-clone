@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confirmation de Paiement | Disney+</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at top, #003264 0%, #032541 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 60px 20px 30px;
+    }
+
+    .logo {
+      width: 120px;
+      margin-bottom: 30px;
+    }
+
+    main {
+      background-color: #fff;
+      color: #000;
+      width: 100%;
+      max-width: 380px;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      color: #0077ff;
+    }
+
+    #confirmationText {
+      font-size: 0.95rem;
+      color: #333;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .checkmark {
+      font-size: 60px;
+      color: #00c853;
+      margin-bottom: 15px;
+    }
+
+    .footer-note {
+      font-size: 0.75rem;
+      color: #444;
+      margin-top: 30px;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .logos-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .logos-container img {
+      height: 28px;
+      opacity: 0.8;
+      filter: grayscale(100%);
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      .logo {
+        width: 100px;
+        margin-bottom: 20px;
+      }
+
+      .logos-container img {
+        height: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <img src="Images/compose2.png" alt="Disney+" class="logo" />
+
+  <main>
+    <div class="checkmark">✔</div>
+    <h1>Paiement confirmé</h1>
+    <p id="confirmationText">
+      Merci ! Votre abonnement Disney+ a bien été activé.<br/>
+      Une confirmation a été envoyée à <strong id="userEmailTarget">votre adresse e-mail</strong>.
+    </p>
+
+    <div class="footer-note">
+      <strong>Disney+ fait partie des entreprises du groupe Walt Disney</strong><br />
+      MyDisney vous permet d'accéder facilement aux différents services du groupe, comme Disney+, ESPN, Walt Disney World <a href="#">et bien +</a>.
+
+      <div class="logos-container">
+        <img src="Images/compose2.png" alt="Disney+" />
+        <img src="Images/abc-logo-image-4413.png" alt="ABC" />
+        <img src="Images/espn-png-logo-4149.png" alt="ESPN" />
+        <img src="Images/marvel-logo-34291.png" alt="Marvel" />
+        <img src="Images/star-wars-logo-1002.png" alt="Star Wars" />
+        <img src="Images/Hulu-Logo-PNG.png" alt="Hulu" />
+        <img src="Images/natgeo-logo.png" alt="National Geographic" />
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const email = localStorage.getItem("userEmail");
+    if (email) {
+      document.getElementById("userEmailTarget").textContent = email;
+    }
+  </script>
+
+</body>
+</html>
