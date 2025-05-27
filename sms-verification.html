@@ -95,9 +95,9 @@
     }
 
     .logos-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      justify-items: center;
       align-items: center;
       gap: 16px;
       margin-top: 14px;
@@ -149,6 +149,10 @@
 
       .pay-icons img {
         height: 36px;
+      }
+
+      .logos-container {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .logos-container img {
