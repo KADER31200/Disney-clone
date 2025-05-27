@@ -1,100 +1,28 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disney+ Clone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background">
+    <header>
+      <img src="Images/compose2.png" alt="Logo Disney+" class="logo">
+    </header>
 
-body, html {
-  height: 100%;
-  font-family: Arial, sans-serif;
-}
+    <main class="hero">
+      <h1>Nouvelles productions originales, grands films et séries cultes</h1>
+      <h2>À partir de 5,99 € par mois. Sans frais supplémentaires. Sans engagement*</h2>
 
-.background {
-  position: relative;
-  background-image: url("Images/compose.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100%;
-  color: white;
-  display: flex;
-  flex-direction: column;
-}
+      <div class="button-container">
+        <button onclick="window.location.href='login.html'">CONTINUER</button>
+      </div>
 
-/* 💡 Overlay sombre et profond pour rendre le fond plus lisible et pro */
-.background::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
-  z-index: 1;
-}
-
-/* Logo parfaitement aligné en haut à gauche */
-header {
-  padding: 30px 40px 0;
-  z-index: 2;
-}
-
-.logo {
-  width: 130px;
-}
-
-/* Bloc central */
-.hero {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
-  position: relative;
-  z-index: 2;
-}
-
-.hero h1 {
-  font-size: 2.8rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.hero h2 {
-  font-size: 1.2rem;
-  font-weight: normal;
-  margin-bottom: 30px;
-}
-
-/* Bouton CONTINUER */
-.button-container {
-  margin-bottom: 25px;
-}
-
-.button-container button {
-  background-color: #00baf2;
-  color: white;
-  border: none;
-  padding: 14px 32px;
-  font-size: 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.button-container button:hover {
-  background-color: #008fc7;
-}
-
-.info {
-  font-size: 0.95rem;
-  margin-top: 10px;
-}
-
-.note {
-  font-size: 0.8rem;
-  margin-top: 6px;
-  color: #ccc;
-}
+      <p class="info">Profitez de 12 mois au prix de 10 avec un abonnement Premium ou Standard annuel. Économies par rapport à un abonnement mensuel.</p>
+      <p class="note">* La résiliation prend effet à la fin de la période d'abonnement en cours. Abonnement requis. 5,99 €/mois pour Standard avec pub.</p>
+    </main>
+  </div>
+</body>
+</html>
