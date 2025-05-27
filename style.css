@@ -18,12 +18,12 @@ body, html {
   flex-direction: column;
 }
 
-/* Overlay assombri MODÉRÉ */
+/* Overlay très léger pour juste un filtre */
 .background::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.55); /* moins sombre */
+  background-color: rgba(0, 0, 0, 0.18); /* très léger, lumière préservée */
   z-index: 0;
 }
 
@@ -51,19 +51,21 @@ header {
   flex: 1;
 }
 
-/* TITRES */
+/* TITRES AVEC OMBRE */
 .headline {
   font-size: 2.8rem;
   font-weight: bold;
   margin-bottom: 20px;
+  text-shadow: 1px 1px 10px rgba(0,0,0,0.7);
 }
 
 .subheadline {
   font-size: 1.2rem;
   margin-bottom: 30px;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
 }
 
-/* BOUTON */
+/* BOUTON STYLE DISNEY+ */
 .button-container {
   margin-bottom: 25px;
 }
@@ -84,7 +86,11 @@ header {
   background-color: #00b4da;
 }
 
-/* INFOS BAS DE PAGE */
+/* INFOS BAS DE PAGE AVEC FILTRE */
+.disclaimer, .note {
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+}
+
 .disclaimer {
   font-size: 0.95rem;
   color: #e0e0e0;
