@@ -14,6 +14,7 @@ body, html {
   background-image: url("Images/compose.png");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
   color: white;
@@ -21,18 +22,16 @@ body, html {
   flex-direction: column;
 }
 
-/* Overlay sombre élégante */
-.overlay {
+/* 💡 Overlay sombre et profond pour rendre le fond plus lisible et pro */
+.background::before {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
-  backdrop-filter: brightness(0.8) saturate(1.2);
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
   z-index: 1;
 }
 
+/* Logo parfaitement aligné en haut à gauche */
 header {
   padding: 30px 40px 0;
   z-index: 2;
@@ -42,6 +41,7 @@ header {
   width: 130px;
 }
 
+/* Bloc central */
 .hero {
   text-align: center;
   max-width: 800px;
@@ -67,6 +67,7 @@ header {
   margin-bottom: 30px;
 }
 
+/* Bouton CONTINUER */
 .button-container {
   margin-bottom: 25px;
 }
