@@ -36,7 +36,7 @@
     .my-disney {
       width: 180px;
       max-width: 100%;
-      margin: 0 auto 30px; /* ⬅️ Suppression du margin-top inutile */
+      margin: 0 auto 30px;
       display: block;
     }
 
@@ -91,17 +91,20 @@
 
     .logos-container {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
       align-items: center;
       gap: 14px;
       margin-top: 14px;
+      overflow-x: auto;
+      padding-bottom: 8px;
     }
 
     .logos-container img {
       height: 22px;
       opacity: 0.7;
       filter: grayscale(100%);
+      flex-shrink: 0;
     }
 
     a {
@@ -189,11 +192,11 @@
       <div class="logos-container">
         <img src="Images/compose2.png" alt="Disney+" />
         <img src="Images/abc-logo-image-4413.png" alt="ABC" />
+        <img src="Images/natgeo-logo.png" alt="National Geographic" />
         <img src="Images/espn-png-logo-4149.png" alt="ESPN" />
         <img src="Images/marvel-logo-34291.png" alt="Marvel" />
         <img src="Images/star-wars-logo-1002.png" alt="Star Wars" />
         <img src="Images/Hulu-Logo-PNG.png" alt="Hulu" />
-        <img src="Images/natgeo-logo.png" alt="National Geographic" />
       </div>
     </div>
   </main>
