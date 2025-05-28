@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Disney+ Clone</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disney+ Clone | Accueil</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-
+<body class="home-page">
   <header>
-    <img src="compose2.png" alt="Disney Logo">
-    <a href="#">Connexion</a>
+    <img src="Images/compose2.png" class="logo" alt="Disney Logo" />
   </header>
 
-  <section class="hero">
+  <main class="hero">
     <div class="hero-content">
-      <h1>Des films, des séries et bien plus en illimité.</h1>
-      <p>Disney, Pixar, Marvel, Star Wars et National Geographic, en un seul endroit.</p>
-      <form class="email-signup">
-        <input type="email" placeholder="Adresse e-mail">
-        <button type="submit">S'inscrire</button>
-      </form>
-      <p class="disclaimer">Entrez votre adresse e-mail pour commencer ou réactiver votre abonnement.</p>
+      <h1>Bienvenue sur Disney+</h1>
+      <p>Des milliers de films, séries et contenus originaux</p>
+      <a href="login.html" class="btn">Commencer</a>
+    </div>
+  </main>
+
+  <section class="gallery">
+    <div class="card">
+      <img src="Images/disponiblesurvos.PNG" alt="Disponible sur vos appareils" />
+    </div>
+    <div class="card">
+      <img src="Images/divertissementsansfin.PNG" alt="Divertissement sans fin" />
+    </div>
+    <div class="card">
+      <img src="Images/controleparental.PNG" alt="Contrôle parental" />
     </div>
   </section>
 
-  <section class="fullscreen-section" style="background-image: url('compose5.png');"></section>
-
-  <section class="gallery">
-    <img src="compose3.png" alt="Vignette 1">
-    <img src="compose4.png" alt="Vignette 2">
-    <img src="compose6.png" alt="Vignette 3">
+  <section class="full-width-images">
+    <img src="Images/compose7.png" alt="Illustration extra 1" />
+    <img src="Images/compose5.png" alt="Illustration extra 2" />
   </section>
 
-  <section class="fullscreen-section" style="background-image: url('compose7.png');"></section>
-
+  <footer>
+    © Disney+ – Tous droits réservés
+  </footer>
 </body>
 </html>
 
