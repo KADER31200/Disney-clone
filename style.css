@@ -1,74 +1,143 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #000;
   color: #fff;
+  background-color: #000;
 }
 
 header {
   position: absolute;
-  top: 20px;
-  left: 40px;
-  z-index: 100;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  z-index: 10;
 }
 
 .logo {
-  width: 120px;
+  width: 100px;
 }
 
 .hero {
+  position: relative;
   height: 100vh;
-  background-image: url('Images/compose.png');
+  width: 100%;
+  background-image: url("Images/compose.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.8));
+  z-index: 1;
+}
+
+.content {
+  z-index: 2;
   text-align: center;
-  padding: 20px;
+  padding: 0 20px;
+  max-width: 800px;
 }
 
-.hero-content {
-  max-width: 600px;
-  padding: 30px;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
+.center-logo {
+  width: 180px;
+  margin: 0 auto 20px;
 }
 
-.hero-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 25px;
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
 
 .btn {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 14px 28px;
   background-color: #0063e5;
   color: #fff;
   text-decoration: none;
-  font-weight: bold;
+  font-size: 1rem;
   border-radius: 4px;
-  transition: background 0.3s ease;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
 }
 
 .btn:hover {
   background-color: #0483ee;
 }
 
+.subtext {
+  font-size: 0.95rem;
+  color: #f1f1f1;
+  line-height: 1.5;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+.subtext .footnote {
+  font-size: 0.75rem;
+  color: #ccc;
+  display: block;
+  margin-top: 8px;
+}
+
 footer {
   text-align: center;
   padding: 15px;
-  background: #000;
+  font-size: 0.8rem;
   color: #aaa;
-  font-size: 0.9rem;
+  background-color: #000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .center-logo {
+    width: 140px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 12px 24px;
+  }
+
+  .subtext {
+    font-size: 0.85rem;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .center-logo {
+    width: 120px;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+    padding: 10px 20px;
+  }
+
+  .subtext {
+    font-size: 0.8rem;
+  }
 }
