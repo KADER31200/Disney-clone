@@ -1,84 +1,42 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Disney+ | Bienvenue</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body, html {
-      height: 100%;
-      font-family: Arial, sans-serif;
-      color: #fff;
-      background-color: #000;
-    }
-
-    .background {
-      background: url('Images/b4e8fb27-b13d-4034-ad66-81493edbca39.png') no-repeat center center/cover;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.65);
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-    }
-
-    .content {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      text-align: center;
-      padding: 20px;
-      z-index: 2;
-    }
-
-    .logo {
-      width: 160px;
-      margin-bottom: 40px;
-    }
-
-    .cta-button {
-      padding: 15px 40px;
-      font-size: 18px;
-      background-color: #0072d2;
-      border: none;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .cta-button:hover {
-      background-color: #005bb5;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disney+ Clone</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="background"></div>
-  <img src="Images/compose.png" alt="Disney+" class="background" />
-  <div class="overlay"></div>
 
-  <div class="content">
-    <img src="Images/compose2.png" alt="Disney+" class="logo" />
-    <button class="cta-button" id="continueBtn">CONTINUER</button>
-  </div>
+  <header>
+    <img src="compose2.png" alt="Disney Logo">
+    <a href="#">Connexion</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Des films, des séries et bien plus en illimité.</h1>
+      <p>Disney, Pixar, Marvel, Star Wars et National Geographic, en un seul endroit.</p>
+      <form class="email-signup">
+        <input type="email" placeholder="Adresse e-mail">
+        <button type="submit">S'inscrire</button>
+      </form>
+      <p class="disclaimer">Entrez votre adresse e-mail pour commencer ou réactiver votre abonnement.</p>
+    </div>
+  </section>
+
+  <section class="fullscreen-section" style="background-image: url('compose5.png');"></section>
+
+  <section class="gallery">
+    <img src="compose3.png" alt="Vignette 1">
+    <img src="compose4.png" alt="Vignette 2">
+    <img src="compose6.png" alt="Vignette 3">
+  </section>
+
+  <section class="fullscreen-section" style="background-image: url('compose7.png');"></section>
+
+</body>
+</html>
 
   <script>
     document.getElementById("continueBtn").addEventListener("click", async function () {
