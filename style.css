@@ -26,7 +26,6 @@ header {
   height: 50px;
 }
 
-/* HERO */
 .hero {
   height: 100vh;
   background-image: url('Images/compose.png');
@@ -38,35 +37,37 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
+  /* supprime tout effet sombre */
+  background-color: #000;
 }
 
-/* Enlève le fond noir trop foncé */
-.hero::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.35); /* moins foncé qu'avant */
-  z-index: 1;
-}
+/* Supprimé : .hero::after (plus de filtre foncé) */
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   max-width: 700px;
   padding: 20px;
+  background: rgba(0, 0, 0, 0.4); /* très léger fond sombre juste autour du texte */
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
 }
 
 .hero-content h1 {
-  font-size: 2.4rem;
-  font-weight: 600;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #fff;
   margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* effet net, lisible */
 }
 
 .hero-content p {
   font-size: 1.1rem;
-  color: #ddd;
+  color: #e0e0e0;
   margin-bottom: 25px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
+
 
 .btn {
   display: inline-block;
