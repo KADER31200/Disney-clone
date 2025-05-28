@@ -4,100 +4,90 @@
   box-sizing: border-box;
 }
 
-body, html {
-  height: 100%;
+body {
   font-family: Arial, sans-serif;
-  color: white;
-}
-
-.background {
-  position: relative;
-  height: 100vh;
-  background: url("Images/compose.png") center/cover no-repeat;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Overlay très léger pour juste un filtre */
-.background::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.18); /* très léger, lumière préservée */
-  z-index: 0;
-}
-
-/* LOGO */
-header {
-  padding: 25px 50px 0;
-  z-index: 1;
+  background-color: #040714;
+  color: #fff;
+  line-height: 1.6;
 }
 
 .logo {
-  width: 110px;
+  width: 160px;
+  margin: 20px 40px;
 }
 
-/* CONTENU CENTRÉ VERTICALEMENT */
-.content {
-  z-index: 1;
-  text-align: center;
-  padding: 0 20px;
-  max-width: 850px;
-  margin: auto;
+.hero {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  text-align: center;
+  position: relative;
 }
 
-/* TITRES AVEC OMBRE */
-.headline {
-  font-size: 2.8rem;
-  font-weight: bold;
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+  z-index: 2;
+  position: relative;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
   margin-bottom: 20px;
-  text-shadow: 1px 1px 10px rgba(0,0,0,0.7);
 }
 
-.subheadline {
+.hero-content p {
   font-size: 1.2rem;
-  margin-bottom: 30px;
-  text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+  margin-bottom: 20px;
 }
 
-/* BOUTON STYLE DISNEY+ */
-.button-container {
-  margin-bottom: 25px;
-}
-
-.button-container button {
-  background-color: #01d4ff;
-  color: black;
-  border: none;
-  padding: 14px 40px;
+.btn {
+  padding: 15px 30px;
   font-size: 1rem;
+  background-color: #0063e5;
+  color: #fff;
+  border: none;
   border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  text-decoration: none;
+  transition: background 0.3s ease;
 }
 
-.button-container button:hover {
-  background-color: #00b4da;
+.btn:hover {
+  background-color: #0483ee;
 }
 
-/* INFOS BAS DE PAGE AVEC FILTRE */
-.disclaimer, .note {
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 40px 20px;
+  background-color: #000;
 }
 
-.disclaimer {
-  font-size: 0.95rem;
-  color: #e0e0e0;
-  margin-bottom: 8px;
+.gallery img {
+  width: 300px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
-.note {
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
   font-size: 0.8rem;
-  color: #ccc;
+  color: rgba(255, 255, 255, 0.6);
 }
