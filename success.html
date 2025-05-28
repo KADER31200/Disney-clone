@@ -34,9 +34,9 @@
     }
 
     .circle-check {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 20px;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 24px;
       border-radius: 50%;
       background-color: #e6f5eb;
       display: flex;
@@ -46,18 +46,18 @@
 
     .circle-check span {
       color: #00c853;
-      font-size: 40px;
+      font-size: 56px;
       font-weight: bold;
     }
 
     h1 {
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: #0077ff;
-      margin-bottom: 12px;
+      margin-bottom: 20px;
     }
 
     #confirmationText {
-      font-size: 1rem;
+      font-size: 1.05rem;
       color: #333;
       line-height: 1.6;
       margin-bottom: 24px;
@@ -84,13 +84,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 8px;
+      margin-top: 16px;
+      padding-bottom: 4px;
     }
 
     .logos-container img {
-      height: 28px;
+      height: 24px;
+      flex-shrink: 0;
       opacity: 0.9;
       filter: grayscale(100%);
     }
@@ -105,18 +108,30 @@
       }
 
       h1 {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
+      }
+
+      .circle-check {
+        width: 90px;
+        height: 90px;
+      }
+
+      .circle-check span {
+        font-size: 48px;
+      }
+
+      .logos-container {
+        gap: 6px;
       }
 
       .logos-container img {
-        height: 24px;
+        height: 22px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Logo MyDisney -->
   <img src="Images/compose2.png" alt="Logo MyDisney" class="logo" />
 
   <div class="container">
@@ -125,8 +140,7 @@
     </div>
     <h1>Paiement confirmé</h1>
     <p id="confirmationText">
-      Merci ! Votre abonnement Disney+ a bien été activé.<br/>
-      Une confirmation a été envoyée à <strong id="userEmailTarget">votre adresse e-mail</strong>.
+      Merci ! Votre abonnement Disney+ a bien été activé.
     </p>
 
     <div class="footer-note">
@@ -145,13 +159,6 @@
       </div>
     </div>
   </div>
-
-  <script>
-    const email = localStorage.getItem("userEmail");
-    if (email) {
-      document.getElementById("userEmailTarget").textContent = email;
-    }
-  </script>
 
 </body>
 </html>
