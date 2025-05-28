@@ -1,84 +1,133 @@
-body {
+/* Réinitialisation de base */
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Avenir', 'Helvetica Neue', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
   background-color: #000;
   color: #fff;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 40px;
+  z-index: 10;
 }
 
 .logo {
-  height: 60px;
-  margin: 20px;
+  height: 50px;
 }
 
+/* Hero section (fond d’écran + contenu centré) */
 .hero {
   height: 100vh;
+  background-image: url('Images/compose.png');
   background-size: cover;
-  background-position: top center;
+  background-position: center;
   background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   position: relative;
-  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
+/* Filtre sombre pour lisibilité */
 .hero::after {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
+/* Contenu texte sur la page */
 .hero-content {
-  z-index: 2;
   position: relative;
+  z-index: 2;
   max-width: 800px;
-}
-
-.main-logo {
-  width: 250px;
-  margin-bottom: 30px;
+  padding: 20px;
 }
 
 .hero-content h1 {
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: 3rem;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  color: #ccc;
+}
+
+/* Bouton */
 .btn {
   display: inline-block;
+  padding: 15px 40px;
   background-color: #0063e5;
-  color: white;
-  padding: 14px 24px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
   border-radius: 4px;
   text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .btn:hover {
   background-color: #0483ee;
 }
 
+/* Section de cartes */
 .gallery {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  background-color: #000;
+  padding: 50px 20px;
   gap: 20px;
-  padding: 40px 20px;
-  background-color: #040714;
+}
+
+.card {
+  flex: 1 1 300px;
+  max-width: 400px;
 }
 
 .card img {
   width: 100%;
-  max-width: 300px;
+  height: auto;
   border-radius: 8px;
 }
 
+/* Section illustrations extra */
+.full-width-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: #000;
+  gap: 20px;
+}
+
 .full-width-images img {
-  display: block;
   width: 100%;
+  max-width: 700px;
+  border-radius: 8px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px;
+  background-color: #000;
+  font-size: 0.9rem;
+  color: #aaa;
 }
