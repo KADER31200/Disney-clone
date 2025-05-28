@@ -15,20 +15,21 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding: 40px 20px 30px;
+      padding: 60px 20px 30px;
     }
 
     .logo {
       width: 120px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
-    .container {
+    main {
       background-color: #ffffff;
+      color: #000;
       width: 100%;
       max-width: 420px;
-      border-radius: 16px;
-      padding: 32px 24px;
+      border-radius: 18px;
+      padding: 40px 30px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
       text-align: center;
     }
@@ -36,7 +37,7 @@
     .circle-check {
       width: 100px;
       height: 100px;
-      margin: 0 auto 24px;
+      margin: 0 auto 20px;
       border-radius: 50%;
       background-color: #e6f5eb;
       display: flex;
@@ -46,18 +47,18 @@
 
     .circle-check span {
       color: #00c853;
-      font-size: 56px;
+      font-size: 50px;
       font-weight: bold;
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: #0077ff;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
 
     #confirmationText {
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: #333;
       line-height: 1.6;
       margin-bottom: 24px;
@@ -66,8 +67,8 @@
     .footer-note {
       font-size: 0.78rem;
       color: #444;
+      margin-top: 32px;
       text-align: left;
-      margin-top: 20px;
     }
 
     .footer-note strong {
@@ -82,59 +83,43 @@
 
     .logos-container {
       display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap;
+      justify-content: center;
       align-items: center;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      gap: 8px;
+      gap: 10px;
       margin-top: 16px;
-      padding-bottom: 4px;
     }
 
     .logos-container img {
       height: 24px;
-      flex-shrink: 0;
       opacity: 0.9;
       filter: grayscale(100%);
     }
 
     @media (max-width: 480px) {
+      main {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
       .logo {
         width: 100px;
       }
 
-      .container {
-        padding: 24px 16px;
-      }
-
-      h1 {
-        font-size: 1.7rem;
-      }
-
-      .circle-check {
-        width: 90px;
-        height: 90px;
-      }
-
-      .circle-check span {
-        font-size: 48px;
-      }
-
-      .logos-container {
-        gap: 6px;
-      }
-
       .logos-container img {
-        height: 22px;
+        height: 20px;
       }
     }
   </style>
 </head>
 <body>
 
-  <img src="Images/compose2.png" alt="Logo MyDisney" class="logo" />
+  <img src="Images/compose2.png" alt="Disney+" class="logo" />
 
-  <div class="container">
+  <main>
     <div class="circle-check">
       <span>✔</span>
     </div>
@@ -158,7 +143,7 @@
         <img src="Images/natgeo-logo.png" alt="National Geographic" />
       </div>
     </div>
-  </div>
+  </main>
 
 </body>
 </html>
