@@ -1,4 +1,4 @@
-/* Réinitialisation de base */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Header */
+/* HEADER */
 header {
   position: absolute;
   top: 0;
@@ -26,7 +26,7 @@ header {
   height: 50px;
 }
 
-/* Hero section (fond d’écran + contenu centré) */
+/* HERO */
 .hero {
   height: 100vh;
   background-image: url('Images/compose.png');
@@ -40,39 +40,37 @@ header {
   text-align: center;
 }
 
-/* Filtre sombre pour lisibilité */
+/* Enlève le fond noir trop foncé */
 .hero::after {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.35); /* moins foncé qu'avant */
   z-index: 1;
 }
 
-/* Contenu texte sur la page */
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: 700px;
   padding: 20px;
 }
 
 .hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  font-weight: bold;
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
 }
 
 .hero-content p {
-  font-size: 1.25rem;
-  margin-bottom: 30px;
-  color: #ccc;
+  font-size: 1.1rem;
+  color: #ddd;
+  margin-bottom: 25px;
 }
 
-/* Bouton */
 .btn {
   display: inline-block;
-  padding: 15px 40px;
+  padding: 14px 36px;
   background-color: #0063e5;
   color: #fff;
   font-size: 1rem;
@@ -86,14 +84,14 @@ header {
   background-color: #0483ee;
 }
 
-/* Section de cartes */
+/* GALLERY */
 .gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #000;
   padding: 50px 20px;
   gap: 20px;
+  background-color: #000;
 }
 
 .card {
@@ -103,11 +101,10 @@ header {
 
 .card img {
   width: 100%;
-  height: auto;
   border-radius: 8px;
 }
 
-/* Section illustrations extra */
+/* FULL-WIDTH IMAGES */
 .full-width-images {
   display: flex;
   flex-wrap: wrap;
@@ -123,7 +120,7 @@ header {
   border-radius: 8px;
 }
 
-/* Footer */
+/* FOOTER */
 footer {
   text-align: center;
   padding: 30px;
