@@ -1,47 +1,127 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="robots" content="noindex, nofollow"/>
-  <title>Disney+ Clone</title>
-  <!-- Ton style.css : header bleu, hero en fond, contenu centré… -->
-  <link rel="stylesheet" href="style.css"/>
-</head>
-<body>
-  <!-- HEADER -->
-  <header>
-    <img src="Images/compose2.png" alt="Disney+" class="logo"/>
-  </header>
+/*────────────────────────────────────────────────────────
+  style.css – Design Disney+ d’origine (landing page)
+────────────────────────────────────────────────────────*/
 
-  <!-- HERO -->
-  <main class="hero">
-    <!-- filtre sombre -->
-    <div class="overlay"></div>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    <!-- contenu centré -->
-    <div class="content">
-      <!-- logo en gros au centre -->
-      <img src="Images/compose2.png" alt="Disney+" class="center-logo"/>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;        /* noir général */
+  color: #fff;
+  height: 100vh;
+  overflow-x: hidden;
+}
 
-      <h1>Clásicos imprescindibles, estrenos y Disney+ Originals.</h1>
+/* HEADER bleu foncé */
+header {
+  background-color: #040714;
+  padding: 20px;
+  text-align: center;
+}
 
-      <a href="login.html" class="btn">Comenzar</a>
+/* Logo dans le header */
+header .logo {
+  width: 180px;
+}
 
-      <p class="subtext">
-        Desde 5,99 €/mes. Sin cargos ocultos. Sin compromiso*.<br/>
-        Disfruta 12 meses al precio de 10 con una suscripción anual Premium o Standard.
-      </p>
+/* SECTION HERO pleine page */
+.hero {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 80px);    /* header + footer = 80px */
+  background-image: url("Images/compose.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-      <span class="footnote">
-        * La cancelación se efectúa al final del periodo de facturación actual. Suscripción requerida. 5,99 €/mes para Standard con anuncios.
-      </span>
-    </div>
-  </main>
+/* Filtre sombre sur l’image de fond */
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Disney y sus empresas afiliadas. Todos los derechos reservados.</p>
-  </footer>
-</body>
-</html>
+/* Contenu centré au-dessus de l’overlay */
+.hero .content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 20px;
+  max-width: 800px;
+}
+
+/* Logo central (gros) */
+.center-logo {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+/* Titre principal */
+.hero h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Bouton plein largeur (mais contenu) */
+.btn {
+  display: inline-block;
+  padding: 16px 40px;
+  background-color: #0063e5;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+}
+.btn:hover {
+  background-color: #0483ee;
+}
+
+/* Sous-texte sous le bouton */
+.subtext {
+  font-size: 1rem;
+  line-height: 1.4;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+/* Note légale */
+.footnote {
+  font-size: 0.75rem;
+  color: #ccc;
+}
+
+/* FOOTER bleu foncé */
+footer {
+  background-color: #040714;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 1.5rem; }
+  .center-logo { width: 160px; }
+  .btn { padding: 14px 32px; font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.2rem; }
+  .center-logo { width: 140px; }
+  .btn { padding: 12px 24px; font-size: 0.85rem; }
+  .subtext { font-size: 0.9rem; }
+  .footnote { font-size: 0.7rem; }
+}
