@@ -1,90 +1,171 @@
 /*────────────────────────────────────────────────────────
-   style.css — style initial Disney+ (fond noir, header bleu,
-               blocs blancs pour formulaires, loader)
+  style.css — landing + formulaires « Disney+ » d’origine
 ────────────────────────────────────────────────────────*/
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #000;
-  color: #fff;
+/* 1) Reset basique */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-header {
-  padding: 20px;
-  background-color: #040714;
-  text-align: center;
+/* 2) Corps de page — fond bleu nuit général */
+body {
+  font-family: Arial, sans-serif;
+  background: #032541;                     /* bleu nuit profond */
+  min-height: 100vh;
+  color: #fff;
+  overflow-x: hidden;
 }
 
-.logo {
+/* 3) HEADER commun */
+header {
+  background: #040714;
+  padding: 20px;
+  text-align: center;
+}
+header .logo {
   width: 180px;
 }
 
-main {
-  padding: 40px 20px;
+/* 4) HERO (landing) */
+.hero {
+  position: relative;
+  height: calc(100vh - 80px);             /* header + footer = 80px */
+  background: url("Images/compose.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+.hero .content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 20px;
+  max-width: 800px;
+}
+.center-logo {
+  width: 200px;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.btn {
+  display: inline-block;
+  padding: 16px 40px;
+  background: #0063e5;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s;
+  margin-bottom: 20px;
+}
+.btn:hover {
+  background: #0483ee;
+}
+.subtext {
+  font-size: 1rem;
+  line-height: 1.4;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+.footnote {
+  font-size: 0.75rem;
+  color: #ccc;
+}
+
+/* 5) CARD BLANCHE pour formulaires */
+.page-form main,
+.main-content {
+  background: #fff;
+  color: #000;
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px 20px;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
   text-align: center;
 }
 
-/* Pour envelopper les formulaires dans un bloc blanc centré */
-.main-content {
-  background-color: #fff;
-  color: #000;
-  margin: 40px auto;
-  padding: 20px;
-  max-width: 400px;
-  border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* Styles uniformes pour les champs et boutons */
-input, button, select {
-  padding: 10px;
-  margin: 10px 0;
+/* 6) Champs et boutons de formulaire */
+.page-form input,
+.page-form select {
   width: 100%;
-  box-sizing: border-box;
-  border: none;
-  border-radius: 5px;
+  padding: 14px;
+  margin-bottom: 16px;
   font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #f0f0f0;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  box-sizing: border-box;
 }
-
-button {
-  background-color: #00bfff;
-  color: white;
-  cursor: pointer;
+.page-form button {
+  width: 100%;
+  padding: 14px;
+  background: #000;
+  color: #fff;
   font-weight: bold;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.page-form button:hover {
+  background: #333;
 }
 
-button:hover {
-  background-color: #009acd;
+/* 7) Spinner overlay */
+#spinnerOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
-
-/* Loader pour le spinner */
-.loader {
-  border: 8px solid #f3f3f3;
+#spinnerOverlay .spinner {
+  width: 70px;
+  height: 70px;
+  border: 8px solid rgba(255,255,255,0.1);
   border-top: 8px solid #00bfff;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 2s linear infinite;
-  margin: 50px auto;
+  animation: spin 1s linear infinite;
 }
-
 @keyframes spin {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  to { transform: rotate(360deg); }
 }
 
+/* 8) FOOTER commun */
 footer {
+  background: #040714;
   padding: 20px;
-  background-color: #040714;
-  color: rgba(255,255,255,0.6);
-  font-size: 0.8em;
   text-align: center;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
 }
 
-/* Responsive */
+/* 9) Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 1.5rem; }
+  .center-logo { width: 160px; }
+  .btn { padding: 14px 32px; font-size: 0.9rem; }
+}
 @media (max-width: 480px) {
-  .logo { width: 140px; }
-  .main-content { margin: 20px auto; padding: 15px; }
+  .hero h1 { font-size: 1.2rem; }
+  .center-logo { width: 140px; }
+  .btn { padding: 12px 24px; font-size: 0.85rem; }
+  .subtext { font-size: 0.9rem; }
+  .footnote { font-size: 0.7rem; }
+  .page-form main { margin: 30px auto; padding: 20px; }
 }
