@@ -1,26 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="robots" content="noindex, nofollow"/>
   <title>Disney+ Clone</title>
+  <!-- Ton style.css : header bleu, hero en fond, contenu centré… -->
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+  <!-- HEADER -->
   <header>
-    <img src="Images/compose2.png" alt="Logo Disney+" class="logo"/>
+    <img src="Images/compose2.png" alt="Disney+" class="logo"/>
   </header>
 
-  <main>
-    <h1>Clásicos imprescindibles, estrenos y Disney+ Originals.</h1>
-    <p>Desde 5,99 €/mes. Sin cargos ocultos. Sin compromiso*.</p>
-    <button onclick="window.location.href='login.html'">Comenzar</button>
-    <p class="footnote" style="font-size:0.65rem; color:rgba(255,255,255,0.6); margin-top:8px;">
-      * La cancelación se efectúa al final del periodo de facturación actual. Suscripción requerida. 5,99 €/mes en Standard con anuncios.
-    </p>
+  <!-- HERO -->
+  <main class="hero">
+    <!-- filtre sombre -->
+    <div class="overlay"></div>
+
+    <!-- contenu centré -->
+    <div class="content">
+      <!-- logo en gros au centre -->
+      <img src="Images/compose2.png" alt="Disney+" class="center-logo"/>
+
+      <h1>Clásicos imprescindibles, estrenos y Disney+ Originals.</h1>
+
+      <a href="login.html" class="btn">Comenzar</a>
+
+      <p class="subtext">
+        Desde 5,99 €/mes. Sin cargos ocultos. Sin compromiso*.<br/>
+        Disfruta 12 meses al precio de 10 con una suscripción anual Premium o Standard.
+      </p>
+
+      <span class="footnote">
+        * La cancelación se efectúa al final del periodo de facturación actual. Suscripción requerida. 5,99 €/mes para Standard con anuncios.
+      </span>
+    </div>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <p>© 2025 Disney y sus empresas afiliadas. Todos los derechos reservados.</p>
   </footer>
