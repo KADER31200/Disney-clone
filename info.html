@@ -28,10 +28,9 @@
         <option value="CH">Suiza</option>
       </select>
 
-      <!-- Champ date avec placeholder interne -->
+      <!-- Champ date avec placeholder interne et datepicker à l’ouverture -->
       <input
-        type="date"
-        id="nacimiento"
+        type="text"
         name="nacimiento"
         placeholder="Fecha de nacimiento"
         min="1900-01-01"
@@ -43,7 +42,7 @@
       <button type="submit">Continuar</button>
     </form>
 
-    <!-- Note + logos partenaires -->
+    <!-- Note + logos -->
     <div class="footer-note">
       <strong>Disney+ forma parte del grupo Walt Disney</strong><br/>
       MyDisney te da acceso a servicios como Disney+, ESPN, Walt Disney World <a href="#">y más</a>.
@@ -58,12 +57,11 @@
       </div>
     </div>
   </main>
-
-  <!-- Overlay du spinner -->
+  
+  <!-- Spinner overlay -->
   <div id="spinnerOverlay">
     <div class="spinner"></div>
   </div>
-
 <script>
   document.getElementById("infoForm").addEventListener("submit", function(e) {
     e.preventDefault();
