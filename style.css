@@ -9,14 +9,24 @@
   padding: 0;
 }
 
-/* 2) Corps de page — fond bleu nuit général */
+/* Corps de page – par défaut pour index */
 body {
   font-family: Arial, sans-serif;
-  background: #032541;                     /* bleu nuit profond */
-  min-height: 100vh;
+  background-color: #000;    /* noir sur landing */
   color: #fff;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
   overflow-x: hidden;
 }
+
+/* Pages de formulaire uniquement */
+body.page-form {
+  background-color: #032541; /* bleu nuit pour forms */
+}
+
+/* ——— Le reste du CSS reste **tel quel** ——— */
+
 
 /* 3) HEADER commun */
 header {
