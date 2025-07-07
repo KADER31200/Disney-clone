@@ -1,5 +1,5 @@
 /*────────────────────────────────────────────────────────
-  style.css — Disney+ landing + formulaires
+  style.css — Disney+ landing + formulaires (version finale)
 ────────────────────────────────────────────────────────*/
 
 /* 1) Reset basique */
@@ -14,13 +14,13 @@
    - Pages de formulaire (class page-form sur <body>) : fond bleu nuit */
 body {
   font-family: Arial, sans-serif;
-  background-color: #000;
+  background-color: #000;       /* noir pour landing */
   color: #fff;
   min-height: 100vh;
   overflow-x: hidden;
 }
 body.page-form {
-  background-color: #032541;
+  background-color: #032541;    /* bleu nuit pour forms */
 }
 
 /* 3) HEADER commun */
@@ -36,7 +36,7 @@ header .logo {
 /* 4) HERO (landing) */
 .hero {
   position: relative;
-  height: calc(100vh - 80px); /* header+footer = 80px */
+  height: calc(100vh - 80px);   /* header + footer = 80px */
   background: url("Images/compose.png") center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -58,8 +58,9 @@ header .logo {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 20px;
+  color: #fff;                   /* titre hero en blanc */
 }
-/* pas de logo central sur landing */
+/* Pas de logo central sur landing */
 .center-logo {
   display: none;
 }
@@ -117,7 +118,7 @@ header .logo {
 /* 9) Titres et paragraphes form */
 .page-form h1 {
   font-size: 1.6rem;
-  color: #0077ff;
+  color: #000;                   /* titres form en noir */
   margin-bottom: 16px;
 }
 .page-form p {
