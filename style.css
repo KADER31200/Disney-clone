@@ -1,6 +1,4 @@
-/*────────────────────────────────────────────────────────
-  style.css — Disney+ landing + formulaires (final)
-────────────────────────────────────────────────────────*/
+/* style.css — Disney+ landing + formulaires (final) */
 
 /* 1) Reset basique */
 * {
@@ -10,8 +8,8 @@
 }
 
 /* 2) Corps de page */
-/* - Landing (pas de class page-form): fond noir
-   - Pages de formulaire (body.page-form): fond bleu nuit */
+/* - Landing : fond noir
+   - Formulaires (body.page-form) : fond bleu nuit */
 body {
   font-family: Arial, sans-serif;
   background-color: #000;
@@ -24,7 +22,7 @@ body.page-form {
 }
 
 /* 3) HEADER */
-/* Par défaut sur landing: transparent et en absolute */
+/* Landing : transparent & absolute */
 body:not(.page-form) header {
   background: transparent;
   position: absolute;
@@ -35,10 +33,9 @@ body:not(.page-form) header {
   text-align: center;
   z-index: 2;
 }
-/* Sur formulaires: bleu foncé et statique */
+/* Formulaires : bleu foncé */
 body.page-form header {
   background: #040714;
-  position: static;
   padding: 20px;
   text-align: center;
 }
@@ -49,7 +46,7 @@ header .logo {
 /* 4) HERO (landing) */
 .hero {
   position: relative;
-  height: 100vh; /* couvre tout l’écran, y compris sous le header transparent */
+  height: 100vh; /* couvre tout l’écran */
   background: url("Images/compose.png") center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -71,9 +68,9 @@ header .logo {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 20px;
-  color: #fff; /* titre landing blanc */
+  color: #fff;
 }
-/* on cache le logo central sur landing */
+/* Aucun logo central sur landing */
 .center-logo {
   display: none;
 }
@@ -106,7 +103,7 @@ header .logo {
   color: #ccc;
 }
 
-/* 7) CARD BLANCHE pour formulaires */
+/* 7) Carte blanche pour formulaires */
 .page-form main {
   background: #fff;
   color: #000;
@@ -128,7 +125,7 @@ header .logo {
   margin: 0 auto 24px;
 }
 
-/* 9) Titres et paragraphes form */
+/* 9) Titres & paragraphes form */
 /* Titres uniformément noirs */
 .page-form h1 {
   font-size: 1.6rem;
@@ -142,7 +139,7 @@ header .logo {
   line-height: 1.4;
 }
 
-/* 10) Champs et boutons de formulaire */
+/* 10) Champs & boutons */
 .page-form input,
 .page-form select {
   width: 100%;
@@ -172,7 +169,7 @@ header .logo {
   background: #333;
 }
 
-/* 11) Note de bas de page et logos partenaires */
+/* 11) Note & logos partenaires */
 .page-form .footer-note {
   margin-top: 12px;
   font-size: 0.8rem;
