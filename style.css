@@ -1,5 +1,5 @@
 /*────────────────────────────────────────────────────────
-  style.css — Disney+ landing + formulaires (version finale)
+  style.css — Disney+ landing + formulaires (final)
 ────────────────────────────────────────────────────────*/
 
 /* 1) Reset basique */
@@ -10,22 +10,35 @@
 }
 
 /* 2) Corps de page */
-/* - Landing : fond noir
-   - Pages de formulaire (class page-form sur <body>) : fond bleu nuit */
+/* - Landing (pas de class page-form): fond noir
+   - Pages de formulaire (body.page-form): fond bleu nuit */
 body {
   font-family: Arial, sans-serif;
-  background-color: #000;       /* noir pour landing */
+  background-color: #000;
   color: #fff;
   min-height: 100vh;
   overflow-x: hidden;
 }
 body.page-form {
-  background-color: #032541;    /* bleu nuit pour forms */
+  background-color: #032541;
 }
 
-/* 3) HEADER commun */
-header {
+/* 3) HEADER */
+/* Par défaut sur landing: transparent et en absolute */
+body:not(.page-form) header {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  z-index: 2;
+}
+/* Sur formulaires: bleu foncé et statique */
+body.page-form header {
   background: #040714;
+  position: static;
   padding: 20px;
   text-align: center;
 }
@@ -36,7 +49,7 @@ header .logo {
 /* 4) HERO (landing) */
 .hero {
   position: relative;
-  height: calc(100vh - 80px);   /* header + footer = 80px */
+  height: 100vh; /* couvre tout l’écran, y compris sous le header transparent */
   background: url("Images/compose.png") center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -58,9 +71,9 @@ header .logo {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 20px;
-  color: #fff;                   /* titre hero en blanc */
+  color: #fff; /* titre landing blanc */
 }
-/* Pas de logo central sur landing */
+/* on cache le logo central sur landing */
 .center-logo {
   display: none;
 }
@@ -116,9 +129,10 @@ header .logo {
 }
 
 /* 9) Titres et paragraphes form */
+/* Titres uniformément noirs */
 .page-form h1 {
   font-size: 1.6rem;
-  color: #000;                   /* titres form en noir */
+  color: #000;
   margin-bottom: 16px;
 }
 .page-form p {
