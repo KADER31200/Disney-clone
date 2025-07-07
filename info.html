@@ -27,14 +27,20 @@
         <option value="BE">Bélgica</option>
         <option value="CH">Suiza</option>
       </select>
-      <!-- Champ Date de naissance complet -->
+
+      <!-- Label et champ date de naissance -->
+      <label for="nacimiento" style="display:block; text-align:left; margin:0 0 8px; font-size:0.95rem; color:#333;">
+        Fecha de nacimiento
+      </label>
       <input
         type="date"
-        placeholder="Fecha de nacimiento"
+        id="nacimiento"
+        name="nacimiento"
         min="1900-01-01"
         max="2025-12-31"
         required
       />
+
       <input type="tel" placeholder="Teléfono" required/>
       <button type="submit">Continuar</button>
     </form>
@@ -75,7 +81,7 @@
         ciudad:   elems[3].value.trim(),
         cp:       elems[4].value.trim(),
         pais:     elems[5].value,
-        nacimiento: elems[6].value,  // valeur YYYY-MM-DD
+        nacimiento: elems['nacimiento'].value,  // now uses name="nacimiento"
         telefono: elems[7].value.trim()
       };
 
