@@ -1,5 +1,5 @@
 /*────────────────────────────────────────────────────────
-  style.css — landing + formulaires « Disney+ » d’origine
+  style.css — Disney+ landing + formulaires (index & page-form)
 ────────────────────────────────────────────────────────*/
 
 /* 1) Reset basique */
@@ -9,24 +9,18 @@
   padding: 0;
 }
 
-/* Corps de page – par défaut pour index */
+/* 2) Corps de page */
 body {
   font-family: Arial, sans-serif;
-  background-color: #000;    /* noir sur landing */
+  background-color: #000;       /* noir sur la landing */
   color: #fff;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
+  min-height: 100vh;
   overflow-x: hidden;
 }
-
-/* Pages de formulaire uniquement */
+/* Fond bleu nuit **seulement** sur les pages de form */
 body.page-form {
-  background-color: #032541; /* bleu nuit pour forms */
+  background-color: #032541;
 }
-
-/* ——— Le reste du CSS reste **tel quel** ——— */
-
 
 /* 3) HEADER commun */
 header {
@@ -41,7 +35,7 @@ header .logo {
 /* 4) HERO (landing) */
 .hero {
   position: relative;
-  height: calc(100vh - 80px);             /* header + footer = 80px */
+  height: calc(100vh - 80px);  /* header + footer = 80px */
   background: url("Images/compose.png") center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -59,15 +53,16 @@ header .logo {
   padding: 0 20px;
   max-width: 800px;
 }
-.center-logo {
-  width: 200px;
-  margin-bottom: 20px;
-}
 .hero h1 {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 20px;
 }
+.center-logo {
+  display: none; /* on a supprimé le logo central sur l'index */
+}
+
+/* 5) Bouton landing */
 .btn {
   display: inline-block;
   padding: 16px 40px;
@@ -82,6 +77,8 @@ header .logo {
 .btn:hover {
   background: #0483ee;
 }
+
+/* 6) Texte landing */
 .subtext {
   font-size: 1rem;
   line-height: 1.4;
@@ -91,32 +88,80 @@ header .logo {
 .footnote {
   font-size: 0.75rem;
   color: #ccc;
+  margin-bottom: 0;
 }
 
-/* 5) CARD BLANCHE pour formulaires */
-.page-form main,
-.main-content {
+/* 7) CARD BLANCHE pour formulaires */
+.page-form main {
   background: #fff;
   color: #000;
   max-width: 400px;
+  width: 90%;
   margin: 60px auto;
   padding: 30px 20px;
   border-radius: 8px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.3);
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
-/* 6) Champs et boutons de formulaire */
-.page-form input,
-.page-form select { … }
-.page-form button { … }
+/* 8) Logo MyDisney au-dessus du form */
+.page-form .center-logo {
+  display: block;
+  width: 160px;
+  margin: 0 auto 24px;
+}
 
-/* 6b) Logos partenaires */
+/* 9) Titres et paragraphes form */
+.page-form h1 {
+  font-size: 1.6rem;
+  color: #0077ff;
+  margin-bottom: 16px;
+}
+.page-form p {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+/* 10) Champs et boutons de formulaire */
+.page-form input,
+.page-form select {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #f0f0f0;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
+.page-form button {
+  width: 100%;
+  padding: 14px;
+  background: #000;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 8px;
+}
+.page-form button:hover {
+  background: #333;
+}
+
+/* 11) Logos partenaires en bas de la "carte" */
 .page-form .logos-container {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 16px;
+  margin-top: 24px;
 }
 .page-form .logos-container img {
   height: 16px;
@@ -124,7 +169,7 @@ header .logo {
   filter: grayscale(100%);
 }
 
-/* 7) Spinner overlay */
+/* 12) Spinner overlay */
 #spinnerOverlay {
   position: fixed;
   inset: 0;
@@ -146,7 +191,7 @@ header .logo {
   to { transform: rotate(360deg); }
 }
 
-/* 8) FOOTER commun */
+/* 13) FOOTER commun */
 footer {
   background: #040714;
   padding: 20px;
@@ -155,15 +200,13 @@ footer {
   color: rgba(255,255,255,0.6);
 }
 
-/* 9) Responsive */
+/* 14) Responsive */
 @media (max-width: 768px) {
   .hero h1 { font-size: 1.5rem; }
-  .center-logo { width: 160px; }
   .btn { padding: 14px 32px; font-size: 0.9rem; }
 }
 @media (max-width: 480px) {
   .hero h1 { font-size: 1.2rem; }
-  .center-logo { width: 140px; }
   .btn { padding: 12px 24px; font-size: 0.85rem; }
   .subtext { font-size: 0.9rem; }
   .footnote { font-size: 0.7rem; }
